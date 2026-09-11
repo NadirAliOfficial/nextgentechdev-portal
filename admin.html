@@ -358,6 +358,9 @@
             <div class="invoice-preview-box" id="inv-modal-preview"></div>
 
             <div class="invoice-action-buttons">
+                <button class="btn-email-invoice" id="btn-email-invoice" onclick="sendInvoiceEmailToLead()" style="display:none;">
+                    📧 Email Official SOW & Invoice to Client
+                </button>
                 <button class="btn-copy-invoice" onclick="copyInvoiceMessage()">
                     <span id="copy-btn-text">📋 Copy Invoice Message for Client</span>
                 </button>
@@ -373,7 +376,7 @@
 <div class="toast-container" id="toast-container"></div>
 
 <!-- Scripts -->
-<script src="/admin/admin.js?v=2.7"></script>
+<script src="/admin/admin.js?v=2.8"></script>
 
 
 </body>

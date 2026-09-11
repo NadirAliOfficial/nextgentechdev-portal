@@ -945,6 +945,18 @@
             chatBtn.style.display = ticketId ? 'block' : 'none';
         }
 
+        const emailBtn = $('#btn-email-invoice');
+        if (emailBtn) {
+            if (ticketId) {
+                const lead = state.leads.find(l => l.ticket_id === ticketId);
+                const email = lead && lead.email ? lead.email : '';
+                emailBtn.style.display = email ? 'flex' : 'none';
+                emailBtn.innerHTML = `📧 Email SOW & Invoice to <strong>${escapeHtml(email)}</strong>`;
+            } else {
+                emailBtn.style.display = 'none';
+            }
+        }
+
         const copyBtnText = $('#copy-btn-text');
         if (copyBtnText) copyBtnText.textContent = '📋 Copy Invoice Message for Client';
 
@@ -955,6 +967,39 @@
     window.closeInvoiceModal = function () {
         const modal = $('#invoice-modal');
         if (modal) modal.classList.add('hidden');
+    };
+
+    window.sendInvoiceEmailToLead = async function () {
+        if (!state.currentInvoiceTicketId) return;
+        const btn = $('#btn-email-invoice');
+        if (btn) btn.innerHTML = '⏳ Dispatching Official Email...';
+
+        showToast('📧 Dispatching official SOW & Commercial Invoice...', 'info');
+        if (navigator.vibrate) navigator.vibrate(30);
+
+        const data = await apiCall('/api/admin/lead/email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ticket_id: state.currentInvoiceTicketId }),
+        });
+
+        if (data && data.status === 'SUCCESS') {
+            if (data.method === 'SMTP') {
+                showToast(`✅ Official Invoice emailed directly to ${data.recipient}!`, 'success');
+                if (btn) btn.innerHTML = `✅ Emailed to ${escapeHtml(data.recipient)}!`;
+            } else {
+                showToast(`📧 Opening mail app for ${data.recipient}...`, 'info');
+                if (data.mailto_url) {
+                    window.location.href = data.mailto_url;
+                }
+                if (btn) btn.innerHTML = `✉️ Drafted for ${escapeHtml(data.recipient)}`;
+            }
+            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+            fetchLeads();
+        } else {
+            showToast(data && data.message ? data.message : 'Failed to send email', 'error');
+            if (btn) btn.innerHTML = '📧 Retry Emailing Invoice';
+        }
     };
 
     window.copyInvoiceMessage = async function () {
@@ -990,6 +1035,7 @@
             copyInvoiceMessage();
         }
     };
+
 
 
     // ═══════════════════════════════════════════════════════════
