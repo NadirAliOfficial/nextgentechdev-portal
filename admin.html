@@ -300,11 +300,81 @@
 
 </div>
 
+<!-- ═══════════════════════════════════════════════════════════
+     Invoice & Statement of Work (SOW) Modal
+     ═══════════════════════════════════════════════════════════ -->
+<div id="invoice-modal" class="invoice-modal hidden">
+    <div class="invoice-modal-backdrop" onclick="closeInvoiceModal()"></div>
+    <div class="invoice-modal-dialog">
+        <div class="invoice-modal-header">
+            <div class="invoice-modal-title">
+                <span class="invoice-icon">🏛️</span>
+                <div>
+                    <div class="invoice-main-heading">Official SOW & Commercial Invoice</div>
+                    <div class="invoice-sub-heading" id="inv-modal-ref">INV-2026-XXXX</div>
+                </div>
+            </div>
+            <button class="invoice-close-btn" onclick="closeInvoiceModal()">✕</button>
+        </div>
+        <div class="invoice-modal-body">
+            <div class="invoice-project-title" id="inv-modal-title">Project Title</div>
+            
+            <div class="invoice-summary-grid">
+                <div class="inv-stat-item">
+                    <span class="inv-stat-label">Total Contract</span>
+                    <span class="inv-stat-value val-cyan" id="inv-modal-total">$0.00</span>
+                </div>
+                <div class="inv-stat-item">
+                    <span class="inv-stat-label">Milestone Deposit (50%)</span>
+                    <span class="inv-stat-value val-emerald" id="inv-modal-deposit">$0.00</span>
+                </div>
+                <div class="inv-stat-item">
+                    <span class="inv-stat-label">Due Date</span>
+                    <span class="inv-stat-value" id="inv-modal-due">-</span>
+                </div>
+                <div class="inv-stat-item">
+                    <span class="inv-stat-label">Tax Exemption</span>
+                    <span class="inv-stat-value text-gold">0% IT Export (Sec 65F)</span>
+                </div>
+            </div>
+
+            <div class="invoice-section-label">💳 Approved Payment Rails</div>
+            <div class="invoice-rails-list">
+                <div class="rail-item">
+                    <span class="rail-badge badge-payoneer">Payoneer</span>
+                    <span>USD Receiving Account (ACH / Wire / Card Transfer)</span>
+                </div>
+                <div class="rail-item">
+                    <span class="rail-badge badge-sadapay">Sadapay / Nayapay</span>
+                    <span>State Bank Registered Freelance USD Channel</span>
+                </div>
+                <div class="rail-item">
+                    <span class="rail-badge badge-wire">Direct Bank Wire</span>
+                    <span>Institutional SWIFT / IBAN (State Bank of Pakistan Compliant)</span>
+                </div>
+            </div>
+
+            <div class="invoice-section-label">📋 Pre-Formatted Message (One-Tap Copy)</div>
+            <div class="invoice-preview-box" id="inv-modal-preview"></div>
+
+            <div class="invoice-action-buttons">
+                <button class="btn-copy-invoice" onclick="copyInvoiceMessage()">
+                    <span id="copy-btn-text">📋 Copy Invoice Message for Client</span>
+                </button>
+                <button class="btn-chat-invoice" id="btn-chat-invoice" onclick="sendInvoiceToActiveChat()" style="display:none;">
+                    💬 Send into Client Live Chat
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Toast Notification Container -->
 <div class="toast-container" id="toast-container"></div>
 
 <!-- Scripts -->
-<script src="/admin/admin.js?v=2.6"></script>
+<script src="/admin/admin.js?v=2.7"></script>
+
 
 </body>
 </html>

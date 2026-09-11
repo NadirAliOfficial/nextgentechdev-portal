@@ -327,6 +327,8 @@
                                 onclick="rejectLead('${ticketId}')">✗ Reject</button>
                         <button class="lead-btn btn-triage"
                                 onclick="triageLead('${ticketId}')">🤖 Triage</button>
+                        <button class="lead-btn lead-btn-invoice"
+                                onclick="generateLeadInvoice('${ticketId}')">📄 Invoice & SOW</button>
                     </div>
                     <div id="triage-result-${ticketId}"></div>
                 </div>
@@ -811,21 +813,184 @@
             return;
         }
 
-        container.innerHTML = opps.map(o => `
-            <div class="opp-card">
-                <div class="opp-card-header">
-                    <div class="opp-title">${escapeHtml(o.title || 'Untitled Opportunity')}</div>
-                    <span class="opp-budget-tag">$${(o.gross_budget_usd || 0).toLocaleString()}</span>
+        container.innerHTML = opps.map(o => {
+            const isAccepted = (o.status || '').toLowerCase() === 'accepted';
+            const oppId = escapeHtml(o.id || '');
+            return `
+                <div class="opp-card" id="opp-card-${oppId}">
+                    <div class="opp-card-header">
+                        <div class="opp-title">${escapeHtml(o.title || 'Untitled Opportunity')}</div>
+                        <span class="opp-budget-tag">$${(o.gross_budget_usd || 0).toLocaleString()}</span>
+                    </div>
+                    <div class="opp-meta">
+                        <span class="opp-badge">📂 ${escapeHtml((o.category || 'General').replace('_', ' '))}</span>
+                        <span class="opp-badge">⚡ Priority: ${Math.round(o.priority_score || 0)}</span>
+                        <span class="opp-badge text-emerald">Net Profit: $${(o.net_profit_usd || 0).toLocaleString()}</span>
+                        <span class="opp-badge status-tag ${isAccepted ? 'badge-accepted' : ''}">${isAccepted ? '✅ ACCEPTED' : escapeHtml(o.status || 'NEW')}</span>
+                    </div>
+                    <div class="opp-card-actions">
+                        <button class="opp-btn-action btn-opp-accept ${isAccepted ? 'btn-opp-done' : ''}" 
+                                onclick="acceptOpportunity('${oppId}')">
+                            ${isAccepted ? '✓ Accepted' : '⚡ Accept Project'}
+                        </button>
+                        <button class="opp-btn-action btn-opp-invoice" 
+                                onclick="generateOpportunityInvoice('${oppId}')">
+                            📄 Generate SOW & Invoice
+                        </button>
+                    </div>
                 </div>
-                <div class="opp-meta">
-                    <span class="opp-badge">📂 ${escapeHtml((o.category || 'General').replace('_', ' '))}</span>
-                    <span class="opp-badge">⚡ Priority: ${Math.round(o.priority_score || 0)}</span>
-                    <span class="opp-badge text-emerald">Net Profit: $${(o.net_profit_usd || 0).toLocaleString()}</span>
-                    <span class="opp-badge">${escapeHtml(o.status || 'accepted')}</span>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
+
+    // ═══════════════════════════════════════════════════════════
+    // Opportunity Actions (Accept & Invoice Generator)
+    // ═══════════════════════════════════════════════════════════
+
+    window.acceptOpportunity = async function (oppId) {
+        showToast('⚡ Accepting project & prioritizing pipeline...', 'info');
+        if (navigator.vibrate) navigator.vibrate(35);
+
+        const data = await apiCall('/api/admin/opportunity/accept', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ opp_id: oppId }),
+        });
+
+        if (data && data.status === 'SUCCESS') {
+            showToast('✅ Project accepted and queued for execution!', 'success');
+            if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+
+            // Update UI card state immediately
+            const card = $(`#opp-card-${oppId}`);
+            if (card) {
+                const btn = card.querySelector('.btn-opp-accept');
+                if (btn) {
+                    btn.classList.add('btn-opp-done');
+                    btn.textContent = '✓ Accepted';
+                }
+                const tag = card.querySelector('.status-tag');
+                if (tag) {
+                    tag.classList.add('badge-accepted');
+                    tag.textContent = '✅ ACCEPTED';
+                }
+            }
+            fetchAdminOpportunities();
+        } else {
+            showToast('Failed to accept project', 'error');
+        }
+    };
+
+    window.generateOpportunityInvoice = async function (oppId) {
+        showToast('⚙️ Synthesizing formal SOW & Invoice...', 'info');
+        if (navigator.vibrate) navigator.vibrate(30);
+
+        const data = await apiCall('/api/admin/opportunity/invoice', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ opp_id: oppId }),
+        });
+
+        if (data && data.status === 'SUCCESS' && data.invoice) {
+            openInvoiceModal(data.invoice);
+        } else {
+            showToast(data && data.message ? data.message : 'Failed to generate invoice', 'error');
+        }
+    };
+
+    window.generateLeadInvoice = async function (ticketId) {
+        showToast('⚙️ Synthesizing SOW & Invoice for lead...', 'info');
+        if (navigator.vibrate) navigator.vibrate(30);
+
+        const data = await apiCall('/api/admin/lead/invoice', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ticket_id: ticketId }),
+        });
+
+        if (data && data.status === 'SUCCESS' && data.invoice) {
+            openInvoiceModal(data.invoice, ticketId);
+        } else {
+            showToast(data && data.message ? data.message : 'Failed to generate invoice', 'error');
+        }
+    };
+
+    function openInvoiceModal(inv, ticketId = null) {
+        state.currentInvoice = inv;
+        state.currentInvoiceTicketId = ticketId;
+
+        const modal = $('#invoice-modal');
+        if (!modal) return;
+
+        const refEl = $('#inv-modal-ref');
+        if (refEl) refEl.textContent = `${inv.invoice_id} · ${inv.contract_id}`;
+        
+        const titleEl = $('#inv-modal-title');
+        if (titleEl) titleEl.textContent = inv.title || 'Enterprise Engineering Solution';
+        
+        const totalEl = $('#inv-modal-total');
+        if (totalEl) totalEl.textContent = `$${(inv.total_amount_usd || 0).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+        
+        const depEl = $('#inv-modal-deposit');
+        if (depEl) depEl.textContent = `$${(inv.milestone_deposit_usd || 0).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+        
+        const dueEl = $('#inv-modal-due');
+        if (dueEl) dueEl.textContent = inv.due_date || 'Within 7 Days';
+        
+        const prevEl = $('#inv-modal-preview');
+        if (prevEl) prevEl.textContent = inv.client_message || '';
+
+        const chatBtn = $('#btn-chat-invoice');
+        if (chatBtn) {
+            chatBtn.style.display = ticketId ? 'block' : 'none';
+        }
+
+        const copyBtnText = $('#copy-btn-text');
+        if (copyBtnText) copyBtnText.textContent = '📋 Copy Invoice Message for Client';
+
+        modal.classList.remove('hidden');
+        if (navigator.vibrate) navigator.vibrate([40, 30, 60]);
+    }
+
+    window.closeInvoiceModal = function () {
+        const modal = $('#invoice-modal');
+        if (modal) modal.classList.add('hidden');
+    };
+
+    window.copyInvoiceMessage = async function () {
+        if (!state.currentInvoice || !state.currentInvoice.client_message) return;
+        try {
+            await navigator.clipboard.writeText(state.currentInvoice.client_message);
+            const copyBtnText = $('#copy-btn-text');
+            if (copyBtnText) copyBtnText.textContent = '✅ Copied to Clipboard!';
+            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+            showToast('📋 Invoice & SOW copied! Paste it in WhatsApp, Email, or Chat.', 'success');
+            setTimeout(() => {
+                if (copyBtnText) copyBtnText.textContent = '📋 Copy Invoice Message for Client';
+            }, 3000);
+        } catch (err) {
+            showToast('Failed to copy to clipboard', 'error');
+        }
+    };
+
+    window.sendInvoiceToActiveChat = async function () {
+        if (!state.currentInvoice || !state.currentInvoiceTicketId) return;
+        const msg = `🏛️ [Official Invoice & SOW Issued]\nInvoice ID: ${state.currentInvoice.invoice_id}\nTotal: $${state.currentInvoice.total_amount_usd}\nMilestone 1: $${state.currentInvoice.milestone_deposit_usd}\n\n${state.currentInvoice.client_message}`;
+
+        // Find if this ticket has a chat session
+        const chat = state.chats.find(c => c.client_name && c.client_name.toLowerCase().includes(state.currentInvoiceTicketId.toLowerCase()));
+        const sessionId = chat ? chat.session_id : state.currentChatSessionId;
+
+        if (sessionId) {
+            await sendAdminReply(sessionId, msg);
+            showToast('✅ Invoice dispatched into live client chat!', 'success');
+            closeInvoiceModal();
+            switchTab('chats');
+        } else {
+            copyInvoiceMessage();
+        }
+    };
+
 
     // ═══════════════════════════════════════════════════════════
     // Sovereign System One-Touch Actions
