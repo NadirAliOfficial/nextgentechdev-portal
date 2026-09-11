@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#060610">
+    <meta name="description" content="NexGen Sovereign Admin Control Room">
+    <meta name="robots" content="noindex, nofollow">
+    <title>NexGen · Command Center</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/admin/manifest.json">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PIN Lock Screen
+     ═══════════════════════════════════════════════════════════ -->
+<div id="pin-screen">
+    <img src="/portal/emblem.jpg" alt="NexGen" class="pin-logo" id="pin-logo">
+    <div class="pin-title">Command Center</div>
+    <div class="pin-subtitle">Sovereign Access Required</div>
+
+    <div class="pin-dots">
+        <div class="pin-dot" id="dot-0"></div>
+        <div class="pin-dot" id="dot-1"></div>
+        <div class="pin-dot" id="dot-2"></div>
+        <div class="pin-dot" id="dot-3"></div>
+    </div>
+
+    <div class="pin-keypad">
+        <button class="pin-key" onclick="pinKeyPress('1')">1</button>
+        <button class="pin-key" onclick="pinKeyPress('2')">2</button>
+        <button class="pin-key" onclick="pinKeyPress('3')">3</button>
+        <button class="pin-key" onclick="pinKeyPress('4')">4</button>
+        <button class="pin-key" onclick="pinKeyPress('5')">5</button>
+        <button class="pin-key" onclick="pinKeyPress('6')">6</button>
+        <button class="pin-key" onclick="pinKeyPress('7')">7</button>
+        <button class="pin-key" onclick="pinKeyPress('8')">8</button>
+        <button class="pin-key" onclick="pinKeyPress('9')">9</button>
+        <button class="pin-key key-action" onclick="adminLogout()">🔒</button>
+        <button class="pin-key" onclick="pinKeyPress('0')">0</button>
+        <button class="pin-key key-action" onclick="pinKeyPress('DEL')">⌫</button>
+    </div>
+
+    <div class="pin-error-msg" id="pin-error"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     Main App Shell
+     ═══════════════════════════════════════════════════════════ -->
+<div id="app-shell">
+
+    <!-- Top Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-brand">
+            <img src="/portal/emblem.jpg" alt="Logo" class="nav-logo">
+            <div class="nav-title">Nex<span>Gen</span> CC</div>
+        </div>
+        <div class="nav-status">
+            <div class="status-dot"></div>
+            <span>LIVE</span>
+        </div>
+    </nav>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="dashboard" id="tab-dashboard">📊 Dashboard</button>
+        <button class="tab-btn" data-tab="bot" id="tab-bot">🤖 Bot</button>
+        <button class="tab-btn" data-tab="opps" id="tab-opps">
+            🎯 Opps <span class="tab-badge" id="opps-badge" style="display:none;">0</span>
+        </button>
+        <button class="tab-btn" data-tab="leads" id="tab-leads">
+            📬 Leads <span class="tab-badge" id="leads-badge" style="display:none;">0</span>
+        </button>
+        <button class="tab-btn" data-tab="chats" id="tab-chats">
+            💬 Chats <span class="tab-badge" id="chats-badge" style="display:none;">0</span>
+        </button>
+        <button class="tab-btn" data-tab="health" id="tab-health">🛡️ Health</button>
+    </div>
+
+    <!-- Tab Content Area -->
+    <div class="tab-content">
+
+        <!-- ── Dashboard Panel ─────────────────────────────── -->
+        <div class="tab-panel active" id="panel-dashboard">
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card card-emerald">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value" id="stat-total-revenue">$6,849.40</div>
+                    <div class="stat-label">Treasury Profit (97.2%)</div>
+                </div>
+                <div class="stat-card card-amber">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-value" id="stat-active-opps">64</div>
+                    <div class="stat-label">Hunted Opps ($72k+ Pipe)</div>
+                </div>
+                <div class="stat-card card-cyan">
+                    <div class="stat-icon">📬</div>
+                    <div class="stat-value" id="stat-total-leads">—</div>
+                    <div class="stat-label">Inbound Leads</div>
+                </div>
+                <div class="stat-card card-violet">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-value" id="stat-audit-count">4,123+</div>
+                    <div class="stat-label">Audit Proofs</div>
+                </div>
+            </div>
+
+            <!-- Engine Quick Actions -->
+            <div class="section-header">
+                <span class="section-title">⚡ Sovereign Engine Controls</span>
+            </div>
+            <div class="engine-actions-grid">
+                <button class="engine-btn engine-btn-cyan" onclick="triggerSystemAction('hunt')">
+                    <span class="engine-icon">🎯</span>
+                    <span>Hunt Feeds</span>
+                </button>
+                <button class="engine-btn engine-btn-emerald" onclick="triggerSystemAction('autopilot')">
+                    <span class="engine-icon">⚡</span>
+                    <span>Run Autopilot</span>
+                </button>
+                <button class="engine-btn engine-btn-amber" onclick="triggerSystemAction('heal')">
+                    <span class="engine-icon">🩺</span>
+                    <span>Self-Heal</span>
+                </button>
+                <button class="engine-btn engine-btn-violet" onclick="triggerSystemAction('balance')">
+                    <span class="engine-icon">💰</span>
+                    <span>Treasury</span>
+                </button>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="section-header">
+                <span class="section-title">📋 Live Cryptographic Activity Stream</span>
+                <button class="section-action" onclick="refreshDashboard()">↻ Refresh</button>
+            </div>
+            <div class="activity-feed" id="activity-container">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📋</div>
+                    <div class="empty-state-text">Loading real systems activity...</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ── Sovereign Mobile Bot Panel ───────────────────── -->
+        <div class="tab-panel" id="panel-bot">
+            <div class="section-header">
+                <span class="section-title">🤖 Sovereign Mobile Bot</span>
+                <button class="section-action" onclick="clearBotChat()">✕ Clear</button>
+            </div>
+            <div class="bot-container">
+                <div class="bot-chips-bar">
+                    <button class="bot-chip" onclick="sendBotCommand('/status')">/status</button>
+                    <button class="bot-chip" onclick="sendBotCommand('/hunt')">/hunt</button>
+                    <button class="bot-chip" onclick="sendBotCommand('/balance')">/balance</button>
+                    <button class="bot-chip" onclick="sendBotCommand('/opps')">/opps</button>
+                    <button class="bot-chip" onclick="sendBotCommand('/autopilot')">/autopilot</button>
+                    <button class="bot-chip" onclick="sendBotCommand('/heal')">/heal</button>
+                    <button class="bot-chip" onclick="sendBotCommand('/leads')">/leads</button>
+                </div>
+                <div class="bot-feed" id="bot-feed">
+                    <div class="bot-msg bot-msg-assistant">
+                        <div>⚡ <strong>SeedAI Sovereign Bot Connected</strong></div>
+                        <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px;">
+                            Connected directly to all live systems: State Database (23 tables · 4,123+ cryptographic records), Economic Ledger ($6,849 Net Profit), Acquisition Engine (64 Hunted Contracts), and Self-Healing Watchdog.
+                        </div>
+                        <div style="font-size: 0.72rem; color: var(--accent-cyan); margin-top: 6px;">
+                            Tap any command chip above or type your question below.
+                        </div>
+                    </div>
+                </div>
+                <form class="bot-input-bar" onsubmit="handleBotSubmit(event)">
+                    <input type="text" id="bot-cmd-input" class="bot-input" placeholder="Type /status, /hunt, /balance, /opps, /heal..." autocomplete="off" required>
+                    <button type="submit" class="bot-send-btn">Send ↵</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ── Real Hunted Opportunities Panel ─────────────── -->
+        <div class="tab-panel" id="panel-opps">
+            <div class="section-header">
+                <span class="section-title">🎯 Real Hunted Opportunities</span>
+                <button class="section-action" onclick="fetchAdminOpportunities()">↻ Refresh</button>
+            </div>
+            <div class="opps-container" id="opps-container">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+
+        <!-- ── Leads Panel ─────────────────────────────────── -->
+        <div class="tab-panel" id="panel-leads">
+            <div class="section-header">
+                <span class="section-title">📬 Inbound Client Leads</span>
+                <button class="section-action" onclick="refreshDashboard()">↻ Refresh</button>
+            </div>
+            <div class="leads-list" id="leads-container">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+
+        <!-- ── Live Chats Panel ────────────────────────────── -->
+        <div class="tab-panel" id="panel-chats">
+            <div class="section-header">
+                <span class="section-title">💬 Live Client Chats</span>
+                <button class="section-action" onclick="fetchAdminChats()">↻ Refresh</button>
+            </div>
+            
+            <div class="admin-chats-layout">
+                <!-- Session list -->
+                <div class="admin-chats-list" id="admin-chats-list">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">💬</div>
+                        <div class="empty-state-text">No active client conversations yet</div>
+                    </div>
+                </div>
+
+                <!-- Chat conversation view -->
+                <div class="admin-chat-view" id="admin-chat-view" style="display:none;">
+                    <div class="admin-chat-view-header">
+                        <button class="admin-chat-back-btn" onclick="closeAdminChatView()">← Back</button>
+                        <div class="admin-chat-view-client">
+                            <span class="admin-chat-client-name" id="admin-current-client-name">Visitor</span>
+                            <span class="admin-chat-client-contact" id="admin-current-client-contact"></span>
+                        </div>
+                    </div>
+                    <div class="admin-chat-thread" id="admin-chat-thread">
+                        <!-- Message thread renders here -->
+                    </div>
+                    <form class="admin-chat-reply-bar" onsubmit="handleSendAdminReply(event)">
+                        <input type="text" id="admin-reply-input" class="admin-reply-input" placeholder="Type reply from your phone..." autocomplete="off" required>
+                        <button type="submit" class="admin-reply-send-btn">Send ↵</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Health Panel ────────────────────────────────── -->
+        <div class="tab-panel" id="panel-health">
+            <div class="section-header">
+                <span class="section-title">🛡️ System Health</span>
+                <button class="section-action" onclick="refreshDashboard()">↻ Refresh</button>
+            </div>
+            <div class="health-grid" id="health-container">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-bar">
+        <button class="bottom-btn active" data-tab="dashboard" onclick="switchTab('dashboard')">
+            <span class="btn-icon">📊</span>
+            <span>Dashboard</span>
+        </button>
+        <button class="bottom-btn" data-tab="bot" onclick="switchTab('bot')">
+            <span class="btn-icon">🤖</span>
+            <span>Bot</span>
+        </button>
+        <button class="bottom-btn" data-tab="opps" onclick="switchTab('opps')">
+            <span class="btn-icon">🎯</span>
+            <span>Opps</span>
+            <div class="notif-badge" id="bottom-opps-badge" style="display:none;"></div>
+        </button>
+        <button class="bottom-btn" data-tab="leads" onclick="switchTab('leads')">
+            <span class="btn-icon">📬</span>
+            <span>Leads</span>
+            <div class="notif-badge" id="bottom-leads-badge" style="display:none;"></div>
+        </button>
+        <button class="bottom-btn" data-tab="chats" onclick="switchTab('chats')">
+            <span class="btn-icon">💬</span>
+            <span>Chats</span>
+            <div class="notif-badge" id="bottom-chats-badge" style="display:none;"></div>
+        </button>
+        <button class="bottom-btn" onclick="adminLogout()">
+            <span class="btn-icon">🔓</span>
+            <span>Lock</span>
+        </button>
+    </div>
+
+</div>
+
+<!-- Toast Notification Container -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- Scripts -->
+<script src="/admin/admin.js?v=2.6"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/admin/admin.css", "destination": "/admin.css" },
+    { "source": "/admin/admin.js", "destination": "/admin.js" },
+    { "source": "/admin/manifest.json", "destination": "/manifest.json" }
+  ]
+}
