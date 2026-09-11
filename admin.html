@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/admin/admin.css">
+    <link rel="stylesheet" href="/admin/admin.css?v=3.0">
 </head>
 <body>
 
@@ -301,17 +301,17 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
-     Invoice & Statement of Work (SOW) Modal
+     Client Project Pitch & Website Link Modal
      ═══════════════════════════════════════════════════════════ -->
 <div id="invoice-modal" class="invoice-modal hidden">
     <div class="invoice-modal-backdrop" onclick="closeInvoiceModal()"></div>
     <div class="invoice-modal-dialog">
         <div class="invoice-modal-header">
             <div class="invoice-modal-title">
-                <span class="invoice-icon">🏛️</span>
+                <span class="invoice-icon" id="pitch-modal-icon">💬</span>
                 <div>
-                    <div class="invoice-main-heading">Official SOW & Commercial Invoice</div>
-                    <div class="invoice-sub-heading" id="inv-modal-ref">INV-2026-XXXX</div>
+                    <div class="invoice-main-heading" id="pitch-modal-heading">Project Pitch & Proposal</div>
+                    <div class="invoice-sub-heading" id="inv-modal-ref">👉 https://nextgentechdev.com</div>
                 </div>
             </div>
             <button class="invoice-close-btn" onclick="closeInvoiceModal()">✕</button>
@@ -319,7 +319,7 @@
         <div class="invoice-modal-body">
             <div class="invoice-project-title" id="inv-modal-title">Project Title</div>
             
-            <div class="invoice-summary-grid">
+            <div class="invoice-summary-grid" id="pitch-modal-stats" style="display:none;">
                 <div class="inv-stat-item">
                     <span class="inv-stat-label">Total Contract</span>
                     <span class="inv-stat-value val-cyan" id="inv-modal-total">$0.00</span>
@@ -338,33 +338,35 @@
                 </div>
             </div>
 
-            <div class="invoice-section-label">💳 Approved Payment Rails</div>
-            <div class="invoice-rails-list">
-                <div class="rail-item">
-                    <span class="rail-badge badge-payoneer">Payoneer</span>
-                    <span>USD Receiving Account (ACH / Wire / Card Transfer)</span>
-                </div>
-                <div class="rail-item">
-                    <span class="rail-badge badge-sadapay">Sadapay / Nayapay</span>
-                    <span>State Bank Registered Freelance USD Channel</span>
-                </div>
-                <div class="rail-item">
-                    <span class="rail-badge badge-wire">Direct Bank Wire</span>
-                    <span>Institutional SWIFT / IBAN (State Bank of Pakistan Compliant)</span>
+            <div id="pitch-modal-rails" style="display:none;">
+                <div class="invoice-section-label">💳 Approved Payment Rails</div>
+                <div class="invoice-rails-list">
+                    <div class="rail-item">
+                        <span class="rail-badge badge-payoneer">Payoneer</span>
+                        <span>USD Receiving Account (ACH / Wire / Card Transfer)</span>
+                    </div>
+                    <div class="rail-item">
+                        <span class="rail-badge badge-sadapay">Sadapay / Nayapay</span>
+                        <span>State Bank Registered Freelance USD Channel</span>
+                    </div>
+                    <div class="rail-item">
+                        <span class="rail-badge badge-wire">Direct Bank Wire</span>
+                        <span>Institutional SWIFT / IBAN (State Bank of Pakistan Compliant)</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="invoice-section-label">📋 Pre-Formatted Message (One-Tap Copy)</div>
+            <div class="invoice-section-label" id="pitch-modal-preview-label">📋 Project Proposal Pitch (Ready to Send)</div>
             <div class="invoice-preview-box" id="inv-modal-preview"></div>
 
             <div class="invoice-action-buttons">
-                <button class="btn-email-invoice" id="btn-email-invoice" onclick="sendInvoiceEmailToLead()" style="display:none;">
-                    📧 Email Official SOW & Invoice to Client
+                <button class="btn-email-invoice" id="btn-email-invoice" onclick="sendPitchEmailToLead()" style="display:none;">
+                    📧 Email Pitch to Client
                 </button>
-                <button class="btn-copy-invoice" onclick="copyInvoiceMessage()">
-                    <span id="copy-btn-text">📋 Copy Invoice Message for Client</span>
+                <button class="btn-copy-invoice" onclick="copyPitchMessage()">
+                    <span id="copy-btn-text">📋 Copy Pitch & Link for Client</span>
                 </button>
-                <button class="btn-chat-invoice" id="btn-chat-invoice" onclick="sendInvoiceToActiveChat()" style="display:none;">
+                <button class="btn-chat-invoice" id="btn-chat-invoice" onclick="sendPitchToActiveChat()" style="display:none;">
                     💬 Send into Client Live Chat
                 </button>
             </div>
@@ -376,7 +378,7 @@
 <div class="toast-container" id="toast-container"></div>
 
 <!-- Scripts -->
-<script src="/admin/admin.js?v=2.8"></script>
+<script src="/admin/admin.js?v=3.0"></script>
 
 
 </body>

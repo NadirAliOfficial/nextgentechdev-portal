@@ -327,8 +327,8 @@
                                 onclick="rejectLead('${ticketId}')">✗ Reject</button>
                         <button class="lead-btn btn-triage"
                                 onclick="triageLead('${ticketId}')">🤖 Triage</button>
-                        <button class="lead-btn lead-btn-invoice"
-                                onclick="generateLeadInvoice('${ticketId}')">📄 Invoice & SOW</button>
+                        <button class="lead-btn lead-btn-pitch"
+                                onclick="generateLeadPitch('${ticketId}')">💬 Pitch & Link</button>
                     </div>
                     <div id="triage-result-${ticketId}"></div>
                 </div>
@@ -833,9 +833,9 @@
                                 onclick="acceptOpportunity('${oppId}')">
                             ${isAccepted ? '✓ Accepted' : '⚡ Accept Project'}
                         </button>
-                        <button class="opp-btn-action btn-opp-invoice" 
-                                onclick="generateOpportunityInvoice('${oppId}')">
-                            📄 Generate SOW & Invoice
+                        <button class="opp-btn-action btn-opp-pitch" 
+                                onclick="generateOpportunityPitch('${oppId}')">
+                            💬 Pitch & Website Link
                         </button>
                     </div>
                 </div>
@@ -844,7 +844,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════
-    // Opportunity Actions (Accept & Invoice Generator)
+    // Opportunity & Lead Pitch / Website Link Actions
     // ═══════════════════════════════════════════════════════════
 
     window.acceptOpportunity = async function (oppId) {
@@ -881,64 +881,87 @@
         }
     };
 
-    window.generateOpportunityInvoice = async function (oppId) {
-        showToast('⚙️ Synthesizing formal SOW & Invoice...', 'info');
+    // ── Generate Outreach Pitch referencing Project + Website Link ──
+    window.generateOpportunityPitch = async function (oppId) {
+        showToast('💬 Generating project pitch with website link...', 'info');
         if (navigator.vibrate) navigator.vibrate(30);
 
-        const data = await apiCall('/api/admin/opportunity/invoice', {
+        const data = await apiCall('/api/admin/opportunity/pitch', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ opp_id: oppId }),
         });
 
-        if (data && data.status === 'SUCCESS' && data.invoice) {
-            openInvoiceModal(data.invoice);
+        if (data && data.status === 'SUCCESS' && data.pitch) {
+            openPitchModal(data.pitch, null, 'opportunity');
         } else {
-            showToast(data && data.message ? data.message : 'Failed to generate invoice', 'error');
+            showToast(data && data.message ? data.message : 'Failed to generate pitch', 'error');
         }
     };
 
-    window.generateLeadInvoice = async function (ticketId) {
-        showToast('⚙️ Synthesizing SOW & Invoice for lead...', 'info');
+    window.generateLeadPitch = async function (ticketId) {
+        showToast('💬 Drafting project pitch with website link...', 'info');
         if (navigator.vibrate) navigator.vibrate(30);
 
-        const data = await apiCall('/api/admin/lead/invoice', {
+        const data = await apiCall('/api/admin/lead/pitch', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ticket_id: ticketId }),
         });
 
-        if (data && data.status === 'SUCCESS' && data.invoice) {
-            openInvoiceModal(data.invoice, ticketId);
+        if (data && data.status === 'SUCCESS' && data.pitch) {
+            openPitchModal(data.pitch, ticketId, 'lead');
         } else {
-            showToast(data && data.message ? data.message : 'Failed to generate invoice', 'error');
+            showToast(data && data.message ? data.message : 'Failed to generate pitch', 'error');
         }
     };
 
-    function openInvoiceModal(inv, ticketId = null) {
-        state.currentInvoice = inv;
+    // Backward-compatibility aliases
+    window.generateOpportunityInvoice = window.generateOpportunityPitch;
+    window.generateLeadInvoice = window.generateLeadPitch;
+
+    function openPitchModal(pitch, ticketId = null, mode = 'opportunity') {
+        state.currentPitch = pitch;
+        state.currentPitchTicketId = ticketId;
+        // Keep invoice state synced for backward compatibility
+        state.currentInvoice = {
+            title: pitch.title || pitch.requirements || 'Software Engineering Project',
+            client_message: pitch.pitch_message || ''
+        };
         state.currentInvoiceTicketId = ticketId;
 
         const modal = $('#invoice-modal');
         if (!modal) return;
 
+        // Modal Header
+        const headingEl = $('#pitch-modal-heading');
+        if (headingEl) {
+            headingEl.textContent = mode === 'lead' ? 'Project Pitch & Portal Reply' : 'Client Project Pitch & Proposal';
+        }
+
+        const iconEl = $('#pitch-modal-icon');
+        if (iconEl) iconEl.textContent = '💬';
+
         const refEl = $('#inv-modal-ref');
-        if (refEl) refEl.textContent = `${inv.invoice_id} · ${inv.contract_id}`;
+        if (refEl) refEl.textContent = '👉 https://nextgentechdev.com';
         
         const titleEl = $('#inv-modal-title');
-        if (titleEl) titleEl.textContent = inv.title || 'Enterprise Engineering Solution';
-        
-        const totalEl = $('#inv-modal-total');
-        if (totalEl) totalEl.textContent = `$${(inv.total_amount_usd || 0).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-        
-        const depEl = $('#inv-modal-deposit');
-        if (depEl) depEl.textContent = `$${(inv.milestone_deposit_usd || 0).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-        
-        const dueEl = $('#inv-modal-due');
-        if (dueEl) dueEl.textContent = inv.due_date || 'Within 7 Days';
+        if (titleEl) {
+            titleEl.textContent = pitch.title || (pitch.requirements ? `Ticket: ${pitch.ticket_id} · ${pitch.requirements.slice(0, 60)}...` : 'Engineering Project');
+        }
+
+        // Hide invoice stats & rails for clear pitch view
+        const statsEl = $('#pitch-modal-stats');
+        if (statsEl) statsEl.style.display = 'none';
+
+        const railsEl = $('#pitch-modal-rails');
+        if (railsEl) railsEl.style.display = 'none';
+
+        const previewLabel = $('#pitch-modal-preview-label');
+        if (previewLabel) previewLabel.textContent = '📋 Pre-Formatted Message (With Website Link)';
         
         const prevEl = $('#inv-modal-preview');
-        if (prevEl) prevEl.textContent = inv.client_message || '';
+        if (prevEl) prevEl.textContent = pitch.pitch_message || '';
 
         const chatBtn = $('#btn-chat-invoice');
         if (chatBtn) {
@@ -949,43 +972,46 @@
         if (emailBtn) {
             if (ticketId) {
                 const lead = state.leads.find(l => l.ticket_id === ticketId);
-                const email = lead && lead.email ? lead.email : '';
+                const email = (lead && lead.email) || pitch.email || '';
                 emailBtn.style.display = email ? 'flex' : 'none';
-                emailBtn.innerHTML = `📧 Email SOW & Invoice to <strong>${escapeHtml(email)}</strong>`;
+                emailBtn.innerHTML = `📧 Email Pitch & Link to <strong>${escapeHtml(email)}</strong>`;
             } else {
                 emailBtn.style.display = 'none';
             }
         }
 
         const copyBtnText = $('#copy-btn-text');
-        if (copyBtnText) copyBtnText.textContent = '📋 Copy Invoice Message for Client';
+        if (copyBtnText) copyBtnText.textContent = '📋 Copy Pitch & Link for Client';
 
         modal.classList.remove('hidden');
         if (navigator.vibrate) navigator.vibrate([40, 30, 60]);
     }
 
+    // Modal close
     window.closeInvoiceModal = function () {
         const modal = $('#invoice-modal');
         if (modal) modal.classList.add('hidden');
     };
 
-    window.sendInvoiceEmailToLead = async function () {
-        if (!state.currentInvoiceTicketId) return;
+    // ── Direct Pitch Email Dispatcher ───────────────────────────
+    window.sendPitchEmailToLead = async function () {
+        const ticketId = state.currentPitchTicketId || state.currentInvoiceTicketId;
+        if (!ticketId) return;
         const btn = $('#btn-email-invoice');
-        if (btn) btn.innerHTML = '⏳ Dispatching Official Email...';
+        if (btn) btn.innerHTML = '⏳ Dispatching Pitch Email...';
 
-        showToast('📧 Dispatching official SOW & Commercial Invoice...', 'info');
+        showToast('📧 Dispatching project pitch with website link...', 'info');
         if (navigator.vibrate) navigator.vibrate(30);
 
-        const data = await apiCall('/api/admin/lead/email', {
+        const data = await apiCall('/api/admin/lead/pitch_email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ticket_id: state.currentInvoiceTicketId }),
+            body: JSON.stringify({ ticket_id: ticketId }),
         });
 
         if (data && data.status === 'SUCCESS') {
             if (data.method === 'SMTP') {
-                showToast(`✅ Official Invoice emailed directly to ${data.recipient}!`, 'success');
+                showToast(`✅ Pitch emailed directly to ${data.recipient}!`, 'success');
                 if (btn) btn.innerHTML = `✅ Emailed to ${escapeHtml(data.recipient)}!`;
             } else {
                 showToast(`📧 Opening mail app for ${data.recipient}...`, 'info');
@@ -997,44 +1023,51 @@
             if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
             fetchLeads();
         } else {
-            showToast(data && data.message ? data.message : 'Failed to send email', 'error');
-            if (btn) btn.innerHTML = '📧 Retry Emailing Invoice';
+            showToast(data && data.message ? data.message : 'Failed to send pitch email', 'error');
+            if (btn) btn.innerHTML = '📧 Retry Emailing Pitch';
         }
     };
+    window.sendInvoiceEmailToLead = window.sendPitchEmailToLead;
 
-    window.copyInvoiceMessage = async function () {
-        if (!state.currentInvoice || !state.currentInvoice.client_message) return;
+    // ── 1-Tap Copy Pitch & Website Link ─────────────────────────
+    window.copyPitchMessage = async function () {
+        const text = (state.currentPitch && state.currentPitch.pitch_message) || (state.currentInvoice && state.currentInvoice.client_message);
+        if (!text) return;
         try {
-            await navigator.clipboard.writeText(state.currentInvoice.client_message);
+            await navigator.clipboard.writeText(text);
             const copyBtnText = $('#copy-btn-text');
             if (copyBtnText) copyBtnText.textContent = '✅ Copied to Clipboard!';
             if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
-            showToast('📋 Invoice & SOW copied! Paste it in WhatsApp, Email, or Chat.', 'success');
+            showToast('📋 Pitch copied with website link! Paste in WhatsApp, Email, or Chat.', 'success');
             setTimeout(() => {
-                if (copyBtnText) copyBtnText.textContent = '📋 Copy Invoice Message for Client';
+                if (copyBtnText) copyBtnText.textContent = '📋 Copy Pitch & Link for Client';
             }, 3000);
         } catch (err) {
             showToast('Failed to copy to clipboard', 'error');
         }
     };
+    window.copyInvoiceMessage = window.copyPitchMessage;
 
-    window.sendInvoiceToActiveChat = async function () {
-        if (!state.currentInvoice || !state.currentInvoiceTicketId) return;
-        const msg = `🏛️ [Official Invoice & SOW Issued]\nInvoice ID: ${state.currentInvoice.invoice_id}\nTotal: $${state.currentInvoice.total_amount_usd}\nMilestone 1: $${state.currentInvoice.milestone_deposit_usd}\n\n${state.currentInvoice.client_message}`;
+    // ── Send Pitch to Live Chat ─────────────────────────────────
+    window.sendPitchToActiveChat = async function () {
+        const ticketId = state.currentPitchTicketId || state.currentInvoiceTicketId;
+        const pitchText = (state.currentPitch && state.currentPitch.pitch_message) || (state.currentInvoice && state.currentInvoice.client_message);
+        if (!pitchText) return;
 
-        // Find if this ticket has a chat session
-        const chat = state.chats.find(c => c.client_name && c.client_name.toLowerCase().includes(state.currentInvoiceTicketId.toLowerCase()));
-        const sessionId = chat ? chat.session_id : state.currentChatSessionId;
-
-        if (sessionId) {
-            await sendAdminReply(sessionId, msg);
-            showToast('✅ Invoice dispatched into live client chat!', 'success');
-            closeInvoiceModal();
-            switchTab('chats');
-        } else {
-            copyInvoiceMessage();
+        if (ticketId) {
+            const chat = state.chats.find(c => c.client_name && c.client_name.toLowerCase().includes(ticketId.toLowerCase()));
+            const sessionId = chat ? chat.session_id : state.currentChatSessionId;
+            if (sessionId) {
+                await sendAdminReply(sessionId, pitchText);
+                showToast('✅ Pitch sent into live client chat!', 'success');
+                closeInvoiceModal();
+                switchTab('chats');
+                return;
+            }
         }
+        copyPitchMessage();
     };
+    window.sendInvoiceToActiveChat = window.sendPitchToActiveChat;
 
 
 

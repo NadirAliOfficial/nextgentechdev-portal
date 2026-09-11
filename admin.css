@@ -1652,12 +1652,13 @@ body::before {
     pointer-events: none;
 }
 
-.btn-opp-invoice {
+.btn-opp-invoice, .btn-opp-pitch {
     background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(0, 176, 255, 0.3));
     border: 1px solid rgba(0, 229, 255, 0.35);
     color: #00e5ff;
 }
-.btn-opp-invoice:hover, .btn-opp-invoice:active {
+.btn-opp-invoice:hover, .btn-opp-invoice:active,
+.btn-opp-pitch:hover, .btn-opp-pitch:active {
     background: linear-gradient(135deg, rgba(0, 229, 255, 0.3), rgba(0, 176, 255, 0.45));
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 229, 255, 0.25);
@@ -1670,7 +1671,7 @@ body::before {
     font-weight: 700;
 }
 
-.lead-btn-invoice {
+.lead-btn-invoice, .lead-btn-pitch {
     background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(0, 176, 255, 0.25));
     border: 1px solid rgba(0, 229, 255, 0.35);
     color: #00e5ff;
