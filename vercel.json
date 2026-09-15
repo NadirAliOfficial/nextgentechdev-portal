@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": null,
-  "outputDirectory": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/api/:path*", "destination": "https://amended-higher-regard-circus.trycloudflare.com/api/:path*" },
