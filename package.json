@@ -1,0 +1,9 @@
+{
+  "name": "nextgentechdev-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NextGen Tech Solutions Client Portal & Website",
+  "scripts": {
+    "build": "echo 'Static website: no build step required'"
+  }
+}

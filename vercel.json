@@ -1,4 +1,8 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": null,
   "cleanUrls": true,
   "rewrites": [
     { "source": "/api/:path*", "destination": "https://amended-higher-regard-circus.trycloudflare.com/api/:path*" },
@@ -8,4 +12,3 @@
     { "source": "/admin/manifest.json", "destination": "/manifest.json" }
   ]
 }
-
