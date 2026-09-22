@@ -203,12 +203,12 @@
 
         if (totalLeads) totalLeads.textContent = data.total_leads || 0;
         if (totalRevenue) {
-            const profit = data.total_revenue || 6849.40;
+            const profit = Number(data.total_revenue || 0);
             totalRevenue.textContent = `$${profit.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         }
-        if (activeOpps) activeOpps.textContent = data.active_opps || 64;
+        if (activeOpps) activeOpps.textContent = Number(data.active_opps || 0);
         if (auditCount) {
-            const count = (data.health && data.health.audit_count) ? data.health.audit_count : 4123;
+            const count = (data.health && data.health.audit_count) ? data.health.audit_count : 0;
             auditCount.textContent = count.toLocaleString() + '+';
         }
 
@@ -216,7 +216,7 @@
         const oppsBadge = $('#opps-badge');
         const bottomOppsBadge = $('#bottom-opps-badge');
         if (oppsBadge) {
-            oppsBadge.textContent = data.active_opps || 64;
+            oppsBadge.textContent = Number(data.active_opps || 0);
             oppsBadge.style.display = 'inline';
         }
         if (bottomOppsBadge) {
@@ -1076,7 +1076,7 @@
     // ═══════════════════════════════════════════════════════════
 
     window.triggerSystemAction = async function (action) {
-        showToast(`⚙️ Executing ${action.toUpperCase()} across systems...`, 'info');
+        showToast(`⚙️ Executing ${action.toUpperCase()} on the isolated website backend...`, 'info');
         if (navigator.vibrate) navigator.vibrate(40);
 
         const res = await apiCall('/api/admin/system/action', {
@@ -1171,7 +1171,7 @@
                 <div class="bot-msg bot-msg-assistant">
                     <div>⚡ <strong>SeedAI Sovereign Bot Connected</strong></div>
                     <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px;">
-                        Connected directly to all live systems: State Database (23 tables · 4,123+ cryptographic records), Economic Ledger ($6,849 Net Profit), Acquisition Engine (64 Hunted Contracts), and Self-Healing Watchdog.
+                        Connected to the isolated NextGen website backend. Website leads, client chat, and portal data are kept separate from other VPS workloads.
                     </div>
                     <div style="font-size: 0.72rem; color: var(--accent-cyan); margin-top: 6px;">
                         Tap any command chip above or type your question below.
