@@ -282,12 +282,6 @@ async function handleInquirySubmit(event) {
     } catch (err) {
         console.warn("Client inquiry could not reach the server.", err);
 
-        // Preserve a local draft for this browser, but never pretend it reached us.
-        try {
-            payload.draft_saved_at = Date.now();
-            localStorage.setItem("nextgen_pending_inquiry", JSON.stringify(payload));
-        } catch (storageErr) {}
-
         showInquiryStatus(
             "We could not confirm delivery of your request. Please retry, or contact us directly on WhatsApp/Telegram below so your project is not missed.",
             "error"
@@ -298,8 +292,6 @@ async function handleInquirySubmit(event) {
     }
 
     if (!submitted) return;
-
-    try { localStorage.removeItem("nextgen_pending_inquiry"); } catch (e) {}
 
     document.getElementById("client-inquiry-form").style.display = "none";
     document.getElementById("ticket-ref").innerText = ticketId;
