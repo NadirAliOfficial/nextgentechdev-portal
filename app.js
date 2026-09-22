@@ -410,7 +410,7 @@ function formatFileSize(bytes) {
 function handleTriageFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
-    if (file.size > 25 * 1024 * 1024) {
+    if (file.size > 3 * 1024 * 1024) {
         alert("File size exceeds 25MB limit. Please attach a smaller file.");
         event.target.value = "";
         return;
@@ -443,7 +443,7 @@ function removeTriageFile() {
 function handleContactFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
-    if (file.size > 25 * 1024 * 1024) {
+    if (file.size > 3 * 1024 * 1024) {
         alert("File size exceeds 25MB limit. Please upload a smaller file.");
         event.target.value = "";
         return;
@@ -971,9 +971,9 @@ window.handleChatFileSelected = function (e) {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
 
-    // Limit to 25 MB
-    if (file.size > 25 * 1024 * 1024) {
-        alert("File size exceeds 25MB limit. Please select a smaller document.");
+    // Keep chat uploads within the production API proxy request limit
+    if (file.size > 3 * 1024 * 1024) {
+        alert("File size exceeds 3MB limit. Please select a smaller document.");
         e.target.value = '';
         return;
     }
