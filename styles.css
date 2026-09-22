@@ -2183,3 +2183,53 @@ body {
         padding: 8px 14px 8px 10px;
     }
 }
+
+
+/* Accessibility, anti-spam and delivery status */
+.hp-field {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+.inquiry-status {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    line-height: 1.5;
+    border: 1px solid var(--border-subtle);
+}
+.inquiry-status-pending {
+    color: #bae6fd;
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.25);
+}
+.inquiry-status-error {
+    color: #fecaca;
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.chat-msg-failed .chat-bubble {
+    border-color: rgba(239, 68, 68, 0.55);
+}
+.chat-msg-failed .chat-msg-meta {
+    color: #fca5a5;
+}
+
+:focus-visible {
+    outline: 2px solid #7dd3fc;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
