@@ -217,21 +217,37 @@ function scrollToContactWithPrefill() {
 async function handleInquirySubmit(event) {
     event.preventDefault();
 
+    const form = document.getElementById("client-inquiry-form");
     const submitBtn = document.getElementById("submit-btn");
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `<span>Synthesizing Technical Request...</span>`;
-
     const clientName = document.getElementById("client-name").value.trim();
     const clientOrg = document.getElementById("client-org").value.trim();
     const clientEmail = document.getElementById("client-email").value.trim();
     const clientContact = document.getElementById("client-contact").value.trim();
+    const projectSummary = document.getElementById("project-summary").value.trim();
+    const honeypot = document.getElementById("website-url");
+
+    // Silent bot trap. Real visitors never see or fill this field.
+    if (honeypot && honeypot.value.trim()) {
+        form.reset();
+        return;
+    }
+
+    if (projectSummary.length < 20) {
+        showInquiryStatus("Please add a little more detail about what you want built.", "error");
+        document.getElementById("project-summary").focus();
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span>Submitting Securely...</span>`;
+    showInquiryStatus("Sending your request to the engineering desk…", "pending");
+
     const catSelect = document.getElementById("project-category");
     const projectCategory = catSelect.value;
     const catLabel = catSelect.options[catSelect.selectedIndex]?.text || projectCategory;
     const budgetSelect = document.getElementById("budget-tier");
     const budgetTier = budgetSelect.value;
     const budgetLabel = budgetSelect.options[budgetSelect.selectedIndex]?.text || budgetTier;
-    const projectSummary = document.getElementById("project-summary").value.trim();
 
     const payload = {
         name: clientName,
@@ -242,10 +258,12 @@ async function handleInquirySubmit(event) {
         budget_tier: budgetTier,
         requirements: projectSummary,
         attached_file: contactAttachedFile ? `${contactAttachedFile.name} (${contactAttachedFile.size})` : null,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        source: "nextgentechdev.com"
     };
 
-    let ticketId = "TKT-202609-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+    let ticketId = "";
+    let submitted = false;
 
     try {
         const response = await fetch("/api/client/inquire", {
@@ -254,25 +272,27 @@ async function handleInquirySubmit(event) {
             body: JSON.stringify(payload)
         });
 
-        if (response.ok) {
-            const resData = await response.json();
-            if (resData.ticket_id) {
-                ticketId = resData.ticket_id;
-            }
+        if (!response.ok) {
+            throw new Error(`Inquiry API returned HTTP ${response.status}`);
         }
+
+        const resData = await response.json();
+        ticketId = resData.ticket_id || `TKT-${Date.now().toString(36).toUpperCase()}`;
+        submitted = true;
     } catch (err) {
-        console.warn("Client inquiry server offline; persisting inquiry locally in browser storage.", err);
+        console.warn("Client inquiry could not reach the server.", err);
+
+        showInquiryStatus(
+            "We could not confirm delivery of your request. Please retry, or contact us directly on WhatsApp/Telegram below so your project is not missed.",
+            "error"
+        );
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Retry Submission</span>`;
+        return;
     }
 
-    // Save lead in localStorage as fallback
-    try {
-        const existingLeads = JSON.parse(localStorage.getItem("nextgen_inbound_leads") || "[]");
-        payload.ticket_id = ticketId;
-        existingLeads.push(payload);
-        localStorage.setItem("nextgen_inbound_leads", JSON.stringify(existingLeads));
-    } catch (e) {}
+    if (!submitted) return;
 
-    // Show Confirmation View
     document.getElementById("client-inquiry-form").style.display = "none";
     document.getElementById("ticket-ref").innerText = ticketId;
     document.getElementById("inquiry-success-box").style.display = "block";
@@ -280,7 +300,6 @@ async function handleInquirySubmit(event) {
     submitBtn.disabled = false;
     submitBtn.innerHTML = `<span>Submit for Engineering Review</span>`;
 
-    // ── Seamless Instant Handoff into Live Chat ──
     const effectiveContact = clientContact || clientEmail;
     const chatInquiryText = `📋 [INBOUND SOW INQUIRY: ${ticketId}]\n` +
         `• Client: ${clientName || 'Direct Client'}${clientOrg ? ' (' + clientOrg + ')' : ''}\n` +
@@ -290,7 +309,7 @@ async function handleInquirySubmit(event) {
         (contactAttachedFile ? `• Initial Attachment: ${contactAttachedFile.name} (${contactAttachedFile.size})\n` : '') +
         `\nSpecifications:\n${projectSummary}`;
 
-    // Link inquiry into live chat backend
+    // Chat handoff is secondary: the lead is already confirmed by the inquiry API.
     try {
         await fetch('/api/chat/send', {
             method: 'POST',
@@ -303,19 +322,29 @@ async function handleInquirySubmit(event) {
             })
         });
     } catch (chatErr) {
-        console.warn('Chat auto-connect error:', chatErr);
+        console.warn('Chat handoff unavailable:', chatErr);
     }
 
-    // Smoothly auto-open live chat with slight cinematic delay (600ms)
     setTimeout(() => {
         if (window.openLiveChat) {
-            window.openLiveChat({
-                name: clientName,
-                contact: effectiveContact
-            });
+            window.openLiveChat({ name: clientName, contact: effectiveContact });
             pollChatMessages();
         }
     }, 600);
+}
+
+function showInquiryStatus(message, type = "pending") {
+    let el = document.getElementById("inquiry-status");
+    if (!el) {
+        el = document.createElement("div");
+        el.id = "inquiry-status";
+        el.setAttribute("role", "status");
+        el.setAttribute("aria-live", "polite");
+        const footer = document.querySelector("#client-inquiry-form .form-footer");
+        if (footer) footer.parentNode.insertBefore(el, footer);
+    }
+    el.className = `inquiry-status inquiry-status-${type}`;
+    el.textContent = message;
 }
 
 function resetInquiryForm() {
@@ -1080,8 +1109,28 @@ window.handleSendChatMessage = async function (e) {
         }
     } catch (err) {
         console.warn('[LiveChat] Send error:', err);
+        if (input && text) input.value = text;
+        if (attachmentToSend) {
+            chatSelectedAttachment = attachmentToSend;
+        }
+        const localEl = document.getElementById(`chat-msg-${tempId}`);
+        if (localEl) {
+            localEl.classList.add('chat-msg-failed');
+            const meta = localEl.querySelector('.chat-msg-meta');
+            if (meta) meta.textContent = 'Not sent — check connection and retry';
+        }
     }
 };
+
+function safeAttachmentUrl(value) {
+    if (!value) return '#';
+    try {
+        if (value.startsWith('data:image/')) return value;
+        const url = new URL(value, window.location.origin);
+        if (['http:', 'https:', 'blob:'].includes(url.protocol)) return url.href;
+    } catch (e) {}
+    return '#';
+}
 
 function renderChatMessage(msg) {
     try {
@@ -1109,7 +1158,7 @@ function renderChatMessage(msg) {
             else if (['doc', 'docx'].includes(ext)) icon = "📘";
             else if (['xls', 'xlsx', 'csv'].includes(ext)) icon = "📊";
 
-            const downloadUrl = att.url || '#';
+            const downloadUrl = safeAttachmentUrl(att.url);
 
             attachmentHtml = `
                 ${isImg ? `<a href="${downloadUrl}" target="_blank" rel="noopener" class="chat-attachment-img-wrap"><img src="${downloadUrl}" class="chat-attachment-img-preview" alt="${escapeHtml(att.filename)}"></a>` : ''}

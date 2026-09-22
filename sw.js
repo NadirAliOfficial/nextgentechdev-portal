@@ -3,7 +3,7 @@
    Offline caching of admin shell + background sync
    ═══════════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'nexgen-admin-v1';
+const CACHE_NAME = 'nextgen-admin-v2';
 const SHELL_URLS = [
     '/admin',
     '/admin/admin.css',

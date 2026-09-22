@@ -1,26 +1,30 @@
 {
-    "name": "NexGen Command Center",
-    "short_name": "NexGen CC",
-    "description": "Sovereign Admin Control Room for NexGen Tech Solutions",
-    "start_url": "/admin",
-    "display": "standalone",
-    "orientation": "portrait",
-    "background_color": "#060610",
-    "theme_color": "#00e5ff",
-    "icons": [
-        {
-            "src": "/portal/emblem.jpg",
-            "sizes": "192x192",
-            "type": "image/jpeg",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "/portal/emblem.jpg",
-            "sizes": "512x512",
-            "type": "image/jpeg",
-            "purpose": "any maskable"
-        }
-    ],
-    "categories": ["business", "productivity"],
-    "lang": "en"
+  "name": "NextGen Command Center",
+  "short_name": "NextGen CC",
+  "description": "Private admin control room for NextGen Tech Solutions",
+  "start_url": "/admin",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060610",
+  "theme_color": "#060610",
+  "icons": [
+    {
+      "src": "/portal/emblem.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/portal/emblem.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "lang": "en"
 }
