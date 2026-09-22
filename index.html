@@ -966,7 +966,7 @@
                 <div class="trust-box">
                     <div class="trust-icon">🛡️</div>
                     <h4 class="trust-title">Milestone-Based Payment</h4>
-                    <p class="trust-desc">We never ask for direct upfront payments. Your capital remains safely in third-party escrow or under milestone authorization until our code passes all specified acceptance tests.</p>
+                    <p class="trust-desc">Payment terms are defined per project. Where supported and agreed, third-party escrow or milestone authorization can be used alongside written acceptance criteria.</p>
                 </div>
                 <div class="trust-box">
                     <div class="trust-icon">📋</div>
@@ -1128,6 +1128,10 @@
 
             <div class="contact-card">
                 <form id="client-inquiry-form" class="inquiry-form" onsubmit="handleInquirySubmit(event)">
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="website-url">Website</label>
+                        <input type="text" id="website-url" name="website-url" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label" for="client-name">Your Full Name / Representative *</label>
