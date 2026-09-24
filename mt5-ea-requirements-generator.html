@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free MT5 EA Requirements Generator | Trading Bot Project Brief</title>
+<meta name="description" content="Create a structured MT5 Expert Advisor development brief. Define market, timeframe, entries, exits, risk, trade management, filters and testing requirements before coding begins.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://nextgentechdev.com/mt5-ea-requirements-generator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free MT5 EA Requirements Generator">
+<meta property="og:description" content="Turn a trading strategy idea into a structured MT5 Expert Advisor development brief.">
+<meta property="og:url" content="https://nextgentechdev.com/mt5-ea-requirements-generator">
+<meta property="og:image" content="https://nextgentechdev.com/logo.jpg">
+<link rel="stylesheet" href="/service.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MT5 EA Requirements Generator","url":"https://nextgentechdev.com/mt5-ea-requirements-generator","applicationCategory":"DeveloperApplication","operatingSystem":"Web","description":"A free tool for creating a structured MetaTrader 5 Expert Advisor development brief."}</script>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="/">NEXTGEN TECH SOLUTIONS</a><a class="back" href="/resources">Free resources →</a></header>
+<main>
+<section class="hero">
+<div class="eyebrow">Free MT5 project planning tool</div>
+<h1>MT5 Expert Advisor Requirements Generator</h1>
+<p class="lead">Turn a strategy idea into a clearer development brief before coding starts. The tool does not design or validate the strategy for you; it helps expose missing rules that would otherwise become guesswork during development.</p>
+</section>
+<section class="content">
+<div class="tool">
+<div class="tool-grid">
+<div class="field"><label for="market">Market / symbol</label><input id="market" placeholder="e.g. XAUUSD, EURUSD"></div>
+<div class="field"><label for="tf">Timeframe(s)</label><input id="tf" placeholder="e.g. M5 entries, H1 trend"></div>
+<div class="field"><label for="entries">Exact entry conditions</label><input id="entries" placeholder="e.g. sweep + BOS + close above EMA"></div>
+<div class="field"><label for="exits">Exit / take-profit logic</label><input id="exits" placeholder="e.g. fixed RR, structure target, partials"></div>
+<div class="field"><label for="sl">Stop-loss logic</label><input id="sl" placeholder="e.g. below swing + ATR buffer"></div>
+<div class="field"><label for="risk">Position sizing / risk</label><input id="risk" placeholder="e.g. 1% equity risk per trade"></div>
+<div class="field"><label for="management">Trade management</label><input id="management" placeholder="e.g. BE at 1R, trail after 2R"></div>
+<div class="field"><label for="filters">Filters / no-trade rules</label><input id="filters" placeholder="e.g. spread, session, news, max DD"></div>
+<div class="field"><label for="pyramids">Multiple positions / pyramiding</label><input id="pyramids" placeholder="e.g. max 3, favorable movement only"></div>
+<div class="field"><label for="testing">Testing requirement</label><input id="testing" placeholder="e.g. real ticks, 2021-2026, demo forward test"></div>
+</div>
+<p><button type="button" id="build">Generate project brief</button></p>
+<div id="output" class="result" aria-live="polite">Fill the fields above, then generate the brief.</div>
+</div>
+
+<h2>Why this matters before MT5 development</h2>
+<p>Many strategy descriptions mix objective rules with visual judgment. A developer cannot reliably code phrases such as “strong candle”, “good support”, “clean breakout” or “enter when momentum looks right” unless each one is converted into measurable conditions. A structured brief makes those ambiguities visible early.</p>
+
+<h2>What a complete EA specification should cover</h2>
+<ul>
+<li><strong>Signal definition:</strong> exact indicator, price-action or structure conditions and the order in which they must occur.</li>
+<li><strong>State:</strong> whether a setup remains valid for one candle, several bars, until invalidated, or until a session ends.</li>
+<li><strong>Execution:</strong> market versus pending orders, maximum spread, slippage behavior and retry rules.</li>
+<li><strong>Risk:</strong> fixed volume or percentage risk, total portfolio exposure and daily loss limits.</li>
+<li><strong>Management:</strong> partial closes, break-even, trailing stops, pyramiding and opposite-signal behavior.</li>
+<li><strong>Failure behavior:</strong> what the EA does when the broker rejects an order, data is missing or the terminal reconnects.</li>
+<li><strong>Validation:</strong> data period, metrics and acceptance criteria for backtest and forward test.</li>
+</ul>
+
+<h2>Related resources</h2>
+<div class="resource-links">
+<a class="resource-link" href="/trading-bot-development"><strong>Custom MT5 EA Development</strong><span>Architecture, execution, testing and delivery considerations.</span></a>
+<a class="resource-link" href="/mt5-position-size-calculator"><strong>MT5 Position Size Calculator</strong><span>Check risk-based sizing assumptions.</span></a>
+<a class="resource-link" href="/xauusd-trading-bot-development"><strong>XAUUSD Bot Guide</strong><span>Gold-specific execution and validation.</span></a>
+<a class="resource-link" href="/#contact"><strong>Discuss your generated brief</strong><span>Use the output as the starting point for a scoped development conversation.</span></a>
+</div>
+<div class="notice">This tool helps document software requirements. It does not evaluate whether a trading strategy is profitable and does not provide financial advice.</div>
+</section>
+</main>
+<footer>Remote collaboration worldwide · Clear scope · Testable milestones · Documented handover</footer>
+</div>
+<script>
+(function(){
+const fields=['market','tf','entries','exits','sl','risk','management','filters','pyramids','testing'];
+const labels={market:'Market / symbol',tf:'Timeframe(s)',entries:'Entry conditions',exits:'Exit / take-profit logic',sl:'Stop-loss logic',risk:'Position sizing / risk',management:'Trade management',filters:'Filters / no-trade rules',pyramids:'Multiple positions / pyramiding',testing:'Testing requirement'};
+document.getElementById('build').addEventListener('click',function(){
+ const lines=['MT5 EXPERT ADVISOR PROJECT BRIEF',''];
+ fields.forEach(function(id){
+   const value=document.getElementById(id).value.trim();
+   lines.push(labels[id]+': '+(value||'[TO DEFINE]'));
+ });
+ lines.push('','Developer notes: Any subjective term should be converted into a measurable condition before implementation. Broker symbol specifications, risk limits and failure behavior must be validated.');
+ const text=lines.join('\n');
+ document.getElementById('output').innerHTML='<pre style="white-space:pre-wrap;margin:0;color:inherit;font:inherit">'+text.replace(/[&<>]/g,function(s){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[s]})+'</pre>';
+});
+})();
+</script>
+</body>
+</html>
