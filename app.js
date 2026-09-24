@@ -6,135 +6,120 @@
 const ESTIMATOR_DATA = {
     quant: {
         standard: {
-            title: "Algorithmic Module",
-            desc: "Focused implementation of a custom strategy, indicator, or MT4/MT5 webhook listener.",
-            price: "$450.00 – $650.00 USD",
-            timeline: "2 – 3 Calendar Days",
-            coverage: "Automated Unit Tests & QA",
-            deliverable: "Source Code + Documentation + Test Suite"
+            title: "Focused Trading Build",
+            desc: "One strategy, indicator, signal bridge, panel or targeted MT4/MT5 automation.",
+            price: "$500 – $900 USD",
+            timeline: "3 – 6 Business Days",
+            coverage: "Functional QA + strategy-specific checks",
+            deliverable: "Source code + setup notes + agreed documentation"
         },
         advanced: {
-            title: "Production Trading Bot",
-            desc: "Multi-pair execution, automated spread guard, order blocks & trailing risk engine.",
-            price: "$650.00 – $950.00 USD",
-            timeline: "3 – 5 Calendar Days",
-            coverage: "Multi-Pair Confluence & Spread Guard",
-            deliverable: "Full Algo Package + SOW + Test Benchmarks"
+            title: "Production Trading System",
+            desc: "Complete EA or execution workflow with risk controls, alerts, integrations and robust trade management.",
+            price: "$900 – $2,000 USD",
+            timeline: "5 – 10 Business Days",
+            coverage: "Execution, risk-control and edge-case validation",
+            deliverable: "Source code + test evidence + deployment guidance"
         },
         enterprise: {
-            title: "Enterprise Trading Suite",
-            desc: "Advanced multi-pair execution engine, walk-forward backtesting, complete SOW & code audit.",
-            price: "$1,500.00 – $4,500.00 USD",
-            timeline: "7 – 14 Calendar Days",
-            coverage: "Order Block Engine + Formal SOW",
-            deliverable: "Complete Algorithmic Suite + Live Walk-Forward"
+            title: "Complex Trading Platform",
+            desc: "Multi-strategy or multi-account architecture with deeper integrations, backtesting and operational controls.",
+            price: "$2,000 – $6,000+ USD",
+            timeline: "2 – 5 Weeks",
+            coverage: "Expanded regression, integration and scenario testing",
+            deliverable: "Full source + technical handover + agreed test package"
+        }
+    },    ai_agents: {
+        standard: {
+            title: "Focused AI Automation",
+            desc: "Single workflow, document assistant, prompt pipeline or API-connected AI task.",
+            price: "$800 – $1,500 USD",
+            timeline: "4 – 8 Business Days",
+            coverage: "Core workflow and failure-path validation",
+            deliverable: "Source code + prompts/config + setup notes"
+        },
+        advanced: {
+            title: "Production AI Agent",
+            desc: "Tool-using agent, RAG workflow, business integration or voice-enabled automation.",
+            price: "$2,000 – $5,000 USD",
+            timeline: "2 – 4 Weeks",
+            coverage: "Workflow, retrieval and integration testing",
+            deliverable: "Source code + deployment guide + evaluation notes"
+        },
+        enterprise: {
+            title: "Advanced AI Platform",
+            desc: "Multi-agent, private-model, multi-system or high-volume AI architecture with deeper governance.",
+            price: "$5,000 – $15,000+ USD",
+            timeline: "4 – 8+ Weeks",
+            coverage: "End-to-end evaluation, observability and regression plan",
+            deliverable: "Platform source + architecture notes + operational handover"
+        }
+    },    web_mobile: {
+        standard: {
+            title: "Focused Web Build",
+            desc: "Landing experience, dashboard module, client portal feature or compact MVP.",
+            price: "$700 – $1,500 USD",
+            timeline: "4 – 8 Business Days",
+            coverage: "Responsive QA + core flow testing",
+            deliverable: "Source code + deployment notes + basic documentation"
+        },
+        advanced: {
+            title: "Production Web / SaaS App",
+            desc: "Authentication, billing, dashboards, admin workflows and third-party integrations.",
+            price: "$1,500 – $4,000 USD",
+            timeline: "2 – 4 Weeks",
+            coverage: "Core user-flow, integration and responsive testing",
+            deliverable: "Full source + deployment guidance + handover notes"
+        },
+        enterprise: {
+            title: "Complex Product Platform",
+            desc: "Multi-role platform, larger integration surface, advanced workflows and production operations.",
+            price: "$4,000 – $12,000+ USD",
+            timeline: "4 – 8+ Weeks",
+            coverage: "End-to-end, regression and integration validation",
+            deliverable: "Platform source + technical documentation + deployment handover"
         }
     },
     cloud: {
         standard: {
-            title: "Microservice Endpoint",
-            desc: "FastAPI asynchronous webhook listener, lightweight API service, and Docker container.",
-            price: "$350.00 – $550.00 USD",
-            timeline: "1 – 2 Calendar Days",
-            coverage: "AsyncIO Webhook Listener Tests",
-            deliverable: "FastAPI Microservice + Webhook Handler"
+            title: "API or Integration Service",
+            desc: "Webhook, API endpoint, automation connector or lightweight backend service.",
+            price: "$600 – $1,200 USD",
+            timeline: "3 – 7 Business Days",
+            coverage: "API, validation and failure-path testing",
+            deliverable: "Source code + API notes + deployment instructions"
         },
         advanced: {
-            title: "Cloud Sync & Data Engine",
-            desc: "High-throughput asynchronous queuing, PostgreSQL/Redis pipelines & auto-scaling.",
-            price: "$1,200.00 – $2,500.00 USD",
-            timeline: "3 – 6 Calendar Days",
-            coverage: "High-Throughput Docker Stress Tests",
-            deliverable: "Shopify Sync Engine + Parquet Pipeline"
+            title: "Production Backend System",
+            desc: "Database-backed API, queues, integrations, background jobs and monitored deployment.",
+            price: "$1,500 – $4,500 USD",
+            timeline: "2 – 4 Weeks",
+            coverage: "Integration, load-aware and recovery-path validation",
+            deliverable: "Backend source + deployment guide + operational notes"
         },
         enterprise: {
             title: "Distributed Cloud Architecture",
-            desc: "Multi-region Kubernetes deployment, Kafka/Parquet pipelines, zero-downtime CI/CD.",
-            price: "$5,000.00 – $18,500.00 USD",
-            timeline: "10 – 20 Calendar Days",
-            coverage: "Multilingual Ingestion & Semantic NLP",
-            deliverable: "Enterprise ETL Platform (TED/Civic Data Scale)"
-        }
-    },
-    web3: {
-        standard: {
-            title: "Telegram Mini-App Core",
-            desc: "TON blockchain integration, Telegram WebApp SDK, and non-custodial wallet connection.",
-            price: "$550.00 – $850.00 USD",
-            timeline: "2 – 4 Calendar Days",
-            coverage: "Telegram SDK & Webhook Validation",
-            deliverable: "TON Mini-App Foundation + Wallet Connect"
-        },
-        advanced: {
-            title: "DeFi Protocol & Arbitrage",
-            desc: "Cross-DEX real-time arbitrage bot with WebSocket stream, MEV guards & slippage defense.",
-            price: "$950.00 – $2,200.00 USD",
-            timeline: "4 – 7 Calendar Days",
-            coverage: "Mempool MEV Guard & Slippage Checks",
-            deliverable: "Cross-DEX Arbitrage Engine + WebSocket Stream"
-        },
-        enterprise: {
-            title: "Enterprise Web3 Ecosystem",
-            desc: "Audited smart contracts suite, decentralized liquidity router, and governance portal.",
-            price: "$3,500.00 – $10,000.00 USD",
-            timeline: "12 – 24 Calendar Days",
-            coverage: "Smart Contract & Security Audits",
-            deliverable: "Full Distributed Trading Portal & Smart Contracts"
-        }
-    },
-    web_mobile: {
-        standard: {
-            title: "Responsive Web MVP",
-            desc: "High-speed Next.js landing portal or targeted mobile app feature with modern UX.",
-            price: "$550.00 – $950.00 USD",
-            timeline: "3 – 5 Calendar Days",
-            coverage: "Lighthouse 98+ & Responsive Viewport QA",
-            deliverable: "Next.js Responsive Web App + Tailwind + SEO Suite"
-        },
-        advanced: {
-            title: "Full-Stack App Platform",
-            desc: "React/Next.js SaaS web application with authentication, Stripe billing & mobile PWA.",
-            price: "$1,200.00 – $2,800.00 USD",
-            timeline: "5 – 10 Calendar Days",
-            coverage: "Full Auth, Stripe Billing & E2E Test Suite",
-            deliverable: "Enterprise SaaS Web Portal + Mobile PWA Experience"
-        },
-        enterprise: {
-            title: "Cross-Platform Enterprise App",
-            desc: "Full-stack web platform + native iOS & Android apps deployed to App Store & Google Play.",
-            price: "$3,500.00 – $9,500.00 USD",
-            timeline: "14 – 25 Calendar Days",
-            coverage: "iOS & Android Store Deployment + Microservices",
-            deliverable: "Full-Stack SaaS Platform + Cross-Platform Mobile Apps"
-        }
-    },
-    ai_agents: {
-        standard: {
-            title: "Autonomous AI Worker",
-            desc: "Single-agent LLM tool-calling worker with deterministic prompt guards and structured JSON.",
-            price: "$650.00 – $950.00 USD",
-            timeline: "2 – 4 Calendar Days",
-            coverage: "Deterministic Tool Calling Benchmarks",
-            deliverable: "FastAPI AI Agent + Multi-LLM Fallback Architecture"
-        },
-        advanced: {
-            title: "Duplex Voice & RAG System",
-            desc: "Sub-400ms real-time audio streaming, vector database (Qdrant) search & CRM integration.",
-            price: "$1,500.00 – $3,200.00 USD",
-            timeline: "5 – 10 Calendar Days",
-            coverage: "Sub-400ms Audio Latency & Qdrant RAG Suite",
-            deliverable: "Duplex Voice AI Agent + Enterprise Vector Search"
-        },
-        enterprise: {
-            title: "Enterprise Multi-Agent Platform",
-            desc: "Multi-agent collaborative workflows with private or cloud LLM orchestration.",
-            price: "$4,000.00 – $12,000.00 USD",
-            timeline: "15 – 30 Calendar Days",
-            coverage: "Multi-Agent State Graph & Workflows",
-            deliverable: "Enterprise Multi-Agent Platform + AI Orchestration"
+            desc: "Multi-service, higher-scale or multi-environment platform with deeper reliability requirements.",
+            price: "$5,000 – $15,000+ USD",
+            timeline: "4 – 10+ Weeks",
+            coverage: "System, integration, resilience and release validation",
+            deliverable: "Architecture + source + deployment and operations handover"
         }
     }
 };
+
+const PRACTICE_LABELS = {
+    quant: "Trading Automation",
+    ai_agents: "AI & Automation",
+    web_mobile: "Web & SaaS",
+    cloud: "API & Cloud"
+};
+const TIER_LABELS = {
+    standard: "Starter",
+    advanced: "Professional",
+    enterprise: "Advanced"
+};
+
 
 let currentPractice = "quant";
 let currentTier = "advanced";
@@ -170,48 +155,57 @@ function updateEstimatorDisplay() {
     const practiceData = ESTIMATOR_DATA[currentPractice];
     if (!practiceData) return;
 
-    // Dynamically update Step 2 Tier Card Titles and Descriptions for the active practice
     ["standard", "advanced", "enterprise"].forEach(tierKey => {
         const tierInfo = practiceData[tierKey];
-        if (tierInfo) {
-            const titleEl = document.getElementById(`tier-title-${tierKey}`);
-            const descEl = document.getElementById(`tier-desc-${tierKey}`);
-            if (titleEl && tierInfo.title) {
-                titleEl.innerText = tierInfo.title;
-            }
-            if (descEl && tierInfo.desc) {
-                descEl.innerText = tierInfo.desc;
-            }
-        }
+        if (!tierInfo) return;
+        const titleEl = document.getElementById(`tier-title-${tierKey}`);
+        const descEl = document.getElementById(`tier-desc-${tierKey}`);
+        if (titleEl) titleEl.innerText = tierInfo.title;
+        if (descEl) descEl.innerText = tierInfo.desc;
     });
 
-    // Update Step 3 Output Panel
     const data = practiceData[currentTier];
-    if (data) {
-        document.getElementById("est-price").innerText = data.price;
-        document.getElementById("est-timeline").innerText = data.timeline;
-        document.getElementById("est-coverage").innerText = data.coverage;
-        document.getElementById("est-deliverable").innerText = data.deliverable;
+    if (!data) return;
+
+    const selectionEl = document.getElementById("est-selection");
+    if (selectionEl) {
+        selectionEl.innerText = `${PRACTICE_LABELS[currentPractice]} · ${TIER_LABELS[currentTier]}`;
     }
+
+    document.getElementById("est-price").innerText = data.price;
+    document.getElementById("est-timeline").innerText = data.timeline;
+    document.getElementById("est-coverage").innerText = data.coverage;
+    document.getElementById("est-deliverable").innerText = data.deliverable;
 }
 
 function scrollToContactWithPrefill() {
-    // Map current practice to form select
     const categorySelect = document.getElementById("project-category");
-    if (currentPractice === "quant") categorySelect.value = "quantitative_finance";
-    else if (currentPractice === "web_mobile") categorySelect.value = "web_mobile_dev";
-    else if (currentPractice === "cloud") categorySelect.value = "cloud_microservices";
-    else if (currentPractice === "ai_agents") categorySelect.value = "ai_agentic_systems";
-    else if (currentPractice === "web3") categorySelect.value = "web3_automation";
+    if (categorySelect) {
+        if (currentPractice === "quant") categorySelect.value = "quantitative_finance";
+        else if (currentPractice === "web_mobile") categorySelect.value = "web_mobile_dev";
+        else if (currentPractice === "cloud") categorySelect.value = "cloud_microservices";
+        else if (currentPractice === "ai_agents") categorySelect.value = "ai_agentic_systems";
+    }
 
-    // Map tier to budget select
     const budgetSelect = document.getElementById("budget-tier");
-    if (currentTier === "standard") budgetSelect.value = "tier_500_1500";
-    else if (currentTier === "advanced") budgetSelect.value = "tier_1500_5000";
-    else if (currentTier === "enterprise") budgetSelect.value = "tier_5000_15000";
+    if (budgetSelect) {
+        if (currentTier === "standard") budgetSelect.value = "tier_500_1500";
+        else if (currentTier === "advanced") budgetSelect.value = "tier_1500_5000";
+        else if (currentTier === "enterprise") budgetSelect.value = "tier_5000_15000";
+    }
+
+    const summary = document.getElementById("project-summary");
+    const data = ESTIMATOR_DATA[currentPractice]?.[currentTier];
+    if (summary && data && !summary.value.trim()) {
+        summary.value = `Estimator selection: ${PRACTICE_LABELS[currentPractice]} — ${TIER_LABELS[currentTier]}.
+Indicative budget: ${data.price}
+Typical delivery: ${data.timeline}
+
+Project requirements:`;
+    }
 
     const contactSection = document.getElementById("contact");
-    contactSection.scrollIntoView({ behavior: "smooth" });
+    if (contactSection) contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 async function handleInquirySubmit(event) {

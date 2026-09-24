@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/logo.jpg">
     <link rel="icon" type="image/jpeg" href="/emblem.jpg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=4.3">
+    <link rel="stylesheet" href="/styles.min.css?v=4.4">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -290,73 +290,62 @@
         </div>
     </section>
 
-    <!-- Interactive Project Scoping & Pricing Calculator -->
+    <!-- Professional Project Estimator -->
     <section id="estimator" class="section section-dark">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">ESTIMATE YOUR PROJECT</span>
-                <h2 class="section-title">Interactive Project Estimator</h2>
-                <p class="section-subtitle">Select your engineering requirements below for an instant indicative scope, timeline, and investment range.</p>
+                <span class="section-eyebrow">60-SECOND PROJECT ESTIMATE</span>
+                <h2 class="section-title">Get a Rough Scope Before You Contact Us</h2>
+                <p class="section-subtitle">Choose the type and complexity of your project to see an indicative budget, delivery window and handover level. Final pricing is confirmed after requirements review.</p>
             </div>
 
-            <div class="estimator-card">
+            <div class="estimator-card estimator-card-v2">
                 <div class="estimator-controls">
-                    <div class="control-group">
-                        <label class="control-label">1. Select Engineering Practice Area</label>
-                        <div class="toggle-group" id="practice-selector">
-                            <button class="toggle-btn active" data-practice="quant">Quantitative Trading</button>
-                            <button class="toggle-btn" data-practice="web_mobile">Web &amp; Mobile Apps</button>
-                            <button class="toggle-btn" data-practice="cloud">Cloud Microservices</button>
-                            <button class="toggle-btn" data-practice="ai_agents">AI Agents &amp; RAG</button>
-                            <button class="toggle-btn" data-practice="web3">Web3 &amp; Protocols</button>
-                        </div>
+                    <div class="estimator-step-label"><span>01</span> What are you building?</div>
+                    <div class="toggle-group estimator-practice-grid" id="practice-selector">
+                        <button class="toggle-btn active" data-practice="quant"><strong>Trading Automation</strong><small>MT4 / MT5, TradingView, execution & risk</small></button>
+                        <button class="toggle-btn" data-practice="ai_agents"><strong>AI & Automation</strong><small>Agents, RAG, voice & workflows</small></button>
+                        <button class="toggle-btn" data-practice="web_mobile"><strong>Web & SaaS</strong><small>Portals, dashboards, apps & billing</small></button>
+                        <button class="toggle-btn" data-practice="cloud"><strong>API & Cloud</strong><small>Backends, integrations, data & deployment</small></button>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label">2. Select Project Scope & Complexity Tier</label>
-                        <div class="tier-cards">
-                            <div class="tier-card" data-tier="standard">
-                                <div class="tier-badge">Standard</div>
-                                <div class="tier-title" id="tier-title-standard">Algorithmic Module</div>
-                                <p class="tier-desc" id="tier-desc-standard">Focused implementation of a custom strategy, indicator, or MT4/MT5 webhook listener.</p>
-                            </div>
-                            <div class="tier-card active" data-tier="advanced">
-                                <div class="tier-badge">Advanced</div>
-                                <div class="tier-title" id="tier-title-advanced">Production Trading Bot</div>
-                                <p class="tier-desc" id="tier-desc-advanced">Multi-pair execution, automated spread guard, order blocks & trailing risk engine.</p>
-                            </div>
-                            <div class="tier-card" data-tier="enterprise">
-                                <div class="tier-badge">Enterprise</div>
-                                <div class="tier-title" id="tier-title-enterprise">Enterprise Trading Suite</div>
-                                <p class="tier-desc" id="tier-desc-enterprise">Advanced multi-pair execution engine, walk-forward backtesting, complete SOW & code audit.</p>
-                            </div>
+                    <div class="estimator-step-label estimator-step-gap"><span>02</span> How complex is the scope?</div>
+                    <div class="tier-cards tier-cards-v2">
+                        <div class="tier-card" data-tier="standard">
+                            <div class="tier-badge">Starter</div>
+                            <div class="tier-title" id="tier-title-standard">Focused Build</div>
+                            <p class="tier-desc" id="tier-desc-standard">A contained feature, integration or single-purpose automation.</p>
+                        </div>
+                        <div class="tier-card active" data-tier="advanced">
+                            <div class="tier-badge">Professional</div>
+                            <div class="tier-title" id="tier-title-advanced">Production System</div>
+                            <p class="tier-desc" id="tier-desc-advanced">A complete production-ready build with multiple workflows and integrations.</p>
+                            <span class="tier-popular">Most common</span>
+                        </div>
+                        <div class="tier-card" data-tier="enterprise">
+                            <div class="tier-badge">Advanced</div>
+                            <div class="tier-title" id="tier-title-enterprise">Complex Platform</div>
+                            <p class="tier-desc" id="tier-desc-enterprise">Multi-component architecture, deeper QA and deployment requirements.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Estimator Output Panel -->
-                <div class="estimator-output">
-                    <div class="output-header">Estimated Project Parameters</div>
-                    <div class="output-row">
-                        <span class="output-lbl">Indicative Investment:</span>
-                        <span class="output-val text-emerald" id="est-price">$650.00 – $950.00 USD</span>
+                <aside class="estimator-output estimator-output-v2" aria-live="polite">
+                    <div class="estimator-step-label"><span>03</span> Your indicative estimate</div>
+                    <div class="estimate-selected" id="est-selection">Trading Automation · Professional</div>
+                    <div class="estimate-primary">
+                        <span class="estimate-primary-label">Indicative budget</span>
+                        <strong id="est-price">$900 – $2,000 USD</strong>
                     </div>
-                    <div class="output-row">
-                        <span class="output-lbl">Target Delivery Timeline:</span>
-                        <span class="output-val text-cyan" id="est-timeline">3 – 5 Calendar Days</span>
+                    <div class="estimate-detail-grid">
+                        <div class="estimate-detail"><span>Typical delivery</span><strong id="est-timeline">5 – 10 Business Days</strong></div>
+                        <div class="estimate-detail"><span>Validation</span><strong id="est-coverage">Functional QA + strategy-specific checks</strong></div>
+                        <div class="estimate-detail estimate-detail-wide"><span>Handover</span><strong id="est-deliverable">Source code + setup notes + agreed documentation</strong></div>
                     </div>
-                    <div class="output-row">
-                        <span class="output-lbl">Verification Coverage:</span>
-                        <span class="output-val text-violet" id="est-coverage">100% Automated Unit Tests</span>
-                    </div>
-                    <div class="output-row">
-                        <span class="output-lbl">Deliverable Package:</span>
-                        <span class="output-val" id="est-deliverable">Source Code + Full Documentation + Automated Tests</span>
-                    </div>
-                    <div style="margin-top: 24px;">
-                        <button class="btn btn-primary btn-block" onclick="scrollToContactWithPrefill()">Request Proposal &amp; Statement of Work</button>
-                    </div>
-                </div>
+                    <p class="estimate-note">This is a planning estimate, not a fixed quote. Final budget and timeline depend on integrations, data, broker/API constraints, revisions and acceptance criteria.</p>
+                    <button class="btn btn-primary btn-block estimator-cta" onclick="scrollToContactWithPrefill()">Get Exact Scope &amp; Quote</button>
+                    <a class="estimator-secondary-link" href="#custom-triage">Have unusual requirements? Describe them instead →</a>
+                </aside>
             </div>
         </div>
     </section>
