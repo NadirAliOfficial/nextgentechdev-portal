@@ -4950,3 +4950,102 @@ body.home-v8{
     font-size:6.6px;
   }
 }
+
+/* v10.9 clean homepage + dedicated-service architecture */
+.home-v8 .ng-services{
+  background:
+    radial-gradient(circle at 92% 8%,rgba(83,96,210,.07),transparent 26%),
+    linear-gradient(180deg,#091321 0%,#0a1523 100%);
+}
+.home-v8 .ng-services::before,
+.home-v8 .ng-services::after,
+.home-v8 .ng-services .container::before,
+.home-v8 .ng-services .container::after{
+  display:none;
+}
+.home-v8 .ng-section-head-dark{
+  min-height:0;
+  margin-bottom:30px;
+}
+.home-v8 .ng-section-head-dark::after{
+  display:none;
+}
+.home-v8 .ng-section-head-dark h2{
+  max-width:760px;
+}
+.home-v8 .ng-section-head-dark>p{
+  max-width:560px;
+}
+.home-v8 .ng-service-list-clean{
+  border-top:1px solid rgba(255,255,255,.09);
+}
+.home-v8 .ng-service-list-clean::before{
+  display:none;
+}
+.home-v8 .ng-service-list-clean .ng-service-row{
+  grid-template-columns:54px minmax(0,1fr) 34px;
+  gap:18px;
+  padding:28px 4px;
+}
+.home-v8 .ng-service-list-clean .ng-service-row::before{
+  display:none;
+}
+.home-v8 .ng-service-list-clean .ng-service-row::after{
+  background:linear-gradient(90deg,rgba(99,91,255,.045),rgba(32,199,233,.018),transparent 72%);
+}
+.home-v8 .ng-service-list-clean .ng-service-no{
+  margin-left:0;
+  border-color:rgba(124,135,220,.12);
+  background:rgba(16,29,49,.72);
+  color:#8d97ff;
+}
+.home-v8 .ng-service-list-clean .ng-service-copy small{
+  color:#7ccfe2;
+}
+.home-v8 .ng-service-list-clean .ng-service-copy h3{
+  margin-top:5px;
+  font-size:22px;
+}
+.home-v8 .ng-service-list-clean .ng-service-copy p{
+  max-width:760px;
+  margin-top:6px;
+  color:#8796aa;
+}
+.home-v8 .ng-service-list-clean .ng-service-arrow{
+  align-self:center;
+}
+.home-v8 .ng-work .ng-section-head{
+  margin-bottom:28px;
+}
+.home-v8 .ng-work-grid{
+  margin-top:0;
+}
+@media(max-width:640px){
+  .home-v8 .ng-section-head-dark{
+    margin-bottom:20px;
+  }
+  .home-v8 .ng-service-list-clean .ng-service-row{
+    grid-template-columns:38px minmax(0,1fr) 28px;
+    gap:10px;
+    padding:21px 0;
+  }
+  .home-v8 .ng-service-list-clean .ng-service-no{
+    width:32px;
+    height:25px;
+    font-size:7px;
+  }
+  .home-v8 .ng-service-list-clean .ng-service-copy h3{
+    font-size:18px;
+    line-height:1.18;
+    padding-right:4px;
+  }
+  .home-v8 .ng-service-list-clean .ng-service-copy p{
+    font-size:10px;
+    line-height:1.5;
+  }
+  .home-v8 .ng-service-list-clean .ng-service-arrow{
+    position:static;
+    width:27px;
+    height:27px;
+  }
+}
