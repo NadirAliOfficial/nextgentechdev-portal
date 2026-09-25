@@ -172,10 +172,16 @@ function updateEstimatorDisplay() {
         selectionEl.innerText = `${PRACTICE_LABELS[currentPractice]} · ${TIER_LABELS[currentTier]}`;
     }
 
-    document.getElementById("est-price").innerText = data.price;
-    document.getElementById("est-timeline").innerText = data.timeline;
-    document.getElementById("est-coverage").innerText = data.coverage;
-    document.getElementById("est-deliverable").innerText = data.deliverable;
+    const estimatorFields = {
+        "est-price": data.price,
+        "est-timeline": data.timeline,
+        "est-coverage": data.coverage,
+        "est-deliverable": data.deliverable
+    };
+    Object.entries(estimatorFields).forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = value;
+    });
 }
 
 function scrollToContactWithPrefill() {
