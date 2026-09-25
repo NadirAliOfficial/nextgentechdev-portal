@@ -6802,3 +6802,92 @@ body.home-v8{
     display:none;
   }
 }
+
+/* v10.4 delivery-process + intake alignment */
+.home-v8 .ng-process{
+  background:
+    radial-gradient(circle at 84% 10%,rgba(99,91,255,.05),transparent 24%),
+    radial-gradient(circle at 14% 88%,rgba(32,199,233,.035),transparent 25%),
+    linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
+}
+.home-v8 .ng-process-grid article{
+  display:flex;
+  flex-direction:column;
+  min-height:292px;
+  border-color:rgba(61,82,124,.08)!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.96),rgba(249,251,254,.92));
+  box-shadow:0 16px 42px rgba(28,40,68,.045);
+}
+.home-v8 .ng-process-grid article::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:2px;
+  opacity:.58;
+  background:linear-gradient(90deg,#635bff,#20c7e9,transparent 80%);
+}
+.home-v8 .ng-process-grid article:nth-child(2)::before,
+.home-v8 .ng-process-grid article:nth-child(4)::before{
+  background:linear-gradient(90deg,#20c7e9,#5d6cff,transparent 80%);
+}
+.home-v8 .ng-process-grid b{
+  background:linear-gradient(145deg,#5d55ef,#4f8cff);
+}
+.home-v8 .ng-process-grid span{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:1.15px;
+  color:#5e66d8;
+}
+.home-v8 .ng-process-grid p{
+  margin-bottom:18px;
+}
+.home-v8 .ng-process-output{
+  display:block;
+  margin-top:auto;
+  padding-top:13px;
+  border-top:1px solid rgba(15,23,42,.07);
+  color:#748196;
+  font:750 7px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.7px;
+}
+.home-v8 #contact .section-eyebrow{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:1.45px;
+}
+.home-v8 #project-category{
+  font-weight:650;
+}
+.home-v8 #contact .form-select,
+.home-v8 #contact .form-input,
+.home-v8 #contact .form-textarea{
+  border-color:rgba(58,77,116,.09);
+  background:linear-gradient(180deg,#fafbfd,#f7f9fc);
+}
+.home-v8 #contact .form-select:focus,
+.home-v8 #contact .form-input:focus,
+.home-v8 #contact .form-textarea:focus{
+  border-color:rgba(99,91,255,.34);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(99,91,255,.055);
+}
+.home-v8 .ng-contact-flow{
+  background:
+    linear-gradient(180deg,rgba(248,250,253,.97),rgba(255,255,255,.88));
+}
+.home-v8 .ng-contact-flow span{
+  color:#253248;
+}
+.home-v8 .ng-contact-flow small{
+  color:#7a8799;
+}
+@media(max-width:640px){
+  .home-v8 .ng-process-grid article{
+    min-height:0;
+  }
+  .home-v8 .ng-process-output{
+    margin-top:10px;
+    padding-top:11px;
+    font-size:6.7px;
+  }
+}
