@@ -2660,3 +2660,299 @@ body.home-v8{
   .home-v8 .ng-node-api{left:-2%;top:40%;width:142px}
   .home-v8 .ng-node-saas{right:-2%;top:40%;width:142px}
 }
+
+/* v9.3 lower-page polish */
+.home-v8 .ng-process{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 90% 15%,rgba(99,91,255,.055),transparent 25%),
+    radial-gradient(circle at 10% 85%,rgba(32,199,233,.04),transparent 22%),
+    #fff;
+}
+.home-v8 .ng-process-grid{
+  position:relative;
+  gap:12px;
+  border:0;
+}
+.home-v8 .ng-process-grid::before{
+  content:"";
+  position:absolute;
+  left:7%;
+  right:7%;
+  top:47px;
+  height:2px;
+  background:linear-gradient(90deg,rgba(99,91,255,.18),rgba(32,199,233,.22),rgba(99,91,255,.18));
+  z-index:0;
+}
+.home-v8 .ng-process-grid article{
+  position:relative;
+  z-index:1;
+  min-height:250px;
+  padding:26px 22px 28px;
+  border:1px solid rgba(15,23,42,.075)!important;
+  border-radius:20px;
+  background:rgba(255,255,255,.84);
+  box-shadow:0 14px 36px rgba(15,23,42,.045);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.home-v8 .ng-process-grid article:hover{
+  transform:translateY(-4px);
+  border-color:rgba(99,91,255,.18)!important;
+  box-shadow:0 20px 46px rgba(15,23,42,.075);
+}
+.home-v8 .ng-process-grid b{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  margin:0 0 34px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#6d5cff,#3b82f6);
+  color:#fff;
+  font-size:11px;
+  box-shadow:0 9px 20px rgba(99,91,255,.20),0 0 0 6px #fff;
+}
+.home-v8 .ng-process-grid span{
+  font-size:8px;
+}
+.home-v8 .ng-process-grid h3{
+  font-size:18px;
+  letter-spacing:-.3px;
+}
+.home-v8 .ng-process-grid p{
+  font-size:11.5px;
+  color:#718096;
+}
+
+/* Resource cards */
+.home-v8 .ng-resources{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 15%,rgba(99,91,255,.05),transparent 24%),
+    #f4f6fb;
+}
+.home-v8 .ng-resource-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  border-top:0;
+}
+.home-v8 .ng-resource-list a{
+  position:relative;
+  grid-template-columns:46px 1fr 24px;
+  gap:14px;
+  min-height:122px;
+  padding:20px 18px!important;
+  border:1px solid rgba(15,23,42,.07);
+  border-radius:18px;
+  background:rgba(255,255,255,.80);
+  box-shadow:0 12px 30px rgba(15,23,42,.035);
+}
+.home-v8 .ng-resource-list a:hover{
+  transform:translateY(-3px);
+  border-color:rgba(99,91,255,.18);
+  background:#fff;
+  box-shadow:0 18px 38px rgba(15,23,42,.07);
+}
+.home-v8 .ng-resource-list b{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  align-self:start;
+  border-radius:12px;
+  background:linear-gradient(145deg,rgba(99,91,255,.15),rgba(32,199,233,.09));
+  border:1px solid rgba(99,91,255,.12);
+  color:#5f57e6;
+  font-size:8px;
+}
+.home-v8 .ng-resource-list strong{
+  font-size:14px;
+  line-height:1.3;
+}
+.home-v8 .ng-resource-list span{
+  margin-top:5px;
+  line-height:1.55;
+}
+.home-v8 .ng-resource-list i{
+  align-self:start;
+  justify-self:end;
+  color:#635bff;
+}
+.home-v8 .ng-text-link{
+  display:inline-flex;
+  margin-top:24px;
+  padding:10px 0;
+  font-weight:750;
+}
+
+/* Contact polish */
+.home-v8 #contact{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 0,rgba(99,91,255,.08),transparent 30%),
+    radial-gradient(circle at 100% 55%,rgba(32,199,233,.055),transparent 26%),
+    #fff;
+}
+.home-v8 #contact::before{
+  content:"";
+  position:absolute;
+  width:460px;
+  height:460px;
+  left:-250px;
+  bottom:-260px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(99,91,255,.11),transparent 68%);
+  pointer-events:none;
+}
+.home-v8 #contact .section-header{
+  max-width:760px;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+.home-v8 #contact .section-title{
+  letter-spacing:-2px;
+}
+.home-v8 .contact-card{
+  position:relative;
+  overflow:hidden;
+  padding-top:0;
+  border-radius:30px;
+  border-color:rgba(99,91,255,.10);
+  box-shadow:0 34px 90px rgba(30,41,59,.10);
+}
+.home-v8 .contact-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:3px;
+  background:linear-gradient(90deg,#635bff,#3b82f6,#20c7e9);
+}
+.home-v8 .ng-contact-flow{
+  display:grid;
+  grid-template-columns:1fr 24px 1fr 24px 1fr;
+  align-items:center;
+  gap:8px;
+  margin:0 -1px 28px;
+  padding:20px 22px;
+  background:
+    linear-gradient(180deg,rgba(247,248,253,.95),rgba(255,255,255,.80));
+  border-bottom:1px solid rgba(15,23,42,.07);
+}
+.home-v8 .ng-contact-flow>div{
+  min-width:0;
+}
+.home-v8 .ng-contact-flow b{
+  display:inline-grid;
+  place-items:center;
+  width:26px;height:26px;
+  margin-bottom:8px;
+  border-radius:8px;
+  background:linear-gradient(145deg,rgba(99,91,255,.15),rgba(32,199,233,.10));
+  color:#5f57e6;
+  font-size:7px;
+}
+.home-v8 .ng-contact-flow span{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  color:#1d2939;
+}
+.home-v8 .ng-contact-flow small{
+  display:block;
+  margin-top:4px;
+  font-size:8px;
+  line-height:1.45;
+  color:#7b8798;
+}
+.home-v8 .ng-contact-flow>i{
+  font-style:normal;
+  text-align:center;
+  color:#7d72ff;
+  font-size:15px;
+}
+.home-v8 .inquiry-form{
+  position:relative;
+}
+.home-v8 .form-label{
+  color:#344054;
+  font-size:11px;
+}
+.home-v8 .form-input,
+.home-v8 .form-select,
+.home-v8 .form-textarea{
+  min-height:50px;
+  background:#f8f9fc;
+  border-color:rgba(15,23,42,.09);
+}
+.home-v8 .form-textarea{
+  min-height:150px;
+}
+@media(max-width:900px){
+  .home-v8 .ng-process-grid::before{display:none}
+}
+@media(max-width:640px){
+  .home-v8 .ng-process-grid{
+    gap:12px;
+  }
+  .home-v8 .ng-process-grid article{
+    min-height:0;
+    padding:20px 18px 22px;
+    border:1px solid rgba(15,23,42,.075)!important;
+  }
+  .home-v8 .ng-process-grid b{
+    width:36px;height:36px;
+    margin-bottom:18px;
+    box-shadow:0 7px 16px rgba(99,91,255,.18),0 0 0 5px #fff;
+  }
+  .home-v8 .ng-resource-list{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .home-v8 .ng-resource-list a{
+    grid-template-columns:40px 1fr 20px;
+    min-height:0;
+    padding:16px 14px!important;
+    border-radius:16px;
+  }
+  .home-v8 .ng-resource-list b{
+    width:34px;height:34px;border-radius:10px;
+  }
+  .home-v8 #contact .section-title{
+    font-size:38px;
+    letter-spacing:-1.4px;
+  }
+  .home-v8 .contact-card{
+    padding:0 18px 23px;
+    border-radius:24px;
+  }
+  .home-v8 .ng-contact-flow{
+    grid-template-columns:1fr;
+    gap:11px;
+    margin:0 -18px 24px;
+    padding:18px;
+  }
+  .home-v8 .ng-contact-flow>div{
+    display:grid;
+    grid-template-columns:34px 1fr;
+    column-gap:10px;
+    align-items:center;
+  }
+  .home-v8 .ng-contact-flow b{
+    grid-row:1 / span 2;
+    margin:0;
+  }
+  .home-v8 .ng-contact-flow span{
+    font-size:10px;
+  }
+  .home-v8 .ng-contact-flow small{
+    font-size:7.5px;
+  }
+  .home-v8 .ng-contact-flow>i{
+    display:none;
+  }
+}
