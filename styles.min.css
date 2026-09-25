@@ -3461,3 +3461,44 @@ body.home-v8{
     width:138px;
   }
 }
+
+/* v9.8 capability-network motion polish */
+.home-v8 .ng-map-orbits{
+  animation:ng-orbit-spin 64s linear infinite;
+}
+.home-v8 .ng-map-orbits circle:nth-child(2){
+  animation:ng-orbit-pulse 8s ease-in-out infinite;
+}
+.home-v8 .ng-flow-particles{
+  pointer-events:none;
+}
+.home-v8 .ng-flow-dot{
+  stroke:#fff;
+  stroke-width:.24;
+  opacity:.9;
+  filter:drop-shadow(0 0 2.5px currentColor) drop-shadow(0 0 5px currentColor);
+}
+.home-v8 .ng-flow-dot-purple{
+  fill:#6f5cff;
+  color:#6f5cff;
+}
+.home-v8 .ng-flow-dot-cyan{
+  fill:#16c9e8;
+  color:#16c9e8;
+}
+@keyframes ng-orbit-spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes ng-orbit-pulse{
+  0%,100%{opacity:.55}
+  50%{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-v8 .ng-map-orbits{
+    animation:none!important;
+  }
+  .home-v8 .ng-flow-particles{
+    display:none;
+  }
+}
