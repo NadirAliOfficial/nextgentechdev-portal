@@ -292,7 +292,7 @@ async function handleInquirySubmit(event) {
     document.getElementById("inquiry-success-box").style.display = "block";
 
     submitBtn.disabled = false;
-    submitBtn.innerHTML = `<span>Submit for Engineering Review</span>`;
+    submitBtn.innerHTML = `<span>Send Project Brief</span>`;
 
     const effectiveContact = clientContact || clientEmail;
     const chatInquiryText = `📋 [INBOUND SOW INQUIRY: ${ticketId}]\n` +
@@ -312,7 +312,14 @@ async function handleInquirySubmit(event) {
                 session_id: liveChatState.sessionId,
                 message: chatInquiryText,
                 name: clientName || 'Client',
-                contact: effectiveContact
+                contact: effectiveContact,
+                attachment: contactAttachedFile && contactAttachedFile.data_base64 ? {
+                    filename: contactAttachedFile.filename || contactAttachedFile.name,
+                    size_bytes: contactAttachedFile.size_bytes,
+                    size_str: contactAttachedFile.size_str || contactAttachedFile.size,
+                    mime_type: contactAttachedFile.mime_type || contactAttachedFile.type || 'application/octet-stream',
+                    data_base64: contactAttachedFile.data_base64
+                } : null
             })
         });
     } catch (chatErr) {
@@ -405,21 +412,33 @@ function handleTriageFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
     if (file.size > 3 * 1024 * 1024) {
-        alert("File size exceeds 25MB limit. Please attach a smaller file.");
+        alert("File size exceeds 3MB limit. Please attach a smaller file.");
         event.target.value = "";
         return;
     }
-    triageAttachedFile = {
-        name: file.name,
-        size: formatFileSize(file.size),
-        type: file.type
+
+    const sizeStr = formatFileSize(file.size);
+    const reader = new FileReader();
+    reader.onload = () => {
+        triageAttachedFile = {
+            name: file.name,
+            size: sizeStr,
+            type: file.type,
+            filename: file.name,
+            size_bytes: file.size,
+            size_str: sizeStr,
+            mime_type: file.type || "application/octet-stream",
+            data_base64: reader.result
+        };
     };
+    reader.readAsDataURL(file);
+
     const nameEl = document.getElementById("triage-file-name");
     const sizeEl = document.getElementById("triage-file-size");
     const prevEl = document.getElementById("triage-file-preview");
     const lblEl = document.getElementById("triage-upload-label");
     if (nameEl) nameEl.innerText = file.name;
-    if (sizeEl) sizeEl.innerText = `(${formatFileSize(file.size)})`;
+    if (sizeEl) sizeEl.innerText = `(${sizeStr})`;
     if (prevEl) prevEl.style.display = "inline-flex";
     if (lblEl) lblEl.style.display = "none";
 }
@@ -438,21 +457,33 @@ function handleContactFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
     if (file.size > 3 * 1024 * 1024) {
-        alert("File size exceeds 25MB limit. Please upload a smaller file.");
+        alert("File size exceeds 3MB limit. Please upload a smaller file.");
         event.target.value = "";
         return;
     }
-    contactAttachedFile = {
-        name: file.name,
-        size: formatFileSize(file.size),
-        type: file.type
+
+    const sizeStr = formatFileSize(file.size);
+    const reader = new FileReader();
+    reader.onload = () => {
+        contactAttachedFile = {
+            name: file.name,
+            size: sizeStr,
+            type: file.type,
+            filename: file.name,
+            size_bytes: file.size,
+            size_str: sizeStr,
+            mime_type: file.type || "application/octet-stream",
+            data_base64: reader.result
+        };
     };
+    reader.readAsDataURL(file);
+
     const nameEl = document.getElementById("contact-file-name");
     const sizeEl = document.getElementById("contact-file-size");
     const prevEl = document.getElementById("contact-file-preview");
     const lblEl = document.getElementById("contact-upload-label");
     if (nameEl) nameEl.innerText = file.name;
-    if (sizeEl) sizeEl.innerText = `(${formatFileSize(file.size)})`;
+    if (sizeEl) sizeEl.innerText = `(${sizeStr})`;
     if (prevEl) prevEl.style.display = "inline-flex";
     if (lblEl) lblEl.style.display = "none";
 }
@@ -544,6 +575,17 @@ async function runFeasibilityTriage() {
         });
         if (resp.ok) {
             triageData = await resp.json();
+            if (triageData && triageData.status === "FEASIBLE") {
+                const price = Number(triageData.estimated_price);
+                triageData = {
+                    ...triageData,
+                    complexity_tier: triageData.complexity_tier || triageData.complexity || "Standard",
+                    estimated_timeline: triageData.estimated_timeline || (triageData.timeline_days ? `${triageData.timeline_days} Calendar Days` : "Confirmed after requirements review"),
+                    estimated_investment: triageData.estimated_investment || (Number.isFinite(price) ? `$${price.toLocaleString("en-US")} USD` : "Confirmed after requirements review"),
+                    architecture_blueprint: triageData.architecture_blueprint || triageData.summary || "Initial automated scope estimate. Final architecture follows engineering review.",
+                    recommended_stack: Array.isArray(triageData.recommended_stack) ? triageData.recommended_stack : []
+                };
+            }
         }
     } catch (e) {
         console.warn("Feasibility backend offline; utilizing client-side triage engine.", e);
@@ -702,7 +744,7 @@ async function runFeasibilityTriage() {
 
     if (btn) {
         btn.disabled = false;
-        btn.innerHTML = `<span>Get Instant Scope &amp; Estimate</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`;
+        btn.innerHTML = `<span>Generate Starting Scope</span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>`;
     }
 
     if (emptyBox) emptyBox.style.display = "none";
