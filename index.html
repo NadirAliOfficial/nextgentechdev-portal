@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/social-card.png">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=11.2">
+    <link rel="stylesheet" href="/styles.min.css?v=11.3">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,7 +56,6 @@
             </a>
             <div class="ng-nav-links">
                 <a href="/services">Services</a>
-                <a href="#work">Work</a>
                 <a href="#process">Process</a>
                 <a href="/resources">Resources</a>
             </div>
@@ -65,7 +64,6 @@
                 <summary>Menu</summary>
                 <div>
                     <a href="/services">Services</a>
-                    <a href="#work">Work</a>
                     <a href="#process">Process</a>
                         <a href="/resources">Resources</a>
                     <a href="#contact">Start a project</a>
@@ -74,90 +72,56 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="ng-hero ng-hero-premium">
-        <div class="container ng-hero-premium-grid">
-            <div class="ng-hero-premium-copy">
-                <div class="ng-pill"><span></span> CUSTOM SOFTWARE · AI AUTOMATION · TRADING SYSTEMS · CLOUD</div>
-                <h1>From ideas to <em>working systems.</em></h1>
-                <p>We design and build AI automation, trading systems, web applications and cloud backends — scoped clearly, tested properly and handed over with source code.</p>
-                <div class="ng-hero-actions">
-                    <a class="ng-btn ng-btn-primary" href="#contact">Start a project <span>→</span></a>
-                    <a class="ng-btn ng-btn-ghost" href="/services">Explore services</a>
-                </div>
-                <div class="ng-hero-trust">
-                    <span>Clear scope</span><span>Reviewable milestones</span><span>Documented handover</span>
-                </div>
-            </div>
-
-            <div class="ng-hero-blueprint" aria-label="Example NextGen system blueprint">
-                <div class="ng-blueprint-top">
-                    <div class="ng-window-dots"><i></i><i></i><i></i></div>
-                    <span>SYSTEM BLUEPRINT · EXAMPLE</span>
-                    <b>NextGen Engineering</b>
-                </div>
-                <div class="ng-blueprint-body">
-                    <div class="ng-blueprint-nav">
-                        <a href="/ai-automation"><b>AI</b><span>AI Automation</span></a>
-                        <a href="/trading-bot-development"><b>TRD</b><span>Trading Systems</span></a>
-                        <a href="/web-app-development"><b>WEB</b><span>Web &amp; SaaS</span></a>
-                        <a href="/api-cloud-development"><b>API</b><span>API &amp; Cloud</span></a>
-                    </div>
-                    <div class="ng-blueprint-code">
-                        <div><small>01</small><code><em>knowledge</em> → agent → tools</code></div>
-                        <div><small>02</small><code><em>signal</em> → risk gate → MT5</code></div>
-                        <div><small>03</small><code><em>interface</em> → API → cloud</code></div>
-                        <div class="ng-blueprint-delivery">
-                            <span>Scope</span><i>→</i><span>Build</span><i>→</i><span>Validate</span><i>→</i><span>Handover</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Core Services -->
-    <section id="services" class="ng-section ng-services ng-services-home">
+    <!-- Clean service-first homepage -->
+    <section id="services" class="ng-front-services">
         <div class="container">
-            <div class="ng-home-section-line">
-                <div><span>SPECIALIZED SERVICES</span><h2>Focused services for real systems.</h2></div>
-                <a href="/services">View all services →</a>
+            <div class="ng-front-intro">
+                <span>NEXTGEN TECH SOLUTIONS</span>
+                <div>
+                    <h1>What do you need built?</h1>
+                    <p>Choose a service area below. Each one has its own dedicated page with capabilities, architecture and delivery details.</p>
+                </div>
             </div>
-            <div class="ng-home-service-grid">
-                <a href="/trading-bot-development"><b>01</b><strong>Trading Automation</strong><span>MT4/5 · TradingView · risk &amp; execution</span><i>↗</i></a>
-                <a href="/ai-automation"><b>02</b><strong>AI &amp; Automation</strong><span>Agents · RAG · tools · workflows</span><i>↗</i></a>
-                <a href="/web-app-development"><b>03</b><strong>Web &amp; SaaS</strong><span>Portals · dashboards · product backends</span><i>↗</i></a>
-                <a href="/api-cloud-development"><b>04</b><strong>API &amp; Cloud</strong><span>FastAPI · integrations · deployment</span><i>↗</i></a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Featured Builds -->
-    <section id="work" class="ng-section ng-work ng-work-home">
-        <div class="container">
-            <div class="ng-home-section-line ng-home-section-light">
-                <div><span>SELECTED BUILD PATTERNS</span><h2>What the engineering looks like in practice.</h2></div>
-                <a href="/services">Explore capabilities →</a>
+            <div class="ng-front-service-grid">
+                <a href="/trading-bot-development">
+                    <b>01</b><i>TRD</i>
+                    <strong>Trading Automation</strong>
+                    <span>MT4/5 · TradingView · execution · risk</span>
+                    <em>↗</em>
+                </a>
+                <a href="/ai-automation">
+                    <b>02</b><i>AI</i>
+                    <strong>AI Automation</strong>
+                    <span>Agents · RAG · tools · workflows</span>
+                    <em>↗</em>
+                </a>
+                <a href="/web-app-development">
+                    <b>03</b><i>WEB</i>
+                    <strong>Web &amp; SaaS</strong>
+                    <span>Portals · dashboards · product backends</span>
+                    <em>↗</em>
+                </a>
+                <a href="/llm-agent-development">
+                    <b>04</b><i>LLM</i>
+                    <strong>LLM &amp; AI Agents</strong>
+                    <span>Private AI · RAG · tool calling</span>
+                    <em>↗</em>
+                </a>
+                <a href="/api-cloud-development">
+                    <b>05</b><i>API</i>
+                    <strong>API &amp; Cloud</strong>
+                    <span>FastAPI · integrations · VPS / cloud</span>
+                    <em>↗</em>
+                </a>
             </div>
-            <div class="ng-home-build-grid">
-                <article>
-                    <small>TRADING AUTOMATION</small>
-                    <h3>Signal → Risk → MT5</h3>
-                    <p>Signal parsing, position management, SL/TP updates and execution controls.</p>
-                    <div><span>Signal ingestion</span><span>Risk engine</span><span>MT5 bridge</span></div>
-                </article>
-                <article>
-                    <small>AI AUTOMATION</small>
-                    <h3>Knowledge → Agent → Tools</h3>
-                    <p>RAG, API calls and auditable workflows around your business process.</p>
-                    <div><span>Knowledge</span><span>Tool calling</span><span>Workflow logic</span></div>
-                </article>
-                <article>
-                    <small>SOFTWARE PLATFORM</small>
-                    <h3>Interface → API → Cloud</h3>
-                    <p>Customer-facing software with secure backends, integrations and deployment.</p>
-                    <div><span>Product UI</span><span>Backend API</span><span>Cloud deploy</span></div>
-                </article>
+
+            <div class="ng-front-footer">
+                <div><span>Clear scope</span><span>Reviewable milestones</span><span>Source-code handover</span></div>
+                <div>
+                    <a class="ng-front-text-link" href="/services">View all services</a>
+                    <a class="ng-front-primary" href="#contact">Start a project <b>→</b></a>
+                </div>
             </div>
         </div>
     </section>
@@ -419,7 +383,7 @@
             </div>
             <div class="ng-footer-links">
                 <div><strong>Services</strong><a href="/services">All services</a><a href="/trading-bot-development">Trading automation</a><a href="/ai-automation">AI automation</a><a href="/web-app-development">Web &amp; SaaS</a><a href="/llm-agent-development">LLM &amp; agents</a><a href="/api-cloud-development">API &amp; cloud</a></div>
-                <div><strong>Explore</strong><a href="#work">Build examples</a><a href="#process">Process</a><a href="#custom-triage">Custom scope</a><a href="/resources">Resources</a></div>
+                <div><strong>Explore</strong><a href="/services">Services</a><a href="#process">Process</a><a href="#custom-triage">Custom scope</a><a href="/resources">Resources</a></div>
                 <div><strong>Company</strong><a href="#contact">Start a project</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
             </div>
         </div>

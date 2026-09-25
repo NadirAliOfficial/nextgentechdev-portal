@@ -8399,3 +8399,240 @@ body.home-v8{
     grid-template-columns:1fr 1fr;
   }
 }
+
+/* v11.3 service-first homepage: no hero */
+.home-v8 .ng-front-services{
+  position:relative;
+  padding:54px 0 44px;
+  background:
+    radial-gradient(circle at 92% 0,rgba(99,91,255,.055),transparent 24%),
+    linear-gradient(180deg,#fbfcfe 0%,#f7f9fc 100%);
+  border-bottom:1px solid rgba(15,23,42,.055);
+}
+.home-v8 .ng-front-intro{
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr);
+  gap:34px;
+  align-items:start;
+  margin-bottom:28px;
+}
+.home-v8 .ng-front-intro>span{
+  padding-top:8px;
+  color:#626de0;
+  font:800 7px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:1.4px;
+}
+.home-v8 .ng-front-intro h1{
+  margin:0;
+  color:#101827;
+  font-size:42px;
+  line-height:1.02;
+  letter-spacing:-2px;
+}
+.home-v8 .ng-front-intro p{
+  max-width:720px;
+  margin:10px 0 0;
+  color:#6f7d8f;
+  font-size:13px;
+  line-height:1.6;
+}
+.home-v8 .ng-front-service-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:9px;
+}
+.home-v8 .ng-front-service-grid>a{
+  position:relative;
+  min-width:0;
+  min-height:142px;
+  padding:15px;
+  border:1px solid rgba(55,76,116,.075);
+  border-radius:14px;
+  background:rgba(255,255,255,.92);
+  color:inherit;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(30,41,59,.03);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.home-v8 .ng-front-service-grid>a:hover{
+  transform:translateY(-3px);
+  border-color:rgba(61,103,237,.18);
+  box-shadow:0 14px 32px rgba(30,41,59,.055);
+}
+.home-v8 .ng-front-service-grid>a::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:2px;
+  border-radius:14px 14px 0 0;
+  background:linear-gradient(90deg,#635bff,#20c7e9,transparent 82%);
+  opacity:.52;
+}
+.home-v8 .ng-front-service-grid b{
+  position:absolute;
+  right:13px;
+  top:12px;
+  color:#a0aabd;
+  font:800 6px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.home-v8 .ng-front-service-grid i{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  margin-bottom:15px;
+  border-radius:9px;
+  background:linear-gradient(145deg,rgba(99,91,255,.10),rgba(32,199,233,.06));
+  color:#5d55d9;
+  font:850 6.4px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-style:normal;
+}
+.home-v8 .ng-front-service-grid strong{
+  display:block;
+  padding-right:18px;
+  color:#1f2937;
+  font-size:13px;
+  line-height:1.22;
+}
+.home-v8 .ng-front-service-grid span{
+  display:block;
+  margin-top:7px;
+  color:#7e8a9c;
+  font-size:7.5px;
+  line-height:1.5;
+}
+.home-v8 .ng-front-service-grid em{
+  position:absolute;
+  right:13px;
+  bottom:12px;
+  color:#4c78ef;
+  font-size:12px;
+  font-style:normal;
+}
+.home-v8 .ng-front-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-top:20px;
+  padding-top:17px;
+  border-top:1px solid rgba(15,23,42,.065);
+}
+.home-v8 .ng-front-footer>div{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.home-v8 .ng-front-footer>div:first-child span{
+  position:relative;
+  padding-left:12px;
+  color:#7a8799;
+  font-size:7.5px;
+  font-weight:700;
+}
+.home-v8 .ng-front-footer>div:first-child span::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:5px;
+  height:5px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:#34cdb0;
+}
+.home-v8 .ng-front-text-link{
+  color:#667386;
+  font-size:9px;
+  font-weight:750;
+  text-decoration:none;
+}
+.home-v8 .ng-front-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:38px;
+  padding:0 14px;
+  border-radius:10px;
+  background:#111827;
+  color:#fff;
+  font-size:9px;
+  font-weight:780;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(17,24,39,.11);
+}
+.home-v8 .ng-front-primary b{
+  font-size:10px;
+  font-weight:800;
+}
+@media(max-width:980px){
+  .home-v8 .ng-front-intro{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .home-v8 .ng-front-intro>span{
+    padding-top:0;
+  }
+  .home-v8 .ng-front-service-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .home-v8 .ng-front-service-grid>a:nth-child(4),
+  .home-v8 .ng-front-service-grid>a:nth-child(5){
+    grid-column:span 1;
+  }
+}
+@media(max-width:640px){
+  .home-v8 .ng-front-services{
+    padding:34px 0 30px;
+  }
+  .home-v8 .ng-front-intro{
+    margin-bottom:19px;
+  }
+  .home-v8 .ng-front-intro h1{
+    font-size:31px;
+    line-height:1.05;
+    letter-spacing:-1.3px;
+  }
+  .home-v8 .ng-front-intro p{
+    margin-top:8px;
+    font-size:11.5px;
+    line-height:1.55;
+  }
+  .home-v8 .ng-front-service-grid{
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .home-v8 .ng-front-service-grid>a{
+    min-height:124px;
+    padding:13px;
+    border-radius:13px;
+  }
+  .home-v8 .ng-front-service-grid>a:last-child{
+    grid-column:1 / -1;
+    min-height:105px;
+  }
+  .home-v8 .ng-front-service-grid i{
+    width:27px;
+    height:27px;
+    margin-bottom:12px;
+  }
+  .home-v8 .ng-front-service-grid strong{
+    font-size:11.5px;
+  }
+  .home-v8 .ng-front-service-grid span{
+    font-size:6.8px;
+  }
+  .home-v8 .ng-front-footer{
+    display:block;
+    margin-top:16px;
+    padding-top:14px;
+  }
+  .home-v8 .ng-front-footer>div:first-child{
+    flex-wrap:wrap;
+    gap:7px 12px;
+    margin-bottom:13px;
+  }
+  .home-v8 .ng-front-footer>div:last-child{
+    justify-content:space-between;
+  }
+}
