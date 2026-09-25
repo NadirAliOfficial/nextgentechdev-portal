@@ -6891,3 +6891,136 @@ body.home-v8{
     font-size:6.7px;
   }
 }
+
+/* v10.5 practical resource-hub refinement */
+.home-v8 .ng-resources{
+  background:
+    radial-gradient(circle at 88% 10%,rgba(99,91,255,.045),transparent 24%),
+    radial-gradient(circle at 12% 88%,rgba(32,199,233,.03),transparent 24%),
+    linear-gradient(180deg,#f5f7fb 0%,#f4f6fa 100%);
+}
+.home-v8 .ng-resource-modes{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:7px;
+  margin:-8px 0 18px;
+}
+.home-v8 .ng-resource-modes span{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 9px;
+  border:1px solid rgba(61,82,124,.075);
+  border-radius:10px;
+  background:rgba(255,255,255,.62);
+  color:#718096;
+  font:750 6.6px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.75px;
+  text-align:center;
+}
+.home-v8 .ng-resource-list{
+  gap:12px;
+}
+.home-v8 .ng-resource-list a{
+  grid-template-columns:52px 1fr 26px;
+  min-height:132px;
+  padding:20px 18px!important;
+  border-color:rgba(55,76,118,.075);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.90),rgba(252,253,255,.82));
+  box-shadow:0 14px 34px rgba(30,41,59,.04);
+}
+.home-v8 .ng-resource-list a::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:2px;
+  opacity:.55;
+  background:linear-gradient(90deg,#635bff,#20c7e9,transparent 82%);
+}
+.home-v8 .ng-resource-list a:nth-child(even)::before{
+  background:linear-gradient(90deg,#20c7e9,#5d6cff,transparent 82%);
+}
+.home-v8 .ng-resource-list b{
+  width:44px;
+  height:36px;
+  border-radius:11px;
+  font:850 7px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.45px;
+}
+.home-v8 .ng-resource-list strong{
+  margin-bottom:5px;
+  font-size:14.5px;
+  letter-spacing:-.15px;
+}
+.home-v8 .ng-resource-list span{
+  font-size:11px;
+  line-height:1.5;
+  color:#6e7a8c;
+}
+.home-v8 .ng-resource-list small{
+  display:block;
+  margin-top:9px;
+  color:#8a96a8;
+  font:750 6.8px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+.home-v8 .ng-resource-list i{
+  width:25px;height:25px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  background:rgba(99,91,255,.065);
+  color:#5c54e2;
+  font-size:13px;
+}
+.home-v8 .ng-resource-list a:hover i{
+  background:rgba(99,91,255,.11);
+}
+.home-v8 .ng-text-link{
+  position:relative;
+  margin-top:22px;
+  padding-right:18px;
+}
+.home-v8 .ng-text-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:5px;
+  height:1px;
+  background:linear-gradient(90deg,#635bff,#20c7e9);
+  transition:right .2s ease;
+}
+.home-v8 .ng-text-link:hover::after{right:18px}
+@media(max-width:640px){
+  .home-v8 .ng-resource-modes{
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    margin-bottom:14px;
+  }
+  .home-v8 .ng-resource-modes span{
+    min-height:31px;
+    font-size:6.1px;
+  }
+  .home-v8 .ng-resource-list a{
+    grid-template-columns:44px 1fr 22px;
+    min-height:0;
+    padding:16px 14px!important;
+  }
+  .home-v8 .ng-resource-list b{
+    width:38px;height:34px;
+  }
+  .home-v8 .ng-resource-list strong{
+    font-size:13.5px;
+  }
+  .home-v8 .ng-resource-list span{
+    font-size:10px;
+  }
+  .home-v8 .ng-resource-list small{
+    margin-top:7px;
+    font-size:6.3px;
+  }
+}
