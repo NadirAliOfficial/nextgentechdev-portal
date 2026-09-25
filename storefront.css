@@ -48,3 +48,24 @@
 .sf-seo-copy h2{margin:0 0 10px;font-size:24px;letter-spacing:-.02em}
 .sf-seo-copy h3{margin:22px 0 8px;font-size:17px}
 .sf-seo-copy p{margin:0;color:var(--sf-muted);font-size:14px;line-height:1.7}
+
+/* Featured services carousel: keeps the homepage compact while preserving swipe/keyboard access. */
+.sf-featured-head{display:grid;gap:14px;justify-items:end;max-width:560px}
+.sf-featured-head p{max-width:540px}
+.sf-carousel-controls{display:flex;gap:8px}
+.sf-carousel-controls button{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--sf-line);border-radius:999px;background:#fff;color:var(--sf-text);font:800 18px/1 inherit;cursor:pointer;box-shadow:0 5px 16px rgba(15,23,42,.04);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.sf-carousel-controls button:hover,.sf-carousel-controls button:focus-visible{transform:translateY(-1px);border-color:#b9c7ef;box-shadow:0 8px 20px rgba(15,23,42,.08)}
+#featured-services-grid.sf-featured-carousel{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:inline mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px 1px 10px}
+#featured-services-grid.sf-featured-carousel::-webkit-scrollbar{display:none}
+#featured-services-grid.sf-featured-carousel .sf-service-card{flex:0 0 clamp(286px,31vw,350px);min-height:300px;scroll-snap-align:start;scroll-snap-stop:always}
+#featured-services-grid.sf-featured-carousel:focus-visible{outline:3px solid rgba(37,99,235,.2);outline-offset:7px;border-radius:var(--sf-radius)}
+@media(max-width:760px){
+  .sf-featured-head{justify-items:start;max-width:none}
+  .sf-carousel-controls{align-self:start}
+  #featured-services-grid.sf-featured-carousel{margin-right:calc((100vw - 100%) / -2 + 7px);padding-right:20px}
+  #featured-services-grid.sf-featured-carousel .sf-service-card{flex-basis:min(84vw,330px);min-height:285px}
+}
+@media(prefers-reduced-motion:reduce){
+  #featured-services-grid.sf-featured-carousel{scroll-behavior:auto}
+  .sf-carousel-controls button{transition:none}
+}
