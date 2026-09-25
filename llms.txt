@@ -1,0 +1,33 @@
+# NextGen Tech Solutions
+
+> Direct digital engineering services for AI automation, trading automation, web applications, APIs, software integrations, and cloud/VPS delivery.
+
+Canonical website: https://www.nextgentechdev.com/
+Service catalogue: https://www.nextgentechdev.com/services
+Portfolio: https://www.nextgentechdev.com/portfolio
+Resources: https://www.nextgentechdev.com/resources
+
+## Primary services
+
+- Custom MT5 Expert Advisor: https://www.nextgentechdev.com/trading-bot-development
+- XAUUSD Trading Bot Development: https://www.nextgentechdev.com/xauusd-trading-bot-development
+- Telegram to MT5 Copy Trading Bot: https://www.nextgentechdev.com/mt5-telegram-copy-trading-bot
+- TradingView to MT5 Automation: https://www.nextgentechdev.com/pine-script-to-mt5-automation
+- AI Workflow Automation: https://www.nextgentechdev.com/ai-automation
+- LLM & AI Agent Development: https://www.nextgentechdev.com/llm-agent-development
+- Web App & SaaS Development: https://www.nextgentechdev.com/web-app-development
+- API & Cloud Backend Development: https://www.nextgentechdev.com/api-cloud-development
+
+## Public work and resources
+
+- MT5 Position Size Calculator: https://www.nextgentechdev.com/mt5-position-size-calculator
+- AI Automation ROI Calculator: https://www.nextgentechdev.com/ai-automation-roi-calculator
+- MT5 EA Requirements Generator: https://www.nextgentechdev.com/mt5-ea-requirements-generator
+
+## Business model
+
+Clients work directly with NextGen Tech Solutions. Projects are scoped from explicit requirements and delivered through reviewable milestones. Trading software is developed and tested as software; future trading performance is not guaranteed.
+
+## Contact
+
+Project enquiry: https://www.nextgentechdev.com/#contact
