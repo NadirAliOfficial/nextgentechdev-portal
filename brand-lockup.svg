@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 150" role="img" aria-labelledby="t">
+<title id="t">NextGen Tech Solutions</title>
+<defs>
+<linearGradient id="g1" x1="15%" y1="95%" x2="88%" y2="8%">
+<stop offset="0" stop-color="#a855f7"/><stop offset=".32" stop-color="#5b4dff"/><stop offset=".68" stop-color="#1478ff"/><stop offset="1" stop-color="#22d3ee"/>
+</linearGradient>
+<linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#7c3aed"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#06b6d4"/>
+</linearGradient>
+</defs>
+<g transform="translate(4 4) scale(.82)">
+<path d="M36 132V49c0-13 14-21 25-13l70 64c7 6 17 1 17-8V34" fill="none" stroke="url(#g1)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52 44L128 113c10 9 26 2 26-12v-9c0 9-10 14-17 8L67 36c-5-5-11-5-15-3z" fill="#1b2a78" opacity=".78"/>
+<path d="M148 34v58c0 6-3 10-7 12l7 7c8 7 20 1 20-10V34z" fill="url(#g1)"/>
+</g>
+<text x="165" y="79" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="62" font-weight="800" letter-spacing="-2" fill="#0b1730">Next<tspan fill="url(#g2)">Gen</tspan></text>
+<text x="169" y="112" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="8" fill="#30405e">TECH SOLUTIONS</text>
+</svg>

@@ -10,21 +10,12 @@
   "theme_color": "#060610",
   "icons": [
     {
-      "src": "/portal/emblem.jpg",
-      "sizes": "192x192",
-      "type": "image/jpeg",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/portal/emblem.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
+      "src": "/brand-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
-  "categories": [
-    "business",
-    "productivity"
-  ],
+  "categories": ["business", "productivity"],
   "lang": "en"
 }

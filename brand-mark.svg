@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 160" role="img" aria-labelledby="t">
+<title id="t">NextGen Tech Solutions</title>
+<defs>
+<linearGradient id="g1" x1="15%" y1="95%" x2="88%" y2="8%">
+<stop offset="0" stop-color="#a855f7"/>
+<stop offset=".32" stop-color="#5b4dff"/>
+<stop offset=".68" stop-color="#1478ff"/>
+<stop offset="1" stop-color="#22d3ee"/>
+</linearGradient>
+<linearGradient id="g2" x1="20%" y1="10%" x2="82%" y2="92%">
+<stop offset="0" stop-color="#1e1b4b"/>
+<stop offset=".55" stop-color="#1737b8"/>
+<stop offset="1" stop-color="#4f46e5"/>
+</linearGradient>
+</defs>
+<path d="M36 132V49c0-13 14-21 25-13l70 64c7 6 17 1 17-8V34" fill="none" stroke="url(#g1)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52 44L128 113c10 9 26 2 26-12v-9c0 9-10 14-17 8L67 36c-5-5-11-5-15-3z" fill="url(#g2)" opacity=".82"/>
+<path d="M36 131c0 9 10 15 18 11l10-6V58L47 43c-5-4-11-1-11 6z" fill="url(#g1)" opacity=".9"/>
+<path d="M148 34v58c0 6-3 10-7 12l7 7c8 7 20 1 20-10V34z" fill="url(#g1)"/>
+</svg>

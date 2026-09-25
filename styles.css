@@ -2775,3 +2775,32 @@ body.home-v8{
     transition-duration:.01ms !important;
   }
 }
+
+/* Brand lockup v8.2 */
+.home-v8 .ng-brand{gap:0}
+.home-v8 .ng-brand img.ng-brand-lockup{
+  width:188px;
+  height:auto;
+  border-radius:0;
+  box-shadow:none;
+  display:block;
+}
+.home-v8 .ng-brand-footer img.ng-brand-lockup{
+  width:190px;
+  height:auto;
+}
+.home-v8 .ng-canvas-core img{
+  border-radius:0;
+  box-shadow:none;
+  object-fit:contain;
+}
+.home-v8 .chat-avatar-img{
+  object-fit:contain;
+  padding:2px;
+  border-radius:9px;
+  background:#f6f7fb;
+}
+@media(max-width:640px){
+  .home-v8 .ng-brand img.ng-brand-lockup{width:160px}
+  .home-v8 .ng-brand-footer img.ng-brand-lockup{width:172px}
+}
