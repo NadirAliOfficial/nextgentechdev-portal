@@ -633,3 +633,187 @@ footer:before{
   .service-flow span{font-size:7px}
   .service-flow small{font-size:7.4px}
 }
+
+
+/* v8.6 services hub */
+.services-hub-page{
+  background:
+    radial-gradient(circle at 86% 2%,rgba(99,91,255,.12),transparent 28%),
+    radial-gradient(circle at 8% 18%,rgba(32,199,233,.07),transparent 25%),
+    linear-gradient(180deg,#f8faff,#f4f7fb 58%,#f7f9fc);
+}
+.services-hub-hero{
+  padding-bottom:58px;
+}
+.services-hub-hero h1{
+  max-width:1100px;
+  font-size:clamp(48px,6vw,76px);
+}
+.services-hub-index{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+  max-width:980px;
+  margin-top:30px;
+}
+.services-hub-index span{
+  min-height:40px;
+  display:flex;
+  align-items:center;
+  padding:9px 11px;
+  border:1px solid rgba(59,78,117,.08);
+  border-radius:11px;
+  background:rgba(255,255,255,.58);
+  color:#64748b;
+  font:750 7px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.6px;
+}
+.services-hub-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  padding:8px 0 58px;
+}
+.services-hub-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr) 28px;
+  gap:14px;
+  min-height:210px;
+  padding:24px;
+  border:1px solid rgba(57,77,117,.075);
+  border-radius:22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(251,253,255,.86));
+  box-shadow:0 18px 46px rgba(30,41,59,.055);
+  color:inherit;
+  text-decoration:none;
+  overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.services-hub-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:2px;
+  background:linear-gradient(90deg,#635bff,#20c7e9,transparent 82%);
+  opacity:.68;
+}
+.services-hub-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(99,91,255,.16);
+  box-shadow:0 24px 58px rgba(30,41,59,.085);
+}
+.services-hub-card>b{
+  width:38px;height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:linear-gradient(145deg,rgba(99,91,255,.13),rgba(32,199,233,.075));
+  color:#5c54df;
+  font:850 7px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.services-hub-card small{
+  color:#6c63dd;
+  font:800 7px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:1.1px;
+}
+.services-hub-card h2{
+  margin:7px 0 9px;
+  font-size:25px;
+  line-height:1.13;
+  letter-spacing:-.45px;
+}
+.services-hub-card p{
+  margin:0;
+  color:#6d7a8d;
+  font-size:14px;
+  line-height:1.6;
+}
+.services-hub-card div>span{
+  display:block;
+  margin-top:18px;
+  color:#8794a6;
+  font:750 7px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.5px;
+}
+.services-hub-card>i{
+  width:26px;height:26px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  background:rgba(99,91,255,.06);
+  color:#5c54df;
+  font-style:normal;
+}
+.services-hub-card:nth-child(5){
+  grid-column:1 / -1;
+}
+.services-hub-cta{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:40px;
+  align-items:center;
+  margin:10px 0 0;
+  padding:34px;
+  border:1px solid rgba(99,91,255,.09);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(99,91,255,.08),transparent 34%),
+    #fff;
+  box-shadow:0 18px 50px rgba(30,41,59,.055);
+}
+.services-hub-cta small{
+  color:#635bff;
+  font:800 7px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:1.2px;
+}
+.services-hub-cta h2{
+  margin:7px 0 8px;
+  font-size:28px;
+}
+.services-hub-cta p{
+  max-width:720px;
+  margin:0;
+  color:#6d7a8d;
+}
+@media(max-width:720px){
+  .services-hub-hero h1{
+    font-size:43px;
+  }
+  .services-hub-index{
+    grid-template-columns:1fr 1fr;
+  }
+  .services-hub-index span:last-child{
+    grid-column:1 / -1;
+  }
+  .services-hub-grid{
+    grid-template-columns:1fr;
+    gap:11px;
+    padding-bottom:44px;
+  }
+  .services-hub-card,
+  .services-hub-card:nth-child(5){
+    grid-column:auto;
+    min-height:0;
+    padding:20px;
+    grid-template-columns:38px minmax(0,1fr) 24px;
+    gap:11px;
+    border-radius:19px;
+  }
+  .services-hub-card h2{
+    font-size:22px;
+  }
+  .services-hub-card p{
+    font-size:13px;
+  }
+  .services-hub-cta{
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:24px 20px;
+    border-radius:20px;
+  }
+  .services-hub-cta .cta{
+    margin:0;
+    justify-self:start;
+  }
+}

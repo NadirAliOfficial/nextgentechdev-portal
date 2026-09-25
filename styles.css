@@ -7426,3 +7426,24 @@ body.home-v8{
     height:27px;
   }
 }
+
+/* v11.0 dedicated services hub */
+.home-v8 .ng-services-all{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:22px;
+  color:#b6c1d2;
+  font-size:11px;
+  font-weight:760;
+}
+.home-v8 .ng-services-all span{
+  color:#6fdcff;
+  transition:transform .18s ease;
+}
+.home-v8 .ng-services-all:hover{
+  color:#fff;
+}
+.home-v8 .ng-services-all:hover span{
+  transform:translateX(3px);
+}
