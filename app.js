@@ -501,16 +501,18 @@ function removeContactFile() {
 let currentTriagePresetKey = "custom";
 
 const TRIAGE_PLACEHOLDERS = {
-    algo: "e.g. 'Custom MT4/MT5 trading bot with multi-pair order blocks and trailing stop'...",
-    saas: "e.g. 'Full-stack Next.js SaaS customer portal with PostgreSQL, authentication, and Stripe billing'...",
-    voice: "e.g. 'Conversational voice AI agent with real-time audio and CRM integration'...",
-    custom: "Enter your custom project or task here..."
+    algo: "e.g. 'MT5 trading automation with TradingView signals, risk rules, SL/TP updates and partial closes'...",
+    ai: "e.g. 'AI agent that uses company documents, calls APIs and automates a repeatable business workflow'...",
+    saas: "e.g. 'Client portal with login, dashboard, admin workflow, billing and a production backend'...",
+    api: "e.g. 'FastAPI backend with webhooks, third-party integrations, database and cloud deployment'...",
+    custom: "Describe the goal, platform, important features, integrations and constraints..."
 };
 
 const TRIAGE_PRESET_PROMPTS = {
-    algo: "We need a custom MT4/MT5 trading bot featuring multi-pair order block detection, Fair Value Gap visualizer, and spread protection with automated trailing break-even.",
-    saas: "We need a full-stack Next.js 15 responsive multi-tenant SaaS customer portal with PostgreSQL database, Stripe subscription billing webhooks, role-based access control, and fast page loads.",
-    voice: "We require a conversational voice AI agent capable of real-time audio streaming via WebSockets with sub-second latency, CRM tool-calling, and speech interruption handling."
+    algo: "We need an MT4/MT5 trading automation system that can receive signals, apply position and risk rules, manage SL/TP updates, partial closes and break-even logic, and run reliably on a VPS.",
+    ai: "We need an AI agent or RAG workflow that can use company knowledge, call external APIs or tools, complete repeatable tasks, and keep the workflow auditable.",
+    saas: "We need a responsive SaaS or client portal with authentication, dashboards, admin workflows, a maintainable database and production-ready backend APIs.",
+    api: "We need an API and cloud backend with webhooks, external integrations, structured data handling, authentication, logging and a deployable production setup."
 };
 
 function applyTriagePreset(key, btn) {

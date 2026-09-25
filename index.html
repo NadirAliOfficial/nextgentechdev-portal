@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/social-card.png">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=10.5">
+    <link rel="stylesheet" href="/styles.min.css?v=10.6">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -464,10 +464,11 @@
                     <textarea id="custom-spec-input" class="triage-textarea" rows="5" placeholder="Describe the goal, platform, key features, integrations and any important constraints..."></textarea>
                     
                     <div class="triage-preset-chips">
-                        <span class="chip-label">Start with a template:</span>
-                        <button type="button" class="preset-chip" onclick="applyTriagePreset('algo', this)">Trading bot</button>
-                        <button type="button" class="preset-chip" onclick="applyTriagePreset('saas', this)">SaaS app</button>
-                        <button type="button" class="preset-chip" onclick="applyTriagePreset('voice', this)">AI agent</button>
+                        <span class="chip-label">Start with a project type:</span>
+                        <button type="button" class="preset-chip" onclick="applyTriagePreset('algo', this)">Trading automation</button>
+                        <button type="button" class="preset-chip" onclick="applyTriagePreset('ai', this)">AI / RAG agent</button>
+                        <button type="button" class="preset-chip" onclick="applyTriagePreset('saas', this)">SaaS / portal</button>
+                        <button type="button" class="preset-chip" onclick="applyTriagePreset('api', this)">API / cloud</button>
                         <button type="button" class="preset-chip active" onclick="applyTriagePreset('custom', this)">Custom</button>
                     </div>
 
@@ -497,7 +498,13 @@
                     <div class="dossier-empty-state" id="dossier-empty">
                         <div class="dossier-empty-icon">✦</div>
                         <div class="dossier-empty-title">Your starting scope will appear here</div>
-                        <p class="dossier-empty-desc">We’ll summarize the project, suggest a delivery path and show an indicative budget and timeline.</p>
+                        <p class="dossier-empty-desc">We’ll turn the requirement into a practical first-pass brief before you contact us.</p>
+                        <div class="dossier-preview-list" aria-hidden="true">
+                            <span><b>01</b> Scope summary</span>
+                            <span><b>02</b> Suggested architecture</span>
+                            <span><b>03</b> Budget &amp; timeline range</span>
+                            <span><b>04</b> Recommended stack</span>
+                        </div>
                     </div>
 
                     <div class="dossier-result-state" id="dossier-result" style="display: none;">
@@ -766,7 +773,7 @@
     </div>
 
     <!-- NextGen Tech Solutions · Auto-deploy active (public repo) -->
-    <script src="/app.min.js?v=4.5" defer></script>
+    <script src="/app.min.js?v=4.6" defer></script>
 </body>
 </html>
 <!-- visibility check 2026-09-11T12:49:00Z -->
