@@ -26,6 +26,7 @@
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="/styles.min.css?v=11.3">
+    <link rel="stylesheet" href="/storefront.css?v=1.0">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -46,7 +47,7 @@
     }
     </script>
 </head>
-<body class="home-v8">
+<body class="home-v8 sf-shell">
 
     <!-- Navigation Header -->
     <nav class="ng-nav">
@@ -56,73 +57,65 @@
             </a>
             <div class="ng-nav-links">
                 <a href="/services">Services</a>
-                <a href="#process">Process</a>
+                <a href="#process">How It Works</a>
+                <a href="#contact">Contact</a>
                 <a href="/resources">Resources</a>
             </div>
-            <a class="ng-nav-cta" href="#contact">Start a project <span>↗</span></a>
+            <a class="ng-nav-cta" href="#contact">Discuss Your Project <span>↗</span></a>
             <details class="ng-mobile-menu">
                 <summary>Menu</summary>
                 <div>
                     <a href="/services">Services</a>
-                    <a href="#process">Process</a>
-                        <a href="/resources">Resources</a>
-                    <a href="#contact">Start a project</a>
+                    <a href="#process">How It Works</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/resources">Resources</a>
+                    <a href="#contact">Discuss Your Project</a>
                 </div>
             </details>
         </div>
     </nav>
 
-    <!-- Clean service-first homepage -->
-    <section id="services" class="ng-front-services">
+    <!-- Compact service storefront -->
+    <section class="sf-home-intro">
+        <div class="container sf-intro-grid">
+            <div>
+                <span class="sf-kicker">NEXTGEN TECH SOLUTIONS</span>
+                <h1>Digital services, delivered by a specialist.</h1>
+                <p>Browse focused services for AI automation, trading systems, web software, APIs and cloud delivery. Work directly with me from requirement review through handover.</p>
+                <div class="sf-intro-actions">
+                    <a class="sf-primary" href="#contact">Discuss Your Project</a>
+                    <a class="sf-secondary" href="/services">Browse All Services</a>
+                </div>
+            </div>
+            <form id="home-service-search" class="sf-search-card" role="search">
+                <label for="home-service-query">What do you need?</label>
+                <div class="sf-search-row">
+                    <input id="home-service-query" type="search" placeholder="Try MT5, AI agent, web app, API..." autocomplete="off">
+                    <button type="submit">Search</button>
+                </div>
+                <small>Search published services, then request a quote for the exact scope you need.</small>
+            </form>
+        </div>
+    </section>
+
+    <section id="services" class="sf-section">
         <div class="container">
-            <div class="ng-front-intro">
-                <span>NEXTGEN TECH SOLUTIONS</span>
-                <div>
-                    <h1>What do you need built?</h1>
-                    <p>Choose a service area below. Each one has its own dedicated page with capabilities, architecture and delivery details.</p>
-                </div>
+            <div class="sf-section-head">
+                <div><span class="sf-section-kicker">SERVICE CATEGORIES</span><h2>Start with the type of work.</h2></div>
+                <p>Only published service areas are shown here. If your project crosses categories, send one complete requirement and it can be scoped together.</p>
             </div>
+            <div class="sf-category-grid" data-storefront-categories></div>
+        </div>
+    </section>
 
-            <div class="ng-front-service-grid">
-                <a href="/trading-bot-development">
-                    <b>01</b><i>TRD</i>
-                    <strong>Trading Automation</strong>
-                    <span>MT4/5 · TradingView · execution · risk</span>
-                    <em>↗</em>
-                </a>
-                <a href="/ai-automation">
-                    <b>02</b><i>AI</i>
-                    <strong>AI Automation</strong>
-                    <span>Agents · RAG · tools · workflows</span>
-                    <em>↗</em>
-                </a>
-                <a href="/web-app-development">
-                    <b>03</b><i>WEB</i>
-                    <strong>Web &amp; SaaS</strong>
-                    <span>Portals · dashboards · product backends</span>
-                    <em>↗</em>
-                </a>
-                <a href="/llm-agent-development">
-                    <b>04</b><i>LLM</i>
-                    <strong>LLM &amp; AI Agents</strong>
-                    <span>Private AI · RAG · tool calling</span>
-                    <em>↗</em>
-                </a>
-                <a href="/api-cloud-development">
-                    <b>05</b><i>API</i>
-                    <strong>API &amp; Cloud</strong>
-                    <span>FastAPI · integrations · VPS / cloud</span>
-                    <em>↗</em>
-                </a>
+    <section class="sf-section" id="featured-services">
+        <div class="container">
+            <div class="sf-section-head">
+                <div><span class="sf-section-kicker">FEATURED SERVICES</span><h2>Common starting points.</h2></div>
+                <p>Open a service for deliverables and technical details, or request a quote when the scope is custom.</p>
             </div>
-
-            <div class="ng-front-footer">
-                <div><span>Clear scope</span><span>Reviewable milestones</span><span>Source-code handover</span></div>
-                <div>
-                    <a class="ng-front-text-link" href="/services">View all services</a>
-                    <a class="ng-front-primary" href="#contact">Start a project <b>→</b></a>
-                </div>
-            </div>
+            <div id="featured-services-grid" class="sf-service-grid"></div>
+            <p class="sf-home-note">Starting prices and delivery estimates are shown only where they can be verified for the actual scope.</p>
         </div>
     </section>
 
@@ -200,30 +193,10 @@
                 <p>We reduce ambiguity before coding and keep each stage reviewable, so you always know what is being built and what comes next.</p>
             </div>
             <div class="ng-process-grid">
-                <article><b>01</b><span>SCOPE</span><h3>Define the real workflow</h3><p>Goals, rules, inputs, integrations, constraints and acceptance criteria are written down before implementation.</p><small class="ng-process-output">OUTPUT · Written scope &amp; acceptance criteria</small></article>
-                <article><b>02</b><span>ARCHITECTURE</span><h3>Map the system and integrations</h3><p>We define how the UI, APIs, automations, data, AI or trading components fit together around your environment.</p><small class="ng-process-output">OUTPUT · Architecture &amp; milestone plan</small></article>
-                <article><b>03</b><span>BUILD + VALIDATE</span><h3>Ship in reviewable stages</h3><p>Implementation moves through practical milestones with functional testing, integration checks and feedback at each stage.</p><small class="ng-process-output">OUTPUT · Working milestones &amp; validation</small></article>
-                <article><b>04</b><span>HANDOVER</span><h3>Deploy, document, transfer</h3><p>You receive the agreed source code, deployment or setup guidance, and the documentation needed to operate the system.</p><small class="ng-process-output">OUTPUT · Source, setup &amp; documentation</small></article>
+                <article><b>01</b><span>CHOOSE</span><h3>Choose a service or custom scope</h3><p>Start from a published service, or describe a project that combines several areas.</p><small class="ng-process-output">OUTPUT · Clear starting point</small></article>
+                <article><b>02</b><span>REQUIREMENTS</span><h3>Share the workflow and constraints</h3><p>We define the deliverables, integrations, acceptance criteria and practical delivery plan before implementation.</p><small class="ng-process-output">OUTPUT · Agreed scope &amp; milestones</small></article>
+                <article><b>03</b><span>DELIVERY</span><h3>Review, receive and hand over</h3><p>The work moves through reviewable stages, validation and the agreed source-code or deployment handover.</p><small class="ng-process-output">OUTPUT · Completed work &amp; handover</small></article>
             </div>
-        </div>
-    </section>
-
-    <section id="free-resources" class="ng-section ng-resources">
-        <div class="container">
-            <div class="ng-section-head">
-                <div><span>FREE RESOURCES</span><h2>Useful tools before<br>you start a build.</h2></div>
-                <p>Practical calculators and implementation guides for trading automation, AI workflows and project planning.</p>
-            </div>
-            <div class="ng-resource-modes" aria-label="Resource categories">
-                <span>TRADING UTILITIES</span><span>AI PLANNING</span><span>BUILD SPECS</span><span>TECHNICAL GUIDES</span>
-            </div>
-            <div class="ng-resource-list">
-                <a href="/mt5-position-size-calculator"><b>RISK</b><div><strong>MT5 Position Size Calculator</strong><span>Risk-based volume from balance, stop distance and symbol value.</span><small>Interactive calculator</small></div><i>↗</i></a>
-                <a href="/mt5-telegram-copy-trading-bot"><b>GUIDE</b><div><strong>Telegram → MT5 Technical Guide</strong><span>Signal parsing, updates, partial closes and reliability controls.</span><small>Architecture guide</small></div><i>↗</i></a>
-                <a href="/ai-automation-roi-calculator"><b>AI</b><div><strong>AI Automation ROI Calculator</strong><span>Estimate time saved, labor value and rough payback for a workflow.</span><small>Planning calculator</small></div><i>↗</i></a>
-                <a href="/mt5-ea-requirements-generator"><b>SCOPE</b><div><strong>MT5 EA Requirements Generator</strong><span>Turn a trading idea into a clearer implementation brief before development.</span><small>Requirements tool</small></div><i>↗</i></a>
-            </div>
-            <a class="ng-text-link" href="/resources">Explore all resources →</a>
         </div>
     </section>
 
@@ -462,6 +435,8 @@
     </div>
 
     <!-- NextGen Tech Solutions · Auto-deploy active (public repo) -->
+    <script src="/service-catalog.js?v=1.0" defer></script>
+    <script src="/storefront.js?v=1.0" defer></script>
     <script src="/app.min.js?v=4.7" defer></script>
 </body>
 </html>

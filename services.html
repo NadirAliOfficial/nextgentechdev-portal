@@ -1,49 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Custom Software Services | NextGen Tech Solutions</title>
-<meta name="description" content="Explore NextGen Tech Solutions services for trading automation, AI automation, SaaS and web applications, LLM agents, APIs and cloud backends.">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://nextgentechdev.com/services">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Custom Software Services | NextGen Tech Solutions">
-<meta property="og:description" content="Trading automation, AI workflows, SaaS products, LLM agents, APIs and cloud backends — each scoped as a dedicated engineering service.">
-<meta property="og:url" content="https://nextgentechdev.com/services">
-<meta property="og:image" content="https://nextgentechdev.com/social-card.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/service.css?v=8.6">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Services | NextGen Tech Solutions</title>
+<meta name="description" content="Browse NextGen Tech Solutions services for AI automation, web apps, software, APIs, trading automation and cloud systems.">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://nextgentechdev.com/services">
+<meta property="og:type" content="website"><meta property="og:title" content="Digital Services | NextGen Tech Solutions"><meta property="og:description" content="Browse packaged and custom digital services and request a quote directly."><meta property="og:url" content="https://nextgentechdev.com/services"><meta property="og:image" content="https://nextgentechdev.com/social-card.png">
+<link rel="stylesheet" href="/service.css?v=8.6"><link rel="stylesheet" href="/storefront.css?v=1.0">
 </head>
-<body class="services-hub-page">
+<body class="services-hub-page sf-shell">
 <div class="wrap">
-<header class="top"><a class="brand" href="/"><img src="/brand-lockup.svg" alt="NextGen Tech Solutions" width="190" height="45"></a><a class="back" href="/#contact">Start a project →</a></header>
+<header class="top"><a class="brand" href="/"><img src="/brand-lockup.svg" alt="NextGen Tech Solutions" width="190" height="45"></a><a class="back" href="/#contact">Discuss your project →</a></header>
 <main>
-<section class="hero services-hub-hero">
-<div class="eyebrow">Specialized engineering services</div>
-<h1>Choose the service that matches the system you need.</h1>
-<p class="lead">The homepage stays concise. These dedicated service areas go deeper into the architecture, workflows and delivery details behind each type of build.</p>
-<div class="services-hub-index" aria-label="Service areas">
-<span>01 Trading</span><span>02 AI Automation</span><span>03 Web &amp; SaaS</span><span>04 LLM &amp; Agents</span><span>05 API &amp; Cloud</span>
-</div>
-</section>
-
-<section class="services-hub-grid">
-<a class="services-hub-card" href="/trading-bot-development"><b>01</b><div><small>TRADING AUTOMATION</small><h2>MT4 / MT5 &amp; TradingView systems</h2><p>EAs, signal bridges, execution logic, trade management and risk controls.</p><span>MQL5 · TradingView · Python</span></div><i>↗</i></a>
-<a class="services-hub-card" href="/ai-automation"><b>02</b><div><small>AI AUTOMATION</small><h2>Business workflows &amp; tool-connected AI</h2><p>Agents, RAG, document workflows, approvals, routing and operational automation.</p><span>Agents · RAG · APIs</span></div><i>↗</i></a>
-<a class="services-hub-card" href="/web-app-development"><b>03</b><div><small>WEB &amp; SAAS</small><h2>Portals, dashboards &amp; software products</h2><p>Customer apps, admin systems, subscriptions, billing and production backends.</p><span>Web · SaaS · Backend</span></div><i>↗</i></a>
-<a class="services-hub-card" href="/llm-agent-development"><b>04</b><div><small>LLM &amp; AI AGENTS</small><h2>RAG, tool calling &amp; private AI</h2><p>Knowledge retrieval, model integration, evaluated agent workflows and secure deployments.</p><span>LLM · RAG · Tools</span></div><i>↗</i></a>
-<a class="services-hub-card" href="/api-cloud-development"><b>05</b><div><small>API &amp; CLOUD</small><h2>Backends, integrations &amp; deployment</h2><p>FastAPI services, webhooks, databases, cloud/VPS deployment and observability.</p><span>FastAPI · Docker · Cloud</span></div><i>↗</i></a>
-</section>
-
-<section class="services-hub-cta">
-<div><small>NOT SURE WHICH SERVICE FITS?</small><h2>Describe the workflow instead.</h2><p>Complex projects often cross several service areas. We can scope the system around the actual requirement rather than forcing it into a package.</p></div>
-<a class="cta" href="/#custom-triage">Build a starting scope →</a>
-</section>
+<section class="sf-catalog-hero"><div class="container"><div class="sf-breadcrumbs"><a href="/">Home</a><span>/</span><span>Services</span></div><span class="sf-kicker">Service catalogue</span><h1>Choose the service that matches what you need built.</h1><p>Browse published services, search by platform or outcome, or send a custom requirement. You work directly with NextGen Tech Solutions.</p></div></section>
+<section class="sf-section"><div class="container">
+<div class="sf-catalog-search"><input id="service-search" type="search" placeholder="Search MT5, AI agents, web apps, APIs, cloud..." aria-label="Search services"><button id="service-search-reset" type="button">Reset</button></div>
+<div id="service-category-filters" class="sf-filter-row" aria-label="Filter services by category"></div>
+<div class="sf-result-bar"><span id="service-result-count">0 services</span><span>Pricing is quoted after scope review unless a verified package is shown.</span></div>
+<div id="service-catalog-grid" class="sf-catalog-grid"></div>
+<div id="service-empty-state" class="sf-empty" hidden><h3>No matching published service</h3><p>Describe the requirement instead. A custom project does not need to fit a predefined package.</p><a class="sf-primary" href="/#contact">Request a custom quote</a></div>
+<div class="sf-direct-note"><div><h2>Need a custom combination?</h2><p>Complex projects can combine AI, APIs, web software, cloud infrastructure and trading automation. Share the complete workflow and it can be scoped as one project.</p></div><a class="sf-primary" href="/#contact">Discuss your project</a></div>
+</div></section>
 </main>
 <footer>Remote collaboration worldwide · Clear scope · Testable milestones · Documented handover</footer>
 </div>
+<script src="/service-catalog.js?v=1.0" defer></script><script src="/storefront.js?v=1.0" defer></script>
 </body></html>
