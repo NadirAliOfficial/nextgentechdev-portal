@@ -4358,3 +4358,70 @@ body.home-v8{
     margin-top:0;
   }
 }
+
+/* v10.3 first-impression work-flow refinement */
+.home-v8 .ng-hero::after{
+  display:none;
+}
+.home-v8 .ng-hero-grid{
+  position:relative;
+}
+.home-v8 .ng-hero-workflows{
+  position:absolute;
+  z-index:5;
+  right:0;
+  top:356px;
+  width:290px;
+  display:grid;
+  gap:8px;
+}
+.home-v8 .ng-hero-workflows>div{
+  position:relative;
+  overflow:hidden;
+  padding:11px 13px 11px 15px;
+  border:1px solid rgba(58,79,120,.085);
+  border-radius:13px;
+  background:rgba(255,255,255,.68);
+  box-shadow:0 10px 28px rgba(30,41,59,.045);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.home-v8 .ng-hero-workflows>div::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:linear-gradient(180deg,#635bff,#20c7e9);
+  opacity:.72;
+}
+.home-v8 .ng-hero-workflows small{
+  display:block;
+  color:#8b98aa;
+  font:750 6px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:1.15px;
+}
+.home-v8 .ng-hero-workflows strong{
+  display:block;
+  margin-top:5px;
+  color:#263449;
+  font:800 8px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.25px;
+}
+.home-v8 .ng-hero-workflows i{
+  margin:0 4px;
+  color:#635bff;
+  font-style:normal;
+}
+.home-v8 .ng-hero-workflows>div:nth-child(2) i{
+  color:#20a9d2;
+}
+.home-v8 .ng-hero-workflows>div:nth-child(3) i{
+  color:#557cff;
+}
+@media(max-width:1050px){
+  .home-v8 .ng-hero-workflows{
+    display:none;
+  }
+}
