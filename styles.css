@@ -5514,3 +5514,221 @@ body.home-v8{
     width:14px;
   }
 }
+
+/* v9.5 navigation + footer polish */
+.home-v8 .ng-nav{
+  background:rgba(247,248,252,.72);
+  border-bottom-color:rgba(15,23,42,.06);
+  box-shadow:0 8px 28px rgba(15,23,42,.035);
+  backdrop-filter:blur(22px) saturate(165%);
+  -webkit-backdrop-filter:blur(22px) saturate(165%);
+}
+.home-v8 .ng-nav-inner{
+  position:relative;
+}
+.home-v8 .ng-nav-links a{
+  position:relative;
+  padding:24px 0 22px;
+  font-weight:650;
+}
+.home-v8 .ng-nav-links a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  right:50%;
+  bottom:14px;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#635bff,#20c7e9);
+  transition:left .2s ease,right .2s ease;
+}
+.home-v8 .ng-nav-links a:hover::after{
+  left:8%;
+  right:8%;
+}
+.home-v8 .ng-nav-cta{
+  min-height:40px;
+  padding:10px 16px;
+  background:linear-gradient(135deg,#111827,#172033);
+  box-shadow:0 10px 24px rgba(17,24,39,.15);
+}
+.home-v8 .ng-mobile-menu summary{
+  position:relative;
+  min-width:90px;
+  padding:12px 18px;
+  border-radius:16px;
+  border-color:rgba(15,23,42,.08);
+  box-shadow:0 8px 24px rgba(15,23,42,.05);
+}
+.home-v8 .ng-mobile-menu[open] summary{
+  color:#5149d8;
+  border-color:rgba(99,91,255,.18);
+  background:linear-gradient(145deg,#fff,#f7f7ff);
+}
+.home-v8 .ng-mobile-menu>div{
+  width:min(280px,calc(100vw - 36px));
+  padding:10px;
+  border-radius:18px;
+  border-color:rgba(99,91,255,.10);
+  background:rgba(255,255,255,.94);
+  box-shadow:0 26px 70px rgba(15,23,42,.18);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+}
+.home-v8 .ng-mobile-menu a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:46px;
+  padding:12px 13px;
+  border-radius:12px;
+  color:#273246;
+  font-size:13px;
+  font-weight:700;
+}
+.home-v8 .ng-mobile-menu a::after{
+  content:"→";
+  color:#7a72f3;
+  font-size:14px;
+}
+.home-v8 .ng-mobile-menu a:hover{
+  background:linear-gradient(90deg,rgba(99,91,255,.07),rgba(32,199,233,.045));
+  color:#5149d8;
+}
+.home-v8 .ng-mobile-menu a:last-child{
+  margin-top:5px;
+  color:#fff;
+  background:linear-gradient(135deg,#635bff,#557cff);
+}
+.home-v8 .ng-mobile-menu a:last-child::after{
+  color:#fff;
+}
+
+/* Footer */
+.home-v8 .ng-footer{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(99,91,255,.12),transparent 28%),
+    radial-gradient(circle at 92% 86%,rgba(32,199,233,.07),transparent 24%),
+    linear-gradient(180deg,#08101d 0%,#06101b 100%);
+}
+.home-v8 .ng-footer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.38;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 70%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 70%);
+}
+.home-v8 .ng-footer-top,
+.home-v8 .ng-footer-bottom{
+  position:relative;
+  z-index:1;
+}
+.home-v8 .ng-footer-top{
+  padding-top:70px;
+  padding-bottom:58px;
+}
+.home-v8 .ng-footer-brand{
+  max-width:460px;
+}
+.home-v8 .ng-footer-status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:18px;
+  padding:7px 10px;
+  border:1px solid rgba(52,211,153,.16);
+  border-radius:999px;
+  background:rgba(16,185,129,.08);
+  color:#b7f7dc;
+  font-size:9px;
+  font-weight:750;
+  letter-spacing:.3px;
+}
+.home-v8 .ng-footer-status i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#34d399;
+  box-shadow:0 0 12px rgba(52,211,153,.72);
+}
+.home-v8 .ng-footer-brand p{
+  margin-top:16px;
+  color:#94a3b8;
+  font-size:13px;
+}
+.home-v8 .ng-footer-links{
+  gap:38px;
+}
+.home-v8 .ng-footer-links>div{
+  gap:10px;
+}
+.home-v8 .ng-footer-links strong{
+  margin-bottom:7px;
+  color:#f8fafc;
+  font-size:9px;
+  letter-spacing:1.45px;
+}
+.home-v8 .ng-footer-links a{
+  position:relative;
+  width:max-content;
+  max-width:100%;
+  color:#8f9caf;
+  font-size:12px;
+}
+.home-v8 .ng-footer-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:-2px;
+  height:1px;
+  background:linear-gradient(90deg,#635bff,#20c7e9);
+  transition:right .2s ease;
+}
+.home-v8 .ng-footer-links a:hover::after{
+  right:0;
+}
+.home-v8 .ng-footer-bottom{
+  padding-top:22px;
+  padding-bottom:30px;
+  color:#6f7d90;
+}
+@media(max-width:640px){
+  .home-v8 .ng-nav{
+    background:rgba(247,248,252,.88);
+  }
+  .home-v8 .ng-mobile-menu>div{
+    top:56px;
+  }
+  .home-v8 .ng-footer-top{
+    padding-top:50px;
+    padding-bottom:38px;
+    gap:34px;
+  }
+  .home-v8 .ng-footer-links{
+    grid-template-columns:1fr 1fr;
+    gap:28px 22px;
+  }
+  .home-v8 .ng-footer-links>div:last-child{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,max-content);
+    gap:12px 18px;
+    align-items:center;
+  }
+  .home-v8 .ng-footer-links>div:last-child strong{
+    grid-column:1 / -1;
+  }
+  .home-v8 .ng-footer-bottom{
+    font-size:9px;
+    line-height:1.55;
+  }
+}
