@@ -817,3 +817,55 @@ footer:before{
     justify-self:start;
   }
 }
+
+/* v8.7 service buying clarity + accessibility */
+.svc-breadcrumb{
+  display:flex;flex-wrap:wrap;gap:7px;align-items:center;
+  margin:0 0 18px;color:#7a8798;font-size:12px;
+}
+.svc-breadcrumb a{color:#5f6f84;text-decoration:none}
+.svc-breadcrumb a:hover{text-decoration:underline}
+.svc-breadcrumb span[aria-current="page"]{color:#344054;font-weight:700}
+.svc-buying-brief{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(210px,.8fr);
+  gap:12px;align-items:stretch;margin:-16px 0 34px;padding:0;
+}
+.svc-brief-item,.svc-brief-action{
+  min-width:0;padding:18px;border:1px solid rgba(55,76,115,.10);
+  border-radius:14px;background:#fff;box-shadow:0 10px 26px rgba(30,41,59,.035);
+}
+.svc-brief-item>span{
+  display:block;margin-bottom:9px;color:#5e55df;
+  font:800 8px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.9px;
+}
+.svc-brief-item p,.svc-brief-item ul{margin:0;color:#64748b;font-size:13px;line-height:1.55}
+.svc-brief-item ul{padding-left:17px}
+.svc-brief-item li+li{margin-top:4px}
+.svc-brief-action{
+  display:flex;flex-direction:column;justify-content:space-between;
+  background:#111827;color:#fff;
+}
+.svc-brief-action small{color:#cbd5e1;font-size:12px;line-height:1.45}
+.svc-brief-action a{
+  display:flex;align-items:center;justify-content:center;min-height:44px;
+  margin-top:18px;padding:0 14px;border-radius:10px;background:#fff;
+  color:#111827;text-decoration:none;font-size:13px;font-weight:800;
+}
+body :is(a,button,input,select,textarea,summary):focus-visible{
+  outline:3px solid rgba(37,99,235,.28);outline-offset:3px
+}
+@media(max-width:980px){
+  .svc-buying-brief{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .svc-breadcrumb{margin-bottom:14px}
+  .svc-buying-brief{grid-template-columns:1fr;margin:-8px 0 28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+.svc-brief-action>div{display:grid;gap:8px;margin-top:18px}
+.svc-brief-action>div>a{margin-top:0}
+.svc-brief-action .svc-example-link{min-height:36px;background:transparent;border:1px solid rgba(255,255,255,.22);color:#e5e7eb;font-size:12px}
