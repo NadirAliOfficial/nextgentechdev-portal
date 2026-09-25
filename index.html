@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/logo.jpg">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=8.2">
+    <link rel="stylesheet" href="/styles.min.css?v=8.3">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -415,18 +415,18 @@
     <!-- ═══════════════════════════════════════════════════════════
          NextGen Live Engineering Desk Chat Widget
          ═══════════════════════════════════════════════════════════ -->
-    <div id="live-chat-launcher" class="live-chat-launcher" onclick="toggleLiveChat()">
-        <div class="chat-launcher-pulse"></div>
-        <div class="chat-launcher-icon">
+    <button type="button" id="live-chat-launcher" class="live-chat-launcher" onclick="toggleLiveChat()" aria-label="Open project chat" aria-controls="live-chat-widget" aria-expanded="false">
+        <span class="chat-launcher-pulse" aria-hidden="true"></span>
+        <span class="chat-launcher-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
-        </div>
+        </span>
         <span class="chat-launcher-label">Chat with Engineering Desk</span>
         <span class="chat-launcher-badge" id="chat-unread-badge" style="display:none;">1</span>
-    </div>
+    </button>
 
-    <div id="live-chat-widget" class="live-chat-widget">
+    <div id="live-chat-widget" class="live-chat-widget" role="dialog" aria-label="NextGen project chat" aria-hidden="true">
         <div class="chat-widget-header">
             <div class="chat-header-info">
                 <div class="chat-header-avatar">
@@ -438,7 +438,7 @@
                     <div class="chat-header-subtitle">Online</div>
                 </div>
             </div>
-            <button class="chat-close-btn" onclick="toggleLiveChat()" title="Minimize Chat">✕</button>
+            <button type="button" class="chat-close-btn" onclick="toggleLiveChat()" title="Minimize Chat" aria-label="Close project chat">✕</button>
         </div>
 
         <div class="chat-visitor-bar" id="chat-visitor-bar">
@@ -484,7 +484,7 @@
     </div>
 
     <!-- NextGen Tech Solutions · Auto-deploy active (public repo) -->
-    <script src="/app.min.js?v=4.2" defer></script>
+    <script src="/app.min.js?v=4.3" defer></script>
 </body>
 </html>
 <!-- visibility check 2026-09-11T12:49:00Z -->

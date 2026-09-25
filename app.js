@@ -887,6 +887,9 @@ window.openLiveChat = function (options = {}) {
 
     liveChatState.isOpen = true;
     widget.classList.add('active');
+    widget.setAttribute('aria-hidden', 'false');
+    const launcher = document.getElementById('live-chat-launcher');
+    if (launcher) launcher.setAttribute('aria-expanded', 'true');
 
     if (badge) badge.style.display = 'none';
 
@@ -909,7 +912,12 @@ window.openLiveChat = function (options = {}) {
 window.toggleLiveChat = function () {
     if (liveChatState.isOpen) {
         const widget = document.getElementById('live-chat-widget');
-        if (widget) widget.classList.remove('active');
+        if (widget) {
+            widget.classList.remove('active');
+            widget.setAttribute('aria-hidden', 'true');
+        }
+        const launcher = document.getElementById('live-chat-launcher');
+        if (launcher) launcher.setAttribute('aria-expanded', 'false');
         liveChatState.isOpen = false;
     } else {
         window.openLiveChat();
@@ -1201,6 +1209,36 @@ function scrollChatToBottom() {
 
 // Initialize chat history on load
 document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenu = document.querySelector('.ng-mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.removeAttribute('open'));
+        });
+    }
+
+    const chatLauncher = document.getElementById('live-chat-launcher');
+    const suppressTargets = [
+        document.getElementById('contact'),
+        document.querySelector('.ng-footer')
+    ].filter(Boolean);
+    if (chatLauncher && suppressTargets.length && 'IntersectionObserver' in window) {
+        const visibleTargets = new Set();
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) visibleTargets.add(entry.target);
+                else visibleTargets.delete(entry.target);
+            });
+            chatLauncher.classList.toggle('chat-launcher-suppressed', visibleTargets.size > 0);
+        }, { threshold: 0.08 });
+        suppressTargets.forEach(target => observer.observe(target));
+    }
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && liveChatState.isOpen) {
+            window.toggleLiveChat();
+        }
+    });
+
     setTimeout(() => {
         pollChatMessages();
     }, 1000);

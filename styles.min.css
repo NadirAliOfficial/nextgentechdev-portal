@@ -427,3 +427,194 @@ body.home-v8{
   .home-v8 .ng-brand img.ng-brand-lockup{width:160px}
   .home-v8 .ng-brand-footer img.ng-brand-lockup{width:172px}
 }
+/* v8.3 Astra finish — mobile polish, accessibility, brand rhythm */
+.home-v8 #services,
+.home-v8 #work,
+.home-v8 #custom-triage,
+.home-v8 #process,
+.home-v8 #free-resources,
+.home-v8 #contact{
+  scroll-margin-top:92px;
+}
+.home-v8 .ng-brand img.ng-brand-lockup{
+  width:204px;
+}
+.home-v8 .live-chat-launcher{
+  font:inherit;
+  cursor:pointer;
+}
+.home-v8 #custom-triage .section-header{
+  max-width:760px;
+  margin-left:0;
+  margin-right:0;
+  text-align:left;
+}
+.home-v8 #custom-triage .section-subtitle{
+  max-width:660px;
+}
+.home-v8 .ng-mobile-menu>div{
+  z-index:20;
+}
+@media(max-width:900px){
+  .home-v8 .ng-capability-rail{
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    overflow:visible;
+    white-space:normal;
+    gap:9px 14px;
+    padding:15px 0 2px;
+    min-height:auto;
+    scrollbar-width:none;
+  }
+  .home-v8 .ng-capability-rail i{
+    display:none;
+  }
+  .home-v8 .ng-capability-rail span{
+    padding:6px 9px;
+    border:1px solid rgba(15,23,42,.08);
+    border-radius:999px;
+    background:rgba(255,255,255,.55);
+  }
+  .home-v8 .live-chat-launcher{
+    width:46px;
+    height:46px;
+    right:10px;
+    bottom:max(10px, env(safe-area-inset-bottom));
+    border-radius:50%;
+    box-shadow:0 10px 28px rgba(0,0,0,.24),0 0 18px rgba(99,91,255,.10);
+  }
+  .home-v8 .live-chat-launcher .chat-launcher-icon{
+    width:30px;
+    height:30px;
+  }
+  .home-v8 .live-chat-launcher .chat-launcher-icon svg{
+    width:18px;
+    height:18px;
+  }
+  .home-v8 .live-chat-launcher .chat-launcher-pulse{
+    top:4px;
+    left:4px;
+  }
+}
+@media(max-width:640px){
+  .home-v8 .ng-brand img.ng-brand-lockup{
+    width:168px;
+  }
+  .home-v8 .ng-nav-inner{
+    height:66px;
+  }
+  .home-v8 .ng-mobile-menu summary{
+    min-width:64px;
+    text-align:center;
+    padding:10px 13px;
+  }
+  .home-v8 .ng-mobile-menu>div{
+    width:min(238px, calc(100vw - 36px));
+    top:50px;
+    border-radius:16px;
+    box-shadow:0 22px 55px rgba(15,23,42,.16);
+  }
+  .home-v8 .ng-capability-rail{
+    gap:8px;
+  }
+  .home-v8 .ng-capability-rail span{
+    font-size:9px;
+    padding:5px 8px;
+  }
+  .home-v8 #custom-triage .section-header{
+    margin-bottom:28px;
+  }
+  .home-v8 #custom-triage .section-title{
+    font-size:32px;
+    line-height:1.06;
+  }
+  .home-v8 #custom-triage .section-subtitle{
+    font-size:13.5px;
+    line-height:1.65;
+  }
+  .home-v8 .ng-service-copy p,
+  .home-v8 .ng-work-copy p,
+  .home-v8 .ng-process-grid p,
+  .home-v8 .ng-resource-list span{
+    line-height:1.7;
+  }
+  .home-v8 .live-chat-widget{
+    right:10px;
+    left:10px;
+    width:auto;
+    bottom:68px;
+    height:min(72vh,620px);
+    border-radius:18px;
+  }
+}
+/* v8.3 chat polish */
+.home-v8 .live-chat-launcher{
+  gap:8px;
+  padding:8px 13px 8px 8px;
+  font-size:11.5px;
+  letter-spacing:0;
+  border-color:rgba(99,91,255,.28);
+  box-shadow:0 10px 28px rgba(15,23,42,.24);
+  background:rgba(15,23,42,.96);
+}
+.home-v8 .live-chat-launcher:hover{
+  transform:translateY(-2px);
+  border-color:rgba(99,91,255,.46);
+  box-shadow:0 14px 32px rgba(15,23,42,.30);
+}
+.home-v8 .chat-launcher-icon{
+  width:32px;
+  height:32px;
+  background:linear-gradient(135deg,#635bff,#3b82f6);
+  color:#fff;
+  box-shadow:none;
+}
+.home-v8 .chat-launcher-pulse{
+  display:none;
+}
+.home-v8 .live-chat-launcher.chat-launcher-suppressed{
+  opacity:0;
+  transform:translateY(10px) scale(.96);
+  pointer-events:none;
+}
+.home-v8 .live-chat-widget{
+  background:#0b1425;
+  border-color:rgba(99,91,255,.24);
+  box-shadow:0 24px 64px rgba(2,6,23,.48);
+}
+.home-v8 .chat-widget-header{
+  background:linear-gradient(135deg,#121d34,#0b1425);
+}
+.home-v8 .chat-avatar-img{
+  border-color:rgba(99,91,255,.42);
+}
+.home-v8 .chat-visitor-input:focus,
+.home-v8 .chat-msg-input:focus{
+  border-color:#756cff;
+  box-shadow:0 0 0 3px rgba(117,108,255,.10);
+}
+.home-v8 .chat-msg-client .chat-bubble{
+  background:linear-gradient(135deg,#6d5cff,#3b82f6);
+  color:#fff;
+  box-shadow:0 4px 15px rgba(99,91,255,.20);
+}
+.home-v8 .chat-send-btn{
+  background:linear-gradient(135deg,#6d5cff,#3b82f6);
+  color:#fff;
+  box-shadow:none;
+}
+.home-v8 .chat-send-btn:hover{
+  box-shadow:0 8px 18px rgba(99,91,255,.24);
+}
+@media(max-width:900px){
+  .home-v8 .live-chat-launcher{
+    width:42px;
+    height:42px;
+    right:10px;
+    padding:0;
+  }
+  .home-v8 .live-chat-launcher .chat-launcher-icon{
+    width:28px;
+    height:28px;
+  }
+}
