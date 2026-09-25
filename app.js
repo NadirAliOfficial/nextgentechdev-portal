@@ -1258,6 +1258,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const nav = document.querySelector('.ng-nav');
+    if (nav) {
+        let navTicking = false;
+        const syncNavDepth = () => {
+            nav.classList.toggle('is-scrolled', window.scrollY > 24);
+            navTicking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!navTicking) {
+                navTicking = true;
+                requestAnimationFrame(syncNavDepth);
+            }
+        }, { passive: true });
+        syncNavDepth();
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.ng-nav-links a[href^="#"], .ng-mobile-menu a[href^="#"]')];
+    if (sectionLinks.length && 'IntersectionObserver' in window) {
+        const targetMap = new Map();
+        sectionLinks.forEach(link => {
+            const hash = link.getAttribute('href');
+            const target = hash && hash.length > 1 ? document.querySelector(hash) : null;
+            if (!target) return;
+            if (!targetMap.has(target)) targetMap.set(target, []);
+            targetMap.get(target).push(link);
+        });
+
+        let activeTarget = null;
+        const setActiveTarget = target => {
+            if (target === activeTarget) return;
+            activeTarget = target;
+            sectionLinks.forEach(link => link.classList.remove('is-active'));
+            (targetMap.get(target) || []).forEach(link => link.classList.add('is-active'));
+        };
+
+        const sectionObserver = new IntersectionObserver(entries => {
+            const visible = entries
+                .filter(entry => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+            if (visible.length) setActiveTarget(visible[0].target);
+        }, { rootMargin: '-18% 0px -64% 0px', threshold: [0, 0.08, 0.2] });
+
+        targetMap.forEach((_, target) => sectionObserver.observe(target));
+    }
+
     const chatLauncher = document.getElementById('live-chat-launcher');
     const suppressTargets = [
         document.getElementById('contact'),

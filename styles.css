@@ -5732,3 +5732,40 @@ body.home-v8{
     line-height:1.55;
   }
 }
+
+/* v9.6 active navigation polish */
+.home-v8 .ng-nav,
+.home-v8 .ng-nav-inner{
+  transition:height .22s ease,background .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.home-v8 .ng-nav.is-scrolled{
+  background:rgba(247,248,252,.90);
+  border-bottom-color:rgba(15,23,42,.08);
+  box-shadow:0 12px 32px rgba(15,23,42,.06);
+}
+.home-v8 .ng-nav.is-scrolled .ng-nav-inner{
+  height:64px;
+}
+.home-v8 .ng-nav-links a.is-active{
+  color:#151d2d;
+}
+.home-v8 .ng-nav-links a.is-active::after{
+  left:8%;
+  right:8%;
+}
+.home-v8 .ng-mobile-menu a.is-active:not(:last-child){
+  color:#5149d8;
+  background:linear-gradient(90deg,rgba(99,91,255,.08),rgba(32,199,233,.045));
+}
+@media(max-width:640px){
+  .home-v8 .ng-nav.is-scrolled .ng-nav-inner{
+    height:62px;
+  }
+  .home-v8 .ng-nav.is-scrolled .ng-brand img.ng-brand-lockup{
+    width:158px;
+  }
+  .home-v8 .ng-nav.is-scrolled .ng-mobile-menu summary{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+}
