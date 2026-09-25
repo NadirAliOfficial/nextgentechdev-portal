@@ -3637,3 +3637,365 @@ body.home-v8{
     display:none;
   }
 }
+
+/* v8.7 NextGen capability network hero */
+.home-v8 .ng-capability-map{
+  position:relative;
+  z-index:2;
+  width:100%;
+  min-height:540px;
+  isolation:isolate;
+  overflow:visible;
+}
+.home-v8 .ng-map-grid{
+  position:absolute;
+  inset:7% 2% 5%;
+  z-index:-4;
+  border-radius:42%;
+  opacity:.48;
+  background-image:
+    radial-gradient(circle,rgba(91,96,246,.17) 1px,transparent 1.3px),
+    linear-gradient(rgba(99,91,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(32,199,233,.03) 1px,transparent 1px);
+  background-size:22px 22px,44px 44px,44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 25%,rgba(0,0,0,.58) 55%,transparent 80%);
+  mask-image:radial-gradient(ellipse at center,#000 25%,rgba(0,0,0,.58) 55%,transparent 80%);
+}
+.home-v8 .ng-map-glow{
+  position:absolute;
+  z-index:-5;
+  border-radius:50%;
+  filter:blur(2px);
+  pointer-events:none;
+}
+.home-v8 .ng-map-glow-a{
+  width:380px;
+  height:380px;
+  left:50%;
+  top:50%;
+  transform:translate(-52%,-48%);
+  background:radial-gradient(circle,rgba(116,92,255,.20),rgba(116,92,255,.07) 35%,transparent 70%);
+}
+.home-v8 .ng-map-glow-b{
+  width:360px;
+  height:360px;
+  right:-5%;
+  top:19%;
+  background:radial-gradient(circle,rgba(32,199,233,.13),transparent 68%);
+}
+.home-v8 .ng-map-connections{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:visible;
+}
+.home-v8 .ng-map-paths{
+  fill:none;
+  stroke:url(#ngLinePurple);
+  stroke-width:2.2;
+  stroke-linecap:round;
+  opacity:.75;
+  filter:url(#ngGlow);
+}
+.home-v8 .ng-map-paths path:nth-child(even){
+  stroke:url(#ngLineCyan);
+}
+.home-v8 .ng-map-junctions{
+  fill:#fff;
+  stroke:#6b66ff;
+  stroke-width:2.2;
+  filter:url(#ngGlow);
+}
+.home-v8 .ng-map-junctions circle:nth-child(even){
+  stroke:#20c7e9;
+}
+.home-v8 .ng-map-node{
+  position:absolute;
+  z-index:3;
+  width:188px;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 11px;
+  text-decoration:none;
+  color:#172033;
+  border:1px solid rgba(89,82,221,.12);
+  border-radius:17px;
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(248,250,255,.78));
+  box-shadow:
+    0 14px 34px rgba(58,68,101,.10),
+    inset 0 1px 0 rgba(255,255,255,.98);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.home-v8 .ng-map-node:hover{
+  transform:translateY(-3px);
+  border-color:rgba(99,91,255,.28);
+  box-shadow:0 20px 42px rgba(74,82,118,.15),0 0 26px rgba(99,91,255,.08);
+}
+.home-v8 .ng-map-icon{
+  width:41px;
+  height:41px;
+  flex:0 0 41px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:
+    linear-gradient(145deg,rgba(99,91,255,.16),rgba(32,199,233,.08)),
+    #fff;
+  border:1px solid rgba(99,91,255,.13);
+  color:#5d55e6;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+.home-v8 .ng-map-node>div{
+  min-width:0;
+  flex:1;
+}
+.home-v8 .ng-map-node strong{
+  display:block;
+  font-size:11px;
+  line-height:1.15;
+  color:#151d2d;
+  letter-spacing:-.1px;
+}
+.home-v8 .ng-map-node small{
+  display:block;
+  margin-top:4px;
+  font-size:7.5px;
+  line-height:1.25;
+  color:#78869b;
+}
+.home-v8 .ng-map-node>b{
+  flex:0 0 auto;
+  font-size:12px;
+  color:#635bff;
+  font-weight:800;
+}
+.home-v8 .ng-node-ai{
+  width:182px;
+  left:50%;
+  top:1%;
+  transform:translateX(-50%);
+}
+.home-v8 .ng-node-ai:hover{
+  transform:translateX(-50%) translateY(-3px);
+}
+.home-v8 .ng-node-tv{left:0;top:18%}
+.home-v8 .ng-node-mt5{right:0;top:18%}
+.home-v8 .ng-node-api{left:-2%;top:43%}
+.home-v8 .ng-node-saas{right:-2%;top:43%}
+.home-v8 .ng-node-llm{left:1%;top:68%}
+.home-v8 .ng-node-rag{right:1%;top:68%}
+.home-v8 .ng-node-tg{
+  width:196px;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+}
+.home-v8 .ng-node-tg:hover{
+  transform:translateX(-50%) translateY(-3px);
+}
+.home-v8 .ng-map-core{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:52%;
+  width:150px;
+  height:150px;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:32px;
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(245,247,255,.78));
+  border:1px solid rgba(99,91,255,.20);
+  box-shadow:
+    0 24px 55px rgba(67,73,112,.18),
+    0 0 0 8px rgba(255,255,255,.24),
+    0 0 65px rgba(99,91,255,.20);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+.home-v8 .ng-map-core-ring{
+  position:absolute;
+  inset:-20px;
+  z-index:-1;
+  border-radius:40px;
+  border:1px solid rgba(99,91,255,.10);
+  box-shadow:
+    0 0 0 12px rgba(99,91,255,.025),
+    0 0 0 28px rgba(32,199,233,.018);
+}
+.home-v8 .ng-map-core img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  margin-bottom:8px;
+}
+.home-v8 .ng-map-core strong{
+  font-size:15px;
+  line-height:1;
+  color:#111827;
+  letter-spacing:-.35px;
+}
+.home-v8 .ng-map-core small{
+  margin-top:5px;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#6f7b91;
+}
+.home-v8 .ng-map-caption{
+  position:absolute;
+  right:5%;
+  top:3%;
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  z-index:1;
+}
+.home-v8 .ng-map-caption>span{
+  width:22px;
+  height:2px;
+  margin-top:5px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#635bff,#20c7e9);
+}
+.home-v8 .ng-map-caption p{
+  margin:0;
+  font-size:7px;
+  line-height:1.65;
+  font-weight:800;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:#8c98aa;
+}
+@keyframes ng-map-pulse{
+  0%,100%{opacity:.55;transform:scale(.88)}
+  50%{opacity:1;transform:scale(1.12)}
+}
+@keyframes ng-map-float{
+  0%,100%{translate:0 0}
+  50%{translate:0 -4px}
+}
+.home-v8 .ng-map-junctions circle{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:ng-map-pulse 3.6s ease-in-out infinite;
+}
+.home-v8 .ng-map-junctions circle:nth-child(2n){animation-delay:.7s}
+.home-v8 .ng-map-junctions circle:nth-child(3n){animation-delay:1.4s}
+.home-v8 .ng-map-node{
+  animation:ng-map-float 6s ease-in-out infinite;
+}
+.home-v8 .ng-node-tv,.home-v8 .ng-node-saas,.home-v8 .ng-node-rag{animation-delay:-2s}
+.home-v8 .ng-node-mt5,.home-v8 .ng-node-api,.home-v8 .ng-node-llm{animation-delay:-4s}
+.home-v8 .ng-node-ai,.home-v8 .ng-node-tg{animation:none}
+
+@media(max-width:1120px) and (min-width:861px){
+  .home-v8 .ng-capability-map{min-height:520px}
+  .home-v8 .ng-map-node{width:165px;padding:9px}
+  .home-v8 .ng-map-icon{width:36px;height:36px;flex-basis:36px}
+  .home-v8 .ng-map-node strong{font-size:10px}
+  .home-v8 .ng-map-node small{font-size:7px}
+  .home-v8 .ng-node-ai{width:170px}
+  .home-v8 .ng-node-tg{width:180px}
+  .home-v8 .ng-map-core{width:132px;height:132px}
+}
+@media(max-width:860px){
+  .home-v8 .ng-capability-map{
+    min-height:520px;
+    max-width:720px;
+    margin:0 auto;
+  }
+}
+@media(max-width:640px){
+  .home-v8 .ng-capability-map{
+    min-height:455px;
+    margin-top:2px;
+  }
+  .home-v8 .ng-map-grid{
+    inset:5% -7% 3%;
+    background-size:18px 18px,36px 36px,36px 36px;
+  }
+  .home-v8 .ng-map-glow-a{
+    width:330px;height:330px;
+  }
+  .home-v8 .ng-map-glow-b{
+    width:260px;height:260px;
+  }
+  .home-v8 .ng-map-node{
+    width:132px;
+    min-height:57px;
+    gap:7px;
+    padding:8px;
+    border-radius:14px;
+  }
+  .home-v8 .ng-map-icon{
+    width:31px;height:31px;flex-basis:31px;
+    border-radius:9px;
+    font-size:7px;
+  }
+  .home-v8 .ng-map-node strong{
+    font-size:8.5px;
+  }
+  .home-v8 .ng-map-node small{
+    margin-top:2px;
+    font-size:6px;
+    line-height:1.15;
+  }
+  .home-v8 .ng-map-node>b{display:none}
+  .home-v8 .ng-node-ai{
+    width:140px;
+    top:0;
+  }
+  .home-v8 .ng-node-tv{left:0;top:18%}
+  .home-v8 .ng-node-mt5{right:0;top:18%}
+  .home-v8 .ng-node-api{left:-1%;top:43%}
+  .home-v8 .ng-node-saas{right:-1%;top:43%}
+  .home-v8 .ng-node-llm{left:0;top:68%}
+  .home-v8 .ng-node-rag{right:0;top:68%}
+  .home-v8 .ng-node-tg{
+    width:145px;
+    bottom:0;
+  }
+  .home-v8 .ng-map-core{
+    width:108px;
+    height:108px;
+    border-radius:25px;
+    top:52%;
+  }
+  .home-v8 .ng-map-core-ring{inset:-14px;border-radius:31px}
+  .home-v8 .ng-map-core img{width:45px;height:45px;margin-bottom:5px}
+  .home-v8 .ng-map-core strong{font-size:12px}
+  .home-v8 .ng-map-core small{font-size:5.5px;letter-spacing:1.3px}
+  .home-v8 .ng-map-caption{
+    display:none;
+  }
+}
+@media(max-width:400px){
+  .home-v8 .ng-capability-map{min-height:440px}
+  .home-v8 .ng-map-node{
+    width:125px;
+    min-height:54px;
+    padding:7px;
+  }
+  .home-v8 .ng-map-icon{width:29px;height:29px;flex-basis:29px}
+  .home-v8 .ng-map-node strong{font-size:8px}
+  .home-v8 .ng-map-node small{font-size:5.6px}
+  .home-v8 .ng-node-ai{width:135px}
+  .home-v8 .ng-node-tg{width:140px}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-v8 .ng-map-node,
+  .home-v8 .ng-map-junctions circle{
+    animation:none !important;
+  }
+}

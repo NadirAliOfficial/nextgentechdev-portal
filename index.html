@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/social-card.png">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=8.6">
+    <link rel="stylesheet" href="/styles.min.css?v=8.7">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -91,29 +91,97 @@
                     <span>Clear scope</span><span>Reviewable milestones</span><span>Source-code handover</span>
                 </div>
             </div>
-            <div class="ng-product-canvas" aria-label="NextGen engineering system overview">
-                <div class="ng-canvas-grid"></div>
-                <div class="ng-canvas-chip ng-chip-top">Engineering workspace</div>
-                <div class="ng-canvas-card ng-card-ai">
-                    <div class="ng-card-icon">✦</div>
-                    <div><small>AI AUTOMATION</small><strong>Agent workflow</strong><span>Documents → Tools → Actions</span></div>
+            <div class="ng-capability-map" aria-label="NextGen capability network">
+                <div class="ng-map-glow ng-map-glow-a"></div>
+                <div class="ng-map-glow ng-map-glow-b"></div>
+                <div class="ng-map-grid"></div>
+
+                <svg class="ng-map-connections" viewBox="0 0 600 520" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="ngLinePurple" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#7c5cff"/>
+                            <stop offset=".55" stop-color="#5d6cff"/>
+                            <stop offset="1" stop-color="#22c7e8"/>
+                        </linearGradient>
+                        <linearGradient id="ngLineCyan" x1="0" y1="1" x2="1" y2="0">
+                            <stop offset="0" stop-color="#20c7e9"/>
+                            <stop offset=".55" stop-color="#4c8dff"/>
+                            <stop offset="1" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                        <filter id="ngGlow">
+                            <feGaussianBlur stdDeviation="2.4" result="b"/>
+                            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <g class="ng-map-paths">
+                        <path d="M300 260 C300 214 300 170 300 126"/>
+                        <path d="M287 264 C245 236 208 196 154 166"/>
+                        <path d="M313 264 C355 236 392 196 446 166"/>
+                        <path d="M280 278 C226 278 185 272 126 264"/>
+                        <path d="M320 278 C374 278 415 272 474 264"/>
+                        <path d="M286 292 C243 320 205 357 150 382"/>
+                        <path d="M314 292 C357 320 395 357 450 382"/>
+                        <path d="M300 302 C300 354 300 392 300 437"/>
+                    </g>
+                    <g class="ng-map-junctions">
+                        <circle cx="300" cy="126" r="5"/><circle cx="154" cy="166" r="5"/><circle cx="446" cy="166" r="5"/>
+                        <circle cx="126" cy="264" r="5"/><circle cx="474" cy="264" r="5"/>
+                        <circle cx="150" cy="382" r="5"/><circle cx="450" cy="382" r="5"/><circle cx="300" cy="437" r="5"/>
+                    </g>
+                </svg>
+
+                <a class="ng-map-node ng-node-ai" href="/ai-automation">
+                    <span class="ng-map-icon">AI</span>
+                    <div><strong>AI Agents</strong><small>Workflows &amp; tool actions</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-tv" href="/pine-script-to-mt5-automation">
+                    <span class="ng-map-icon">TV</span>
+                    <div><strong>TradingView</strong><small>Signals &amp; webhooks</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-mt5" href="/trading-bot-development">
+                    <span class="ng-map-icon">M5</span>
+                    <div><strong>MT4 / MT5</strong><small>Execution systems</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-api" href="/web-app-development">
+                    <span class="ng-map-icon">API</span>
+                    <div><strong>APIs &amp; Cloud</strong><small>Integrations &amp; scale</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-saas" href="/web-app-development">
+                    <span class="ng-map-icon">S</span>
+                    <div><strong>SaaS Platforms</strong><small>Apps &amp; portals</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-llm" href="/llm-agent-development">
+                    <span class="ng-map-icon">LLM</span>
+                    <div><strong>Private LLM</strong><small>Secure AI systems</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-rag" href="/ai-automation">
+                    <span class="ng-map-icon">RG</span>
+                    <div><strong>RAG Systems</strong><small>Knowledge &amp; search</small></div>
+                    <b>↗</b>
+                </a>
+                <a class="ng-map-node ng-node-tg" href="/mt5-telegram-copy-trading-bot">
+                    <span class="ng-map-icon">TG</span>
+                    <div><strong>Telegram Automation</strong><small>Bots &amp; notifications</small></div>
+                    <b>↗</b>
+                </a>
+
+                <div class="ng-map-core">
+                    <div class="ng-map-core-ring"></div>
+                    <img src="/brand-mark.svg" alt="" width="64" height="64" loading="eager" decoding="async">
+                    <strong>NextGen</strong>
+                    <small>CAPABILITY CORE</small>
                 </div>
-                <div class="ng-canvas-card ng-card-trading">
-                    <div class="ng-card-icon">↗</div>
-                    <div><small>TRADING SYSTEMS</small><strong>Execution engine</strong><span>Signals → Risk → MT5</span></div>
+
+                <div class="ng-map-caption">
+                    <span></span>
+                    <p>One engineering core.<br>Multiple specialized systems.</p>
                 </div>
-                <div class="ng-canvas-card ng-card-app">
-                    <div class="ng-card-icon">◫</div>
-                    <div><small>SOFTWARE</small><strong>Product stack</strong><span>Web app → API → Cloud</span></div>
-                </div>
-                <div class="ng-canvas-core">
-                    <img src="/brand-mark.svg" alt="" width="58" height="58" loading="eager" decoding="async">
-                    <span>NextGen</span>
-                    <small>one engineering partner</small>
-                </div>
-                <div class="ng-canvas-line ng-line-a"></div>
-                <div class="ng-canvas-line ng-line-b"></div>
-                <div class="ng-canvas-line ng-line-c"></div>
             </div>
         </div>
         <div class="ng-skill-stream" aria-label="NextGen engineering capabilities">
