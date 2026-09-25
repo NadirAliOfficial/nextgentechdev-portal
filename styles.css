@@ -4821,3 +4821,109 @@ body.home-v8{
     radial-gradient(circle at 34% 33%,rgba(82,118,255,.72) 0 7%,rgba(62,67,255,.46) 18%,rgba(33,40,158,.35) 38%,rgba(13,22,74,.50) 56%,rgba(6,13,29,.02) 72%),
     radial-gradient(circle at 60% 55%,#152364,transparent 67%);
 }
+
+/* v9.1 geometry + section continuity */
+.home-v8 .ng-map-orbits{transform-origin:50px 51px}
+.home-v8 .ng-map-junctions circle{r:1.1px}
+.home-v8 .ng-map-sparks circle{r:.45px}
+.home-v8 .ng-map-paths{stroke-width:.52}
+.home-v8 .ng-map-path-glow{stroke-width:2.4}
+.home-v8 .ng-map-junctions{stroke-width:.42}
+.home-v8 .ng-map-orbits{stroke-width:.18}
+.home-v8 .ng-capability-map{
+  min-height:640px;
+}
+.home-v8 .ng-map-node{
+  z-index:5;
+}
+.home-v8 .ng-map-core{
+  z-index:6;
+}
+.home-v8 .ng-services{
+  padding-top:92px;
+}
+.home-v8 .ng-services .container{
+  position:relative;
+  z-index:2;
+}
+.home-v8 .ng-section-head-dark{
+  position:relative;
+  min-height:190px;
+}
+.home-v8 .ng-section-head-dark::after{
+  content:"PLAN  ›   BUILD  ›   DEPLOY  ›   SCALE";
+  position:absolute;
+  right:0;
+  top:18px;
+  padding:10px 16px;
+  border:1px solid rgba(120,132,255,.24);
+  border-radius:999px;
+  background:rgba(7,13,32,.46);
+  color:#aeb8d4;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  white-space:pre;
+  backdrop-filter:blur(10px);
+}
+.home-v8 .ng-services::before{
+  width:660px;
+  height:660px;
+  right:-115px;
+  top:-30px;
+  opacity:.88;
+  background:
+    radial-gradient(circle at 31% 29%,rgba(98,129,255,.78) 0 4%,rgba(62,76,255,.58) 14%,rgba(37,47,179,.44) 34%,rgba(18,26,101,.44) 53%,rgba(7,13,32,.02) 71%),
+    radial-gradient(circle at 60% 58%,#17255f,transparent 68%);
+  box-shadow:
+    inset -58px -42px 100px rgba(3,8,26,.84),
+    inset 40px 25px 90px rgba(73,101,255,.17),
+    0 0 100px rgba(57,70,255,.26);
+}
+.home-v8 .ng-services::after{
+  width:920px;
+  height:310px;
+  right:-80px;
+  top:150px;
+  border-top-color:rgba(112,133,255,.28);
+  box-shadow:
+    0 -14px 50px rgba(81,85,255,.10),
+    0 -34px 100px rgba(32,199,233,.035);
+}
+@media(max-width:640px){
+  .home-v8 .ng-capability-map{
+    min-height:560px;
+  }
+  .home-v8 .ng-map-paths{stroke-width:.7}
+  .home-v8 .ng-map-path-glow{stroke-width:3}
+  .home-v8 .ng-map-junctions{stroke-width:.55}
+  .home-v8 .ng-services{
+    padding-top:74px;
+  }
+  .home-v8 .ng-section-head-dark{
+    min-height:0;
+  }
+  .home-v8 .ng-section-head-dark::after{
+    display:none;
+  }
+  .home-v8 .ng-services::before{
+    width:500px;height:500px;right:-230px;top:-20px;
+  }
+  .home-v8 .ng-services::after{
+    width:620px;height:220px;right:-210px;top:100px;
+  }
+}
+
+/* v9.1 line visibility correction */
+.home-v8 .ng-map-paths{filter:none;stroke-linecap:round;stroke-linejoin:round}
+.home-v8 .ng-map-path-glow{filter:none;opacity:.15}
+@media(max-width:640px){
+  .home-v8 .ng-map-node strong{font-size:10px}
+  .home-v8 .ng-map-node small{font-size:6.8px}
+}
+
+/* v9.1 explicit neon connectors */
+.home-v8 .ng-map-paths path{stroke:#635bff!important;opacity:1}
+.home-v8 .ng-map-paths path:nth-child(even){stroke:#13c8e8!important}
+.home-v8 .ng-map-path-glow path{stroke:#635bff!important;opacity:.35}
+.home-v8 .ng-map-path-glow path:nth-child(even){stroke:#13c8e8!important}
