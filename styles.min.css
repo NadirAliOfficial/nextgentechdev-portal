@@ -2956,3 +2956,184 @@ body.home-v8{
     display:none;
   }
 }
+
+/* v9.4 selected-work + scope polish */
+.home-v8 .ng-work{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 88% 12%,rgba(99,91,255,.055),transparent 25%),
+    radial-gradient(circle at 8% 86%,rgba(32,199,233,.04),transparent 24%),
+    #f7f8fc;
+}
+.home-v8 .ng-work::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  right:-300px;
+  top:110px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(99,91,255,.08),transparent 68%);
+  pointer-events:none;
+}
+.home-v8 .ng-work-card{
+  position:relative;
+  border-color:rgba(15,23,42,.075);
+  box-shadow:0 20px 54px rgba(30,41,59,.065);
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.home-v8 .ng-work-card::after{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:2px;
+  background:linear-gradient(90deg,rgba(99,91,255,.85),rgba(32,199,233,.75),transparent 82%);
+  opacity:.70;
+  pointer-events:none;
+}
+.home-v8 .ng-work-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(99,91,255,.16);
+  box-shadow:0 28px 70px rgba(30,41,59,.10);
+}
+.home-v8 .ng-work-copy{
+  position:relative;
+  background:linear-gradient(180deg,#fff,rgba(255,255,255,.97));
+}
+.home-v8 .ng-work-copy>span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.home-v8 .ng-work-copy>span::before{
+  content:"";
+  width:18px;height:2px;border-radius:99px;
+  background:linear-gradient(90deg,#635bff,#20c7e9);
+}
+.home-v8 .ng-work-copy a{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding-bottom:3px;
+  border-bottom:1px solid rgba(81,73,216,.18);
+}
+.home-v8 .ng-work-visual{
+  position:relative;
+  isolation:isolate;
+}
+.home-v8 .ng-work-visual::after{
+  content:"";
+  position:absolute;
+  inset:auto 8% 0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(102,125,255,.20),transparent);
+  z-index:5;
+}
+
+/* Scope section */
+.home-v8 #custom-triage{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 18%,rgba(99,91,255,.07),transparent 27%),
+    radial-gradient(circle at 16% 82%,rgba(32,199,233,.045),transparent 24%),
+    #f4f6fb;
+}
+.home-v8 #custom-triage::before{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  right:-320px;bottom:-300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(116,92,255,.10),transparent 70%);
+  pointer-events:none;
+}
+.home-v8 .custom-triage-card{
+  position:relative;
+  padding:0;
+  gap:0;
+  border-radius:28px;
+  border-color:rgba(99,91,255,.095);
+  box-shadow:0 30px 82px rgba(30,41,59,.09);
+}
+.home-v8 .custom-triage-card::after{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:3px;
+  background:linear-gradient(90deg,#635bff,#4f8cff,#20c7e9);
+}
+.home-v8 .triage-input-col{
+  padding:30px;
+}
+.home-v8 .triage-dossier-col{
+  margin:0;
+  padding:30px;
+  min-height:100%;
+  border-radius:0;
+  border-left:1px solid rgba(15,23,42,.075);
+  background:
+    radial-gradient(circle at 80% 15%,rgba(99,91,255,.06),transparent 34%),
+    linear-gradient(180deg,#f9faff,#f5f7fb);
+}
+.home-v8 .triage-textarea{
+  border-color:rgba(15,23,42,.09);
+  border-radius:15px;
+  background:#fafbfe;
+}
+.home-v8 .triage-textarea:focus{
+  background:#fff;
+  border-color:rgba(99,91,255,.40);
+  box-shadow:0 0 0 3px rgba(99,91,255,.065);
+}
+.home-v8 .preset-chip{
+  border-color:rgba(15,23,42,.08);
+  background:#f8f9fc;
+}
+.home-v8 .preset-chip.active{
+  box-shadow:inset 0 0 0 1px rgba(99,91,255,.04);
+}
+.home-v8 .dossier-empty-state{
+  position:relative;
+}
+.home-v8 .dossier-empty-state::before{
+  content:"SYSTEM PREVIEW";
+  display:block;
+  width:max-content;
+  margin:0 auto 16px;
+  padding:5px 8px;
+  border-radius:999px;
+  background:rgba(99,91,255,.07);
+  color:#635bff;
+  font-size:7px;
+  font-weight:850;
+  letter-spacing:1.2px;
+}
+.home-v8 #btn-run-triage{
+  min-height:52px;
+  border-radius:14px;
+  box-shadow:0 13px 30px rgba(99,91,255,.20);
+}
+@media(max-width:760px){
+  .home-v8 .custom-triage-card{
+    padding:0;
+  }
+  .home-v8 .triage-input-col,
+  .home-v8 .triage-dossier-col{
+    padding:20px;
+  }
+  .home-v8 .triage-dossier-col{
+    border-left:0;
+    border-top:1px solid rgba(15,23,42,.075);
+    border-radius:0;
+  }
+}
+@media(max-width:640px){
+  .home-v8 .ng-work-card:hover{
+    transform:none;
+  }
+  .home-v8 .ng-work-copy>span::before{
+    width:14px;
+  }
+}
