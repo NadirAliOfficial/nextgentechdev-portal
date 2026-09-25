@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/social-card.png">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=8.9">
+    <link rel="stylesheet" href="/styles.min.css?v=9.0">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -81,7 +81,7 @@
         <div class="container ng-hero-grid">
             <div class="ng-hero-copy">
                 <div class="ng-pill"><span></span> CUSTOM SOFTWARE · AI · TRADING SYSTEMS</div>
-                <h1>Software that fits your workflow.<br><em>Not the other way around.</em></h1>
+                <h1><span class="ng-h1-a">Software that fits</span><span class="ng-h1-b">your workflow.</span><em>Not the other way around.</em></h1>
                 <p>We design and build custom AI agents, trading automation, SaaS products, APIs and cloud systems — scoped clearly, delivered in milestones, and handed over with source code.</p>
                 <div class="ng-hero-manifesto" aria-hidden="true"><span></span><p>IDEAS<br>AUTOMATION<br>REAL RESULTS</p></div>
                 <div class="ng-hero-actions">
@@ -113,21 +113,44 @@
                             <feGaussianBlur stdDeviation="2.4" result="b"/>
                             <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                         </filter>
+                        <filter id="ngSoftGlow" x="-40%" y="-40%" width="180%" height="180%">
+                            <feGaussianBlur stdDeviation="7"/>
+                        </filter>
                     </defs>
+                    <g class="ng-map-orbits">
+                        <circle cx="300" cy="274" r="88"/>
+                        <circle cx="300" cy="274" r="126"/>
+                        <circle cx="300" cy="274" r="164"/>
+                    </g>
+                    <g class="ng-map-path-glow">
+                        <path d="M300 260 C282 222 318 174 300 126"/>
+                        <path d="M287 264 C262 244 259 208 226 190 C194 173 177 164 154 166"/>
+                        <path d="M313 264 C338 244 341 208 374 190 C406 173 423 164 446 166"/>
+                        <path d="M280 278 C244 257 211 291 171 279 C149 272 137 264 126 264"/>
+                        <path d="M320 278 C356 257 389 291 429 279 C451 272 463 264 474 264"/>
+                        <path d="M286 292 C260 317 255 349 216 360 C187 368 170 378 150 382"/>
+                        <path d="M314 292 C340 317 345 349 384 360 C413 368 430 378 450 382"/>
+                        <path d="M300 302 C319 343 281 379 300 437"/>
+                    </g>
                     <g class="ng-map-paths">
-                        <path d="M300 260 C300 214 300 170 300 126"/>
-                        <path d="M287 264 C245 236 208 196 154 166"/>
-                        <path d="M313 264 C355 236 392 196 446 166"/>
-                        <path d="M280 278 C226 278 185 272 126 264"/>
-                        <path d="M320 278 C374 278 415 272 474 264"/>
-                        <path d="M286 292 C243 320 205 357 150 382"/>
-                        <path d="M314 292 C357 320 395 357 450 382"/>
-                        <path d="M300 302 C300 354 300 392 300 437"/>
+                        <path d="M300 260 C282 222 318 174 300 126"/>
+                        <path d="M287 264 C262 244 259 208 226 190 C194 173 177 164 154 166"/>
+                        <path d="M313 264 C338 244 341 208 374 190 C406 173 423 164 446 166"/>
+                        <path d="M280 278 C244 257 211 291 171 279 C149 272 137 264 126 264"/>
+                        <path d="M320 278 C356 257 389 291 429 279 C451 272 463 264 474 264"/>
+                        <path d="M286 292 C260 317 255 349 216 360 C187 368 170 378 150 382"/>
+                        <path d="M314 292 C340 317 345 349 384 360 C413 368 430 378 450 382"/>
+                        <path d="M300 302 C319 343 281 379 300 437"/>
                     </g>
                     <g class="ng-map-junctions">
                         <circle cx="300" cy="126" r="5"/><circle cx="154" cy="166" r="5"/><circle cx="446" cy="166" r="5"/>
                         <circle cx="126" cy="264" r="5"/><circle cx="474" cy="264" r="5"/>
                         <circle cx="150" cy="382" r="5"/><circle cx="450" cy="382" r="5"/><circle cx="300" cy="437" r="5"/>
+                    </g>
+                    <g class="ng-map-sparks">
+                        <circle cx="235" cy="122" r="2"/><circle cx="365" cy="113" r="2.2"/><circle cx="105" cy="218" r="1.7"/>
+                        <circle cx="495" cy="209" r="1.8"/><circle cx="188" cy="318" r="2.2"/><circle cx="412" cy="331" r="1.8"/>
+                        <circle cx="232" cy="425" r="1.8"/><circle cx="372" cy="430" r="2.2"/><circle cx="330" cy="356" r="1.6"/>
                     </g>
                 </svg>
 
@@ -176,7 +199,7 @@
                     <div class="ng-map-core-ring"></div>
                     <img src="/brand-mark.svg" alt="" width="64" height="64" loading="eager" decoding="async">
                     <strong>NextGen</strong>
-                    <small>CAPABILITY CORE</small>
+                    <small>CORE</small>
                 </div>
 
                 <div class="ng-map-caption">
@@ -188,48 +211,39 @@
         <div class="ng-skill-stream" aria-label="NextGen engineering capabilities">
             <div class="container ng-skill-stream-head">
                 <span>CORE CAPABILITIES</span>
-                <p>Specialized systems we design, connect and ship.</p>
+                <p>Specialized systems we design, connect and deliver.</p>
             </div>
 
             <div class="ng-skill-marquee ng-skill-marquee-a">
                 <div class="ng-skill-track">
                     <div class="ng-skill-set">
-                        <div class="ng-skill-card"><span class="ng-skill-icon">M5</span><div><strong>MT4 / MT5 Automation</strong><small>EAs · execution · risk controls</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">TV</span><div><strong>TradingView &amp; Webhooks</strong><small>Signals · alerts · execution bridges</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">AI</span><div><strong>AI Agents</strong><small>Reasoning · tools · business actions</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">RG</span><div><strong>RAG &amp; Knowledge Systems</strong><small>Documents · retrieval · grounded answers</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">PY</span><div><strong>Python &amp; FastAPI</strong><small>Backends · services · async workflows</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">API</span><div><strong>API Integrations</strong><small>Apps · payments · CRMs · data</small></div></div>
-                    </div>
+<div class="ng-skill-card"><span class="ng-skill-icon">M5</span><div><strong>MT4 / MT5 Automation</strong><small>EAs · execution · risk controls</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">TV</span><div><strong>TradingView & Webhooks</strong><small>Signals · alerts · execution bridges</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">AI</span><div><strong>AI Agents</strong><small>Reasoning · tools · business actions</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">RG</span><div><strong>RAG & Knowledge Systems</strong><small>Documents · retrieval · grounded answers</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">PY</span><div><strong>Python & FastAPI</strong><small>Backends · services · async workflows</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">API</span><div><strong>API Integrations</strong><small>Apps · payments · CRMs · data</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">S</span><div><strong>SaaS & Client Portals</strong><small>Products · auth · billing · dashboards</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">WF</span><div><strong>Workflow Automation</strong><small>Routing · approvals · repetitive operations</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">TG</span><div><strong>Telegram Automation</strong><small>Bots · signals · notifications · control</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">CL</span><div><strong>Cloud / VPS & Docker</strong><small>Deployments · services · monitoring</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">DB</span><div><strong>Data & Dashboards</strong><small>PostgreSQL · pipelines · admin systems</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">LLM</span><div><strong>Private LLM Systems</strong><small>Models · orchestration · secure inference</small></div></div>
+</div>
                     <div class="ng-skill-set" aria-hidden="true">
-                        <div class="ng-skill-card"><span class="ng-skill-icon">M5</span><div><strong>MT4 / MT5 Automation</strong><small>EAs · execution · risk controls</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">TV</span><div><strong>TradingView &amp; Webhooks</strong><small>Signals · alerts · execution bridges</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">AI</span><div><strong>AI Agents</strong><small>Reasoning · tools · business actions</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">RG</span><div><strong>RAG &amp; Knowledge Systems</strong><small>Documents · retrieval · grounded answers</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">PY</span><div><strong>Python &amp; FastAPI</strong><small>Backends · services · async workflows</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">API</span><div><strong>API Integrations</strong><small>Apps · payments · CRMs · data</small></div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ng-skill-marquee ng-skill-marquee-b">
-                <div class="ng-skill-track">
-                    <div class="ng-skill-set">
-                        <div class="ng-skill-card"><span class="ng-skill-icon">S</span><div><strong>SaaS &amp; Client Portals</strong><small>Products · auth · billing · dashboards</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">WF</span><div><strong>Workflow Automation</strong><small>Routing · approvals · repetitive operations</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">TG</span><div><strong>Telegram Automation</strong><small>Bots · signals · notifications · control</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">CL</span><div><strong>Cloud / VPS &amp; Docker</strong><small>Deployments · services · monitoring</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">DB</span><div><strong>Data &amp; Dashboards</strong><small>PostgreSQL · pipelines · admin systems</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">LLM</span><div><strong>Private LLM Systems</strong><small>Models · orchestration · secure inference</small></div></div>
-                    </div>
-                    <div class="ng-skill-set" aria-hidden="true">
-                        <div class="ng-skill-card"><span class="ng-skill-icon">S</span><div><strong>SaaS &amp; Client Portals</strong><small>Products · auth · billing · dashboards</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">WF</span><div><strong>Workflow Automation</strong><small>Routing · approvals · repetitive operations</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">TG</span><div><strong>Telegram Automation</strong><small>Bots · signals · notifications · control</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">CL</span><div><strong>Cloud / VPS &amp; Docker</strong><small>Deployments · services · monitoring</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">DB</span><div><strong>Data &amp; Dashboards</strong><small>PostgreSQL · pipelines · admin systems</small></div></div>
-                        <div class="ng-skill-card"><span class="ng-skill-icon">LLM</span><div><strong>Private LLM Systems</strong><small>Models · orchestration · secure inference</small></div></div>
-                    </div>
+<div class="ng-skill-card"><span class="ng-skill-icon">M5</span><div><strong>MT4 / MT5 Automation</strong><small>EAs · execution · risk controls</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">TV</span><div><strong>TradingView & Webhooks</strong><small>Signals · alerts · execution bridges</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">AI</span><div><strong>AI Agents</strong><small>Reasoning · tools · business actions</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">RG</span><div><strong>RAG & Knowledge Systems</strong><small>Documents · retrieval · grounded answers</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">PY</span><div><strong>Python & FastAPI</strong><small>Backends · services · async workflows</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">API</span><div><strong>API Integrations</strong><small>Apps · payments · CRMs · data</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">S</span><div><strong>SaaS & Client Portals</strong><small>Products · auth · billing · dashboards</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">WF</span><div><strong>Workflow Automation</strong><small>Routing · approvals · repetitive operations</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">TG</span><div><strong>Telegram Automation</strong><small>Bots · signals · notifications · control</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">CL</span><div><strong>Cloud / VPS & Docker</strong><small>Deployments · services · monitoring</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">DB</span><div><strong>Data & Dashboards</strong><small>PostgreSQL · pipelines · admin systems</small></div></div>
+<div class="ng-skill-card"><span class="ng-skill-icon">LLM</span><div><strong>Private LLM Systems</strong><small>Models · orchestration · secure inference</small></div></div>
+</div>
                 </div>
             </div>
         </div>
