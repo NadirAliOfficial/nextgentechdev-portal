@@ -3,16 +3,12 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
     {
       "source": "/api/:path*",
       "destination": "https://api.nextgentechdev.com/api/:path*"
-    },
-    {
-      "source": "/admin",
-      "destination": "/admin.html"
     },
     {
       "source": "/admin/admin.css",
@@ -29,6 +25,94 @@
     {
       "source": "/admin/sw.js",
       "destination": "/sw.js"
+    },
+    {
+      "source": "/ai-automation-roi-calculator",
+      "destination": "/ai-automation-roi-calculator.html"
+    },
+    {
+      "source": "/ai-automation",
+      "destination": "/ai-automation.html"
+    },
+    {
+      "source": "/api-cloud-development",
+      "destination": "/api-cloud-development.html"
+    },
+    {
+      "source": "/llm-agent-development",
+      "destination": "/llm-agent-development.html"
+    },
+    {
+      "source": "/mt5-ea-requirements-generator",
+      "destination": "/mt5-ea-requirements-generator.html"
+    },
+    {
+      "source": "/mt5-position-size-calculator",
+      "destination": "/mt5-position-size-calculator.html"
+    },
+    {
+      "source": "/mt5-telegram-copy-trading-bot",
+      "destination": "/mt5-telegram-copy-trading-bot.html"
+    },
+    {
+      "source": "/pine-script-to-mt5-automation",
+      "destination": "/pine-script-to-mt5-automation.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources.html"
+    },
+    {
+      "source": "/services/ai-automation",
+      "destination": "/services/ai-automation.html"
+    },
+    {
+      "source": "/services/cloud-support",
+      "destination": "/services/cloud-support.html"
+    },
+    {
+      "source": "/services/software-apis",
+      "destination": "/services/software-apis.html"
+    },
+    {
+      "source": "/services/trading-bots",
+      "destination": "/services/trading-bots.html"
+    },
+    {
+      "source": "/services/websites",
+      "destination": "/services/websites.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/trading-bot-development",
+      "destination": "/trading-bot-development.html"
+    },
+    {
+      "source": "/web-app-development",
+      "destination": "/web-app-development.html"
+    },
+    {
+      "source": "/xauusd-trading-bot-development",
+      "destination": "/xauusd-trading-bot-development.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
     }
   ],
   "headers": [
