@@ -1305,6 +1305,26 @@ document.addEventListener('DOMContentLoaded', () => {
         targetMap.forEach((_, target) => sectionObserver.observe(target));
     }
 
+    const projectCategory = document.getElementById('project-category');
+    const projectTypeButtons = [...document.querySelectorAll('.ng-project-type[data-project-type]')];
+    if (projectCategory && projectTypeButtons.length) {
+        const syncProjectTypeButtons = () => {
+            projectTypeButtons.forEach(button => {
+                button.classList.toggle('active', button.dataset.projectType === projectCategory.value);
+            });
+        };
+        projectTypeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                projectCategory.value = button.dataset.projectType || projectCategory.value;
+                projectCategory.dispatchEvent(new Event('change', { bubbles: true }));
+                const firstField = document.getElementById('client-name');
+                if (firstField && !firstField.value) firstField.focus({ preventScroll: true });
+            });
+        });
+        projectCategory.addEventListener('change', syncProjectTypeButtons);
+        syncProjectTypeButtons();
+    }
+
     const chatLauncher = document.getElementById('live-chat-launcher');
     const suppressTargets = [
         document.getElementById('contact'),

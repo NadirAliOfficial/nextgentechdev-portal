@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/social-card.png">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=10.6">
+    <link rel="stylesheet" href="/styles.min.css?v=10.7">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -566,6 +566,18 @@
                     <i>→</i>
                     <div><b>03</b><span>Build plan</span><small>You get a practical path for the next step.</small></div>
                 </div>
+                <div class="ng-project-type-picker" aria-label="Choose a project starting point">
+                    <div class="ng-project-type-head">
+                        <span>STARTING POINT</span>
+                        <small>Choose the closest fit. We can refine the scope after review.</small>
+                    </div>
+                    <div class="ng-project-type-options">
+                        <button type="button" class="ng-project-type active" data-project-type="quantitative_finance"><b>TRD</b><span>Trading automation</span><small>MT4/5 · TradingView</small></button>
+                        <button type="button" class="ng-project-type" data-project-type="ai_agentic_systems"><b>AI</b><span>AI &amp; automation</span><small>Agents · RAG · workflows</small></button>
+                        <button type="button" class="ng-project-type" data-project-type="web_mobile_dev"><b>WEB</b><span>Web &amp; SaaS</span><small>Portals · apps · dashboards</small></button>
+                        <button type="button" class="ng-project-type" data-project-type="cloud_microservices"><b>API</b><span>API &amp; cloud</span><small>Backends · integrations</small></button>
+                    </div>
+                </div>
                 <form id="client-inquiry-form" class="inquiry-form" onsubmit="handleInquirySubmit(event)">
                     <div class="hp-field" aria-hidden="true">
                         <label for="website-url">Website</label>
@@ -773,7 +785,7 @@
     </div>
 
     <!-- NextGen Tech Solutions · Auto-deploy active (public repo) -->
-    <script src="/app.min.js?v=4.6" defer></script>
+    <script src="/app.min.js?v=4.7" defer></script>
 </body>
 </html>
 <!-- visibility check 2026-09-11T12:49:00Z -->
