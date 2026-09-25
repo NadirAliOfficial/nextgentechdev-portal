@@ -4927,3 +4927,113 @@ body.home-v8{
 .home-v8 .ng-map-paths path:nth-child(even){stroke:#13c8e8!important}
 .home-v8 .ng-map-path-glow path{stroke:#635bff!important;opacity:.35}
 .home-v8 .ng-map-path-glow path:nth-child(even){stroke:#13c8e8!important}
+
+/* v9.2 visual-depth polish */
+.home-v8 .ng-hero::after{
+  width:300px;
+  height:300px;
+  right:-68px;
+  top:118px;
+  opacity:.92;
+  background:
+    radial-gradient(circle at 35% 31%,rgba(255,255,255,.98) 0 8%,rgba(198,184,255,.42) 18%,rgba(104,112,255,.22) 36%,rgba(38,195,231,.13) 54%,transparent 70%),
+    conic-gradient(from 210deg,rgba(124,92,255,.10),rgba(32,199,233,.12),rgba(255,255,255,.24),rgba(124,92,255,.10));
+  border:1px solid rgba(99,91,255,.07);
+  box-shadow:
+    inset -36px -28px 70px rgba(89,73,210,.10),
+    0 0 90px rgba(99,91,255,.12),
+    0 0 140px rgba(32,199,233,.07);
+}
+.home-v8 .ng-skill-card{
+  min-height:68px;
+}
+.home-v8 .ng-skill-card strong{
+  white-space:normal;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  line-height:1.18;
+}
+.home-v8 .ng-skill-card small{
+  white-space:normal;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.home-v8 .ng-services{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(64,83,255,.11),transparent 24%),
+    radial-gradient(circle at 74% 56%,rgba(17,43,111,.24),transparent 40%),
+    #07101f;
+}
+.home-v8 .ng-services .container::before{
+  content:"";
+  position:absolute;
+  right:2%;
+  top:52px;
+  width:520px;
+  height:300px;
+  pointer-events:none;
+  opacity:.46;
+  background-image:
+    radial-gradient(circle at 10% 20%,rgba(255,255,255,.75) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 42% 15%,rgba(92,160,255,.72) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 68% 36%,rgba(255,255,255,.55) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 82% 10%,rgba(99,91,255,.85) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 25% 66%,rgba(32,199,233,.60) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 92% 72%,rgba(255,255,255,.62) 0 1px,transparent 1.5px);
+}
+.home-v8 .ng-services::before{
+  border:1px solid rgba(117,140,255,.12);
+  background:
+    radial-gradient(circle at 31% 27%,rgba(203,220,255,.88) 0 2%,rgba(102,137,255,.78) 7%,rgba(59,75,255,.58) 18%,rgba(36,49,177,.45) 36%,rgba(20,29,99,.55) 54%,rgba(7,13,32,.05) 71%),
+    conic-gradient(from 165deg,rgba(42,54,170,.28),rgba(68,103,255,.20),rgba(10,20,64,.50),rgba(42,54,170,.28));
+}
+.home-v8 .ng-services::after{
+  border-top-width:1.5px;
+  border-top-color:rgba(121,147,255,.38);
+  box-shadow:
+    0 -13px 42px rgba(92,102,255,.11),
+    0 -35px 95px rgba(32,199,233,.055);
+}
+@media(max-width:640px){
+  .home-v8 .ng-hero::after{
+    width:225px;
+    height:225px;
+    right:-103px;
+    top:160px;
+    opacity:.85;
+  }
+  .home-v8 .ng-node-api{left:-5%;top:40%}
+  .home-v8 .ng-node-saas{right:-5%;top:40%}
+  .home-v8 .ng-skill-card{
+    width:202px;
+    flex-basis:202px;
+    min-height:64px;
+  }
+  .home-v8 .ng-skill-card strong{
+    font-size:9.4px;
+    -webkit-line-clamp:2;
+  }
+  .home-v8 .ng-skill-card small{
+    font-size:6.8px;
+  }
+  .home-v8 .ng-services .container::before{
+    width:320px;
+    height:220px;
+    right:-20%;
+    top:35px;
+  }
+  .home-v8 .ng-services::before{
+    width:520px;
+    height:520px;
+    right:-245px;
+    top:-34px;
+  }
+}
+
+/* v9.2 mobile network spacing correction */
+@media(max-width:640px){
+  .home-v8 .ng-node-api{left:-2%;top:40%;width:142px}
+  .home-v8 .ng-node-saas{right:-2%;top:40%;width:142px}
+}
