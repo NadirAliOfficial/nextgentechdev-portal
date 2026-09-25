@@ -2995,3 +2995,460 @@ body.home-v8{
     height:28px;
   }
 }
+
+/* v8.5 realistic build visuals */
+.home-v8 .ng-work-visual{
+  padding:22px;
+}
+.home-v8 .ng-work-visual-trading,
+.home-v8 .ng-work-visual-ai,
+.home-v8 .ng-work-visual-web{
+  background:
+    radial-gradient(circle at 84% 5%,rgba(99,91,255,.20),transparent 30%),
+    radial-gradient(circle at 7% 95%,rgba(32,199,233,.12),transparent 34%),
+    linear-gradient(145deg,#0d182b,#07111f);
+}
+.home-v8 .ng-demo-ui{
+  height:100%;
+  width:100%;
+  border:1px solid rgba(158,179,217,.17);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(13,25,45,.95),rgba(7,16,30,.96));
+  box-shadow:0 25px 60px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.035);
+  color:#eef4ff;
+  overflow:hidden;
+}
+.home-v8 .ng-demo-topbar{
+  min-height:48px;
+  padding:0 17px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(7,14,27,.34);
+}
+.home-v8 .ng-demo-topbar.compact{
+  min-height:42px;
+}
+.home-v8 .ng-window-dots{
+  display:flex;
+  gap:6px;
+}
+.home-v8 .ng-window-dots i{
+  width:7px;height:7px;border-radius:50%;
+  background:#fb7185;
+}
+.home-v8 .ng-window-dots i:nth-child(2){background:#fbbf24}
+.home-v8 .ng-window-dots i:nth-child(3){background:#34d399}
+.home-v8 .ng-demo-label{
+  justify-self:center;
+  font-size:8px;
+  font-weight:750;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+  color:#7f90aa;
+}
+.home-v8 .ng-live-badge{
+  justify-self:end;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 8px;
+  border-radius:999px;
+  background:rgba(16,185,129,.10);
+  border:1px solid rgba(52,211,153,.14);
+  color:#b7f7dc;
+  font-size:8px;
+  font-weight:750;
+}
+.home-v8 .ng-live-badge b{
+  width:6px;height:6px;border-radius:50%;
+  background:#34d399;
+  box-shadow:0 0 10px rgba(52,211,153,.75);
+}
+
+/* Trading */
+.home-v8 .ng-trading-ui{
+  padding-bottom:16px;
+}
+.home-v8 .ng-trading-market{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:12px;
+  align-items:center;
+  padding:20px 18px 8px;
+}
+.home-v8 .ng-market-quote small{
+  display:block;
+  font-size:10px;
+  font-weight:800;
+  color:#dce6f5;
+  letter-spacing:.5px;
+}
+.home-v8 .ng-market-quote strong{
+  display:block;
+  margin-top:5px;
+  font-size:26px;
+  line-height:1;
+  color:#fff;
+  letter-spacing:-1px;
+}
+.home-v8 .ng-market-quote span{
+  display:block;
+  margin-top:8px;
+  font-size:10px;
+  font-weight:700;
+  color:#34d399;
+}
+.home-v8 .ng-candle-chart{
+  width:100%;
+  height:132px;
+  overflow:visible;
+}
+.home-v8 .ng-candle-chart .grid{
+  fill:none;
+  stroke:rgba(148,163,184,.11);
+  stroke-width:1;
+  stroke-dasharray:4 6;
+}
+.home-v8 .ng-candle-chart .candles path{
+  stroke:#25c3df;
+  stroke-width:2;
+}
+.home-v8 .ng-candle-chart .candles rect{
+  fill:#26c1de;
+  rx:1.5;
+}
+.home-v8 .ng-candle-chart .candles rect.down{fill:#8b5cf6}
+.home-v8 .ng-status-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  padding:8px 16px;
+}
+.home-v8 .ng-status-grid>div{
+  min-width:0;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:13px;
+  background:rgba(255,255,255,.035);
+}
+.home-v8 .ng-status-grid small{
+  display:block;
+  font-size:7px;
+  color:#7f8ea5;
+}
+.home-v8 .ng-status-grid strong{
+  display:block;
+  margin-top:3px;
+  font-size:11px;
+  color:#f8fbff;
+}
+.home-v8 .ng-status-grid strong.ok{color:#8ff1c5}
+.home-v8 .ng-status-grid span{
+  display:block;
+  margin-top:4px;
+  font-size:7px;
+  color:#66758c;
+}
+.home-v8 .ng-pipeline{
+  display:grid;
+  grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr;
+  align-items:start;
+  padding:13px 16px 1px;
+}
+.home-v8 .ng-pipeline span{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:6px;
+}
+.home-v8 .ng-pipeline span b{
+  width:29px;height:29px;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#173259,#172043);
+  border:1px solid rgba(70,128,255,.38);
+  color:#7da7ff;
+  font-size:9px;
+}
+.home-v8 .ng-pipeline span em{
+  font-style:normal;
+  font-size:7px;
+  line-height:1.25;
+  color:#a5b1c4;
+}
+.home-v8 .ng-pipeline>i{
+  height:2px;
+  margin-top:14px;
+  background:linear-gradient(90deg,#5267ff,#20c7e9);
+  opacity:.72;
+}
+
+/* AI agent */
+.home-v8 .ng-agent-ui{
+  padding-bottom:14px;
+}
+.home-v8 .ng-agent-flow{
+  display:grid;
+  grid-template-columns:1fr 22px 1.05fr 22px 1fr;
+  gap:5px;
+  align-items:center;
+  padding:19px 15px 12px;
+}
+.home-v8 .ng-agent-node{
+  min-width:0;
+  min-height:132px;
+  padding:14px 11px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  border-radius:16px;
+  border:1px solid rgba(148,163,184,.14);
+  background:rgba(255,255,255,.03);
+}
+.home-v8 .ng-agent-core{
+  border-color:rgba(74,222,255,.46);
+  box-shadow:0 0 26px rgba(99,91,255,.17),inset 0 0 28px rgba(99,91,255,.08);
+}
+.home-v8 .ng-node-icon{
+  width:39px;height:39px;border-radius:11px;
+  display:grid;place-items:center;
+  margin-bottom:10px;
+  background:linear-gradient(145deg,#315ccb,#4e3dc3);
+  border:1px solid rgba(113,156,255,.36);
+  font-size:17px;
+  color:#dbeaff;
+}
+.home-v8 .ng-agent-node strong{
+  font-size:13px;
+  color:#f8fbff;
+}
+.home-v8 .ng-agent-node small{
+  margin-top:4px;
+  font-size:8px;
+  line-height:1.35;
+  color:#8b99ad;
+}
+.home-v8 .ng-flow-arrow{
+  text-align:center;
+  color:#5d78ff;
+  font-size:19px;
+}
+.home-v8 .ng-tool-tiles{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4px;
+  margin-bottom:10px;
+}
+.home-v8 .ng-tool-tiles b{
+  min-width:34px;
+  padding:6px 4px;
+  border-radius:7px;
+  text-align:center;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.07);
+  color:#b9c8df;
+  font-size:6px;
+  letter-spacing:.2px;
+}
+.home-v8 .ng-agent-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  padding:6px 14px 0;
+}
+.home-v8 .ng-agent-metrics>div{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.03);
+}
+.home-v8 .ng-metric-icon{
+  width:28px;height:28px;flex:0 0 28px;
+  display:grid;place-items:center;
+  border-radius:8px;
+  background:rgba(82,103,255,.16);
+  color:#91a9ff;
+  font-size:9px;
+  font-weight:800;
+}
+.home-v8 .ng-agent-metrics p{
+  min-width:0;
+  margin:0;
+}
+.home-v8 .ng-agent-metrics strong{
+  display:block;
+  font-size:8px;
+  color:#e7edf7;
+}
+.home-v8 .ng-agent-metrics small{
+  display:block;
+  margin-top:3px;
+  font-size:6.5px;
+  white-space:nowrap;
+  color:#7f8da2;
+}
+.home-v8 .ng-agent-metrics small i{
+  display:inline-block;
+  width:5px;height:5px;border-radius:50%;
+  margin-right:3px;
+  background:#34d399;
+}
+
+/* Software platform */
+.home-v8 .ng-platform-ui{
+  padding-bottom:12px;
+}
+.home-v8 .ng-platform-kpis{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+  padding:12px 12px 8px;
+}
+.home-v8 .ng-platform-kpis>div{
+  min-width:0;
+  padding:9px;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.03);
+}
+.home-v8 .ng-platform-kpis small{
+  display:block;font-size:6.5px;color:#7e8ba0;
+}
+.home-v8 .ng-platform-kpis strong{
+  display:block;margin-top:3px;font-size:13px;color:#f7fbff;
+}
+.home-v8 .ng-platform-kpis span{
+  display:block;margin-top:3px;font-size:6px;color:#5ba5ff;
+}
+.home-v8 .ng-platform-kpis span.ok{color:#34d399}
+.home-v8 .ng-platform-body{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:8px;
+  padding:0 12px 9px;
+}
+.home-v8 .ng-client-panel,
+.home-v8 .ng-api-panel{
+  min-width:0;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  background:rgba(255,255,255,.025);
+  overflow:hidden;
+}
+.home-v8 .ng-panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  min-height:34px;
+  padding:0 10px;
+  border-bottom:1px solid rgba(255,255,255,.055);
+}
+.home-v8 .ng-panel-head strong{font-size:8.5px;color:#e8eef7}
+.home-v8 .ng-panel-head small{font-size:6px;color:#688fff}
+.home-v8 .ng-client-row{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:6px;
+  align-items:center;
+  padding:7px 9px;
+  border-bottom:1px solid rgba(255,255,255,.045);
+}
+.home-v8 .ng-client-row:last-child{border-bottom:0}
+.home-v8 .ng-client-row span{font-size:6.5px;color:#b4c0d1}
+.home-v8 .ng-client-row small{font-size:5.5px;color:#6f7e93}
+.home-v8 .ng-client-row b{
+  padding:3px 5px;border-radius:999px;font-size:5px;font-weight:750;
+}
+.home-v8 .ok-pill{background:rgba(16,185,129,.13);color:#5ce7ad}
+.home-v8 .sync-pill{background:rgba(59,130,246,.13);color:#68a5ff}
+.home-v8 .review-pill{background:rgba(245,158,11,.13);color:#f7ba4a}
+.home-v8 .ng-api-route{
+  display:flex;align-items:center;gap:6px;padding:7px 8px;
+  border-bottom:1px solid rgba(255,255,255,.045);
+}
+.home-v8 .ng-api-route b{
+  padding:3px 5px;border-radius:5px;background:rgba(16,185,129,.18);color:#76efbd;font-size:5px;
+}
+.home-v8 .ng-api-route code{min-width:0;overflow:hidden;text-overflow:ellipsis;font-size:5.5px;color:#aebbd0}
+.home-v8 .ng-api-route span{margin-left:auto;padding:3px 5px;border-radius:5px;background:#2563eb;color:white;font-size:5px}
+.home-v8 .ng-api-panel pre{
+  margin:6px;padding:7px;border-radius:8px;
+  background:#07101e;color:#7dd3fc;
+  font:5.5px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;
+  white-space:pre-wrap;
+}
+.home-v8 .ng-platform-flow{
+  display:grid;
+  grid-template-columns:1fr 18px 1fr 18px 1fr;
+  align-items:center;
+  gap:4px;
+  padding:0 12px;
+}
+.home-v8 .ng-platform-flow span{
+  min-width:0;padding:8px;border-radius:10px;
+  background:rgba(73,83,255,.09);
+  border:1px solid rgba(87,110,255,.15);
+}
+.home-v8 .ng-platform-flow b{display:block;font-size:7px;color:#e8efff}
+.home-v8 .ng-platform-flow small{display:block;margin-top:2px;font-size:5.5px;color:#8090a6}
+.home-v8 .ng-platform-flow i{font-style:normal;text-align:center;color:#4f8cff;font-size:11px}
+
+/* Desktop balance */
+@media(min-width:861px){
+  .home-v8 .ng-work-card:not(.ng-work-card-large) .ng-work-visual{min-height:290px}
+  .home-v8 .ng-work-card-large .ng-work-visual{min-height:430px}
+}
+@media(max-width:640px){
+  .home-v8 .ng-work-visual{padding:14px}
+  .home-v8 .ng-work-card .ng-work-visual,
+  .home-v8 .ng-work-card-large .ng-work-visual{min-height:330px}
+  .home-v8 .ng-demo-ui{border-radius:18px}
+  .home-v8 .ng-demo-topbar{min-height:41px;padding:0 12px}
+  .home-v8 .ng-demo-label{font-size:6.8px;letter-spacing:.65px}
+  .home-v8 .ng-live-badge{font-size:7px;padding:4px 7px}
+
+  .home-v8 .ng-trading-market{grid-template-columns:105px 1fr;padding:16px 12px 4px}
+  .home-v8 .ng-market-quote strong{font-size:20px}
+  .home-v8 .ng-market-quote span{font-size:8px}
+  .home-v8 .ng-candle-chart{height:105px}
+  .home-v8 .ng-status-grid{padding:7px 10px;gap:5px}
+  .home-v8 .ng-status-grid>div{padding:9px 7px}
+  .home-v8 .ng-status-grid strong{font-size:9px}
+  .home-v8 .ng-status-grid span{display:none}
+  .home-v8 .ng-pipeline{grid-template-columns:1fr 18px 1fr 18px 1fr 18px 1fr;padding:11px 10px 0}
+  .home-v8 .ng-pipeline span b{width:24px;height:24px;font-size:7px}
+  .home-v8 .ng-pipeline span em{font-size:5.7px}
+  .home-v8 .ng-pipeline>i{margin-top:11px}
+
+  .home-v8 .ng-agent-flow{grid-template-columns:1fr 14px 1.05fr 14px 1fr;padding:15px 9px 8px}
+  .home-v8 .ng-agent-node{min-height:123px;padding:11px 8px}
+  .home-v8 .ng-node-icon{width:34px;height:34px;font-size:14px}
+  .home-v8 .ng-agent-node strong{font-size:11px}
+  .home-v8 .ng-agent-node small{font-size:6.7px}
+  .home-v8 .ng-flow-arrow{font-size:15px}
+  .home-v8 .ng-tool-tiles b{min-width:27px;font-size:5px;padding:5px 3px}
+  .home-v8 .ng-agent-metrics{padding:6px 9px 0;gap:5px}
+  .home-v8 .ng-agent-metrics>div{padding:7px 5px;gap:5px}
+  .home-v8 .ng-metric-icon{width:24px;height:24px;flex-basis:24px;font-size:7px}
+  .home-v8 .ng-agent-metrics strong{font-size:6.5px}
+  .home-v8 .ng-agent-metrics small{font-size:5.2px}
+
+  .home-v8 .ng-platform-kpis{padding:10px 9px 7px;gap:4px}
+  .home-v8 .ng-platform-kpis>div{padding:7px 5px}
+  .home-v8 .ng-platform-kpis strong{font-size:10px}
+  .home-v8 .ng-platform-body{grid-template-columns:1.15fr .85fr;padding:0 9px 7px;gap:5px}
+  .home-v8 .ng-panel-head{padding:0 7px}
+  .home-v8 .ng-client-row{padding:6px}
+  .home-v8 .ng-client-row span{font-size:5.5px}
+  .home-v8 .ng-client-row small{display:none}
+  .home-v8 .ng-platform-flow{padding:0 9px;grid-template-columns:1fr 13px 1fr 13px 1fr}
+}

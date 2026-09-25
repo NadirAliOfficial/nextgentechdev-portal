@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://nextgentechdev.com/social-card.png">
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/styles.min.css?v=8.4">
+    <link rel="stylesheet" href="/styles.min.css?v=8.5">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -155,24 +155,121 @@
             <div class="ng-work-grid">
                 <article class="ng-work-card ng-work-card-large">
                     <div class="ng-work-visual ng-work-visual-trading">
-                        <div class="ng-mini-window">
-                            <div class="ng-mini-bar"><span></span><span></span><span></span><b>Execution monitor</b></div>
-                            <div class="ng-mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                            <div class="ng-mini-stats"><span><small>Signal</small><strong>BUY XAUUSD</strong></span><span><small>Risk gate</small><strong>Approved</strong></span><span><small>Route</small><strong>MT5</strong></span></div>
+                        <div class="ng-demo-ui ng-trading-ui">
+                            <div class="ng-demo-topbar">
+                                <div class="ng-window-dots"><i></i><i></i><i></i></div>
+                                <span class="ng-demo-label">Execution monitor · demo data</span>
+                                <span class="ng-live-badge"><b></b> Live</span>
+                            </div>
+                            <div class="ng-trading-market">
+                                <div class="ng-market-quote">
+                                    <small>XAUUSD</small>
+                                    <strong>2,347.82</strong>
+                                    <span>+12.36 &nbsp;(+0.53%)</span>
+                                </div>
+                                <svg class="ng-candle-chart" viewBox="0 0 480 168" aria-hidden="true">
+                                    <g class="grid"><path d="M0 35H480M0 84H480M0 133H480"/><path d="M80 0V168M180 0V168M280 0V168M380 0V168"/></g>
+                                    <g class="candles">
+                                        <path d="M24 118V83"/><rect x="18" y="91" width="12" height="21"/>
+                                        <path d="M50 113V72"/><rect x="44" y="80" width="12" height="25"/>
+                                        <path d="M76 108V64"/><rect x="70" y="73" width="12" height="21"/>
+                                        <path d="M102 100V55"/><rect x="96" y="62" width="12" height="29"/>
+                                        <path d="M128 96V53"/><rect x="122" y="60" width="12" height="20" class="down"/>
+                                        <path d="M154 109V64"/><rect x="148" y="72" width="12" height="29" class="down"/>
+                                        <path d="M180 120V78"/><rect x="174" y="88" width="12" height="25"/>
+                                        <path d="M206 112V71"/><rect x="200" y="78" width="12" height="26"/>
+                                        <path d="M232 104V59"/><rect x="226" y="68" width="12" height="26"/>
+                                        <path d="M258 95V48"/><rect x="252" y="57" width="12" height="29"/>
+                                        <path d="M284 89V44"/><rect x="278" y="52" width="12" height="24" class="down"/>
+                                        <path d="M310 84V38"/><rect x="304" y="48" width="12" height="27"/>
+                                        <path d="M336 76V29"/><rect x="330" y="38" width="12" height="28"/>
+                                        <path d="M362 83V33"/><rect x="356" y="42" width="12" height="23" class="down"/>
+                                        <path d="M388 73V23"/><rect x="382" y="34" width="12" height="29"/>
+                                        <path d="M414 64V15"/><rect x="408" y="25" width="12" height="27"/>
+                                        <path d="M440 53V8"/><rect x="434" y="17" width="12" height="25"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="ng-status-grid">
+                                <div><small>Signal</small><strong>BUY XAUUSD</strong><span>Telegram / webhook</span></div>
+                                <div><small>Risk gate</small><strong class="ok">Approved</strong><span>Size & spread checked</span></div>
+                                <div><small>Route</small><strong>MT5</strong><span>Execution ready</span></div>
+                            </div>
+                            <div class="ng-pipeline">
+                                <span><b>1</b><em>Signal received</em></span><i></i>
+                                <span><b>2</b><em>Parsed & validated</em></span><i></i>
+                                <span><b>3</b><em>Executed on MT5</em></span><i></i>
+                                <span><b>4</b><em>Position monitored</em></span>
+                            </div>
                         </div>
                     </div>
                     <div class="ng-work-copy"><span>TRADING AUTOMATION</span><h3>Telegram / TradingView → MT5 execution system</h3><p>Signal parsing, position management, SL/TP updates, partial closes, break-even logic and risk controls in one production workflow.</p><a href="/mt5-telegram-copy-trading-bot">Explore the technical guide →</a></div>
                 </article>
                 <article class="ng-work-card">
                     <div class="ng-work-visual ng-work-visual-ai">
-                        <div class="ng-ai-flow"><span>Docs</span><i>→</i><span>Agent</span><i>→</i><span>Tools</span></div>
-                        <div class="ng-ai-lines"><b></b><b></b><b></b></div>
+                        <div class="ng-demo-ui ng-agent-ui">
+                            <div class="ng-demo-topbar compact">
+                                <span class="ng-demo-label">Agent workflow · demo data</span>
+                                <span class="ng-live-badge"><b></b> Ready</span>
+                            </div>
+                            <div class="ng-agent-flow">
+                                <div class="ng-agent-node">
+                                    <div class="ng-node-icon">▤</div>
+                                    <strong>Docs</strong><small>Knowledge, files,<br>policies, data</small>
+                                </div>
+                                <span class="ng-flow-arrow">→</span>
+                                <div class="ng-agent-node ng-agent-core">
+                                    <div class="ng-node-icon">✦</div>
+                                    <strong>Agent</strong><small>Reason · Plan · Act</small>
+                                </div>
+                                <span class="ng-flow-arrow">→</span>
+                                <div class="ng-agent-node">
+                                    <div class="ng-tool-tiles"><b>CRM</b><b>Mail</b><b>API</b><b>DB</b></div>
+                                    <strong>Tools</strong><small>Apps, APIs,<br>databases</small>
+                                </div>
+                            </div>
+                            <div class="ng-agent-metrics">
+                                <div><span class="ng-metric-icon">▤</span><p><strong>Knowledge</strong><small><i></i> Synced · 248 files</small></p></div>
+                                <div><span class="ng-metric-icon">&lt;/&gt;</span><p><strong>API calls</strong><small><i></i> 12 requests</small></p></div>
+                                <div><span class="ng-metric-icon">✓</span><p><strong>Structured output</strong><small><i></i> Sync complete</small></p></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="ng-work-copy"><span>AI AUTOMATION</span><h3>AI agent connected to business tools</h3><p>Retrieve knowledge, call APIs and move repetitive work through an auditable workflow.</p><a href="/ai-automation">Explore AI automation →</a></div>
                 </article>
                 <article class="ng-work-card">
                     <div class="ng-work-visual ng-work-visual-web">
-                        <div class="ng-web-shell"><div></div><div></div><div></div><div></div></div>
+                        <div class="ng-demo-ui ng-platform-ui">
+                            <div class="ng-demo-topbar compact">
+                                <div class="ng-window-dots"><i></i><i></i><i></i></div>
+                                <span class="ng-demo-label">Product dashboard · demo data</span>
+                                <span class="ng-live-badge"><b></b> Connected</span>
+                            </div>
+                            <div class="ng-platform-kpis">
+                                <div><small>Clients</small><strong>28</strong><span>↗ 12%</span></div>
+                                <div><small>Projects</small><strong>14</strong><span>↗ 8%</span></div>
+                                <div><small>API calls</small><strong>12.4k</strong><span>today</span></div>
+                                <div><small>Uptime</small><strong>99.9%</strong><span class="ok">healthy</span></div>
+                            </div>
+                            <div class="ng-platform-body">
+                                <div class="ng-client-panel">
+                                    <div class="ng-panel-head"><strong>Client portal</strong><small>View all →</small></div>
+                                    <div class="ng-client-row"><span>Workspace 01</span><b class="ok-pill">Active</b><small>2m ago</small></div>
+                                    <div class="ng-client-row"><span>Workspace 02</span><b class="sync-pill">Syncing</b><small>12m ago</small></div>
+                                    <div class="ng-client-row"><span>Workspace 03</span><b class="review-pill">Review</b><small>1h ago</small></div>
+                                </div>
+                                <div class="ng-api-panel">
+                                    <div class="ng-panel-head"><strong>API & cloud</strong><small>Webhook active</small></div>
+                                    <div class="ng-api-route"><b>POST</b><code>/api/v1/workflows</code><span>Send</span></div>
+                                    <pre>{
+  "status": "success",
+  "workflow_id": "wf_7832",
+  "message": "started"
+}</pre>
+                                </div>
+                            </div>
+                            <div class="ng-platform-flow"><span><b>Portal</b><small>Clients & data</small></span><i>→</i><span><b>API</b><small>Integrations</small></span><i>→</i><span><b>Cloud</b><small>Deploy & scale</small></span></div>
+                        </div>
                     </div>
                     <div class="ng-work-copy"><span>SOFTWARE PLATFORM</span><h3>Client portal + API + cloud backend</h3><p>Customer-facing product with secure APIs, admin workflows, integrations and maintainable deployment.</p><a href="/web-app-development">Explore web development →</a></div>
                 </article>
