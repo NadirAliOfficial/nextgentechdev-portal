@@ -296,6 +296,7 @@ async function handleInquirySubmit(event) {
     document.getElementById("client-inquiry-form").style.display = "none";
     document.getElementById("ticket-ref").innerText = ticketId;
     document.getElementById("inquiry-success-box").style.display = "block";
+    if (window.ngTrack) window.ngTrack("inquiry_success", { target: "/#contact" });
 
     submitBtn.disabled = false;
     submitBtn.innerHTML = `<span>Send Project Brief</span>`;

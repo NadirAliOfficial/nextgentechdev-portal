@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/admin/admin.css?v=3.0">
+    <link rel="stylesheet" href="/admin/admin.css?v=3.1">
 </head>
 <body>
 
@@ -117,6 +117,24 @@
                     <div class="stat-value" id="stat-audit-count">4,123+</div>
                     <div class="stat-label">Audit Proofs</div>
                 </div>
+            </div>
+
+            <!-- Real Website Traffic Analytics -->
+            <div class="section-header">
+                <span class="section-title">📈 Website Traffic · Last 30 Days</span>
+                <button class="section-action" onclick="refreshTrafficAnalytics()">↻ Refresh</button>
+            </div>
+            <div class="stats-grid analytics-stats-grid">
+                <div class="stat-card card-cyan"><div class="stat-icon">👥</div><div class="stat-value" id="analytics-visitors">—</div><div class="stat-label">Unique Visitors</div></div>
+                <div class="stat-card card-violet"><div class="stat-icon">👁️</div><div class="stat-value" id="analytics-pageviews">—</div><div class="stat-label">Page Views</div></div>
+                <div class="stat-card card-amber"><div class="stat-icon">🧭</div><div class="stat-value" id="analytics-sessions">—</div><div class="stat-label">Sessions</div></div>
+                <div class="stat-card card-emerald"><div class="stat-icon">✅</div><div class="stat-value" id="analytics-conversions">—</div><div class="stat-label">Inquiry Conversions</div></div>
+            </div>
+            <div class="analytics-summary-line"><span><strong id="analytics-online">0</strong> active in last 30 min</span><span>Conversion rate: <strong id="analytics-conversion-rate">0.00%</strong></span><span id="analytics-updated">Waiting for data…</span></div>
+            <div class="analytics-breakdown-grid">
+                <div class="analytics-panel"><h3>Top Pages</h3><div id="analytics-top-pages" class="analytics-list"><div class="analytics-empty">Loading…</div></div></div>
+                <div class="analytics-panel"><h3>Traffic Sources</h3><div id="analytics-sources" class="analytics-list"><div class="analytics-empty">Loading…</div></div></div>
+                <div class="analytics-panel"><h3>Visitor Timezones</h3><div id="analytics-timezones" class="analytics-list"><div class="analytics-empty">Loading…</div></div></div>
             </div>
 
             <!-- Engine Quick Actions -->
@@ -381,5 +399,6 @@
 <script src="/admin/admin.js?v=3.0"></script>
 
 
+<script src="/admin-analytics.js?v=1.0" defer></script>
 </body>
 </html>
