@@ -111,6 +111,14 @@
       "destination": "/xauusd-trading-bot-development.html"
     },
     {
+      "source": "/mt5-ea-not-trading",
+      "destination": "/mt5-ea-not-trading.html"
+    },
+    {
+      "source": "/tradingview-webhook-mt5-troubleshooting",
+      "destination": "/tradingview-webhook-mt5-troubleshooting.html"
+    },
+    {
       "source": "/admin",
       "destination": "/admin.html"
     }
@@ -179,6 +187,128 @@
           "value": "public, max-age=604800, stale-while-revalidate=86400"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-automation.html",
+      "destination": "/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/ai-automation-roi-calculator.html",
+      "destination": "/ai-automation-roi-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/api-cloud-development.html",
+      "destination": "/api-cloud-development",
+      "permanent": true
+    },
+    {
+      "source": "/llm-agent-development.html",
+      "destination": "/llm-agent-development",
+      "permanent": true
+    },
+    {
+      "source": "/mt5-ea-requirements-generator.html",
+      "destination": "/mt5-ea-requirements-generator",
+      "permanent": true
+    },
+    {
+      "source": "/mt5-position-size-calculator.html",
+      "destination": "/mt5-position-size-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/mt5-telegram-copy-trading-bot.html",
+      "destination": "/mt5-telegram-copy-trading-bot",
+      "permanent": true
+    },
+    {
+      "source": "/pine-script-to-mt5-automation.html",
+      "destination": "/pine-script-to-mt5-automation",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio.html",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/resources.html",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-automation.html",
+      "destination": "/services/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-support.html",
+      "destination": "/services/cloud-support",
+      "permanent": true
+    },
+    {
+      "source": "/services/software-apis.html",
+      "destination": "/services/software-apis",
+      "permanent": true
+    },
+    {
+      "source": "/services/trading-bots.html",
+      "destination": "/services/trading-bots",
+      "permanent": true
+    },
+    {
+      "source": "/services/websites.html",
+      "destination": "/services/websites",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/trading-bot-development.html",
+      "destination": "/trading-bot-development",
+      "permanent": true
+    },
+    {
+      "source": "/web-app-development.html",
+      "destination": "/web-app-development",
+      "permanent": true
+    },
+    {
+      "source": "/xauusd-trading-bot-development.html",
+      "destination": "/xauusd-trading-bot-development",
+      "permanent": true
+    },
+    {
+      "source": "/mt5-ea-not-trading.html",
+      "destination": "/mt5-ea-not-trading",
+      "permanent": true
+    },
+    {
+      "source": "/tradingview-webhook-mt5-troubleshooting.html",
+      "destination": "/tradingview-webhook-mt5-troubleshooting",
+      "permanent": true
     }
   ]
 }

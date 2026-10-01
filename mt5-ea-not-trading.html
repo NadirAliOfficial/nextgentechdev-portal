@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MT5 EA Not Trading? 10 Checks &amp; Order Error Fixes</title>
+<meta name="description" content="MT5 EA not opening trades? Check Algo Trading, account permissions, entry filters, symbol settings and common broker error codes with this checklist.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://www.nextgentechdev.com/mt5-ea-not-trading">
+<link rel="alternate" hreflang="en" href="https://www.nextgentechdev.com/mt5-ea-not-trading">
+<link rel="alternate" hreflang="x-default" href="https://www.nextgentechdev.com/mt5-ea-not-trading">
+<link rel="icon" href="/brand-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="NextGen Tech Solutions">
+<meta property="og:title" content="MT5 EA Not Trading? 10 Checks &amp; Order Error Fixes">
+<meta property="og:description" content="MT5 EA not opening trades? Check Algo Trading, account permissions, entry filters, symbol settings and common broker error codes with this checklist.">
+<meta property="og:url" content="https://www.nextgentechdev.com/mt5-ea-not-trading">
+<meta property="og:image" content="https://www.nextgentechdev.com/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NextGen Tech Solutions technical guides">
+<meta property="article:published_time" content="2026-10-01">
+<meta property="article:modified_time" content="2026-10-01">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MT5 EA Not Trading? 10 Checks &amp; Order Error Fixes">
+<meta name="twitter:description" content="MT5 EA not opening trades? Check Algo Trading, account permissions, entry filters, symbol settings and common broker error codes with this checklist.">
+<meta name="twitter:image" content="https://www.nextgentechdev.com/social-card.png">
+<link rel="stylesheet" href="/service.css?v=8.7">
+<link rel="stylesheet" href="/seo-guides.css?v=1.0">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://www.nextgentechdev.com/mt5-ea-not-trading#article","headline":"MT5 EA Not Trading? 10 Checks Before Changing Your Bot","description":"MT5 EA not opening trades? Check Algo Trading, account permissions, entry filters, symbol settings and common broker error codes with this checklist.","url":"https://www.nextgentechdev.com/mt5-ea-not-trading","mainEntityOfPage":"https://www.nextgentechdev.com/mt5-ea-not-trading","inLanguage":"en","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Organization","name":"NextGen Tech Solutions","url":"https://www.nextgentechdev.com/"},"publisher":{"@id":"https://www.nextgentechdev.com/#organization"},"image":"https://www.nextgentechdev.com/social-card.png","citation":["https://www.mql5.com/en/docs/runtime/tradepermission","https://www.metatrader5.com/en/terminal/help/algotrading/trade_robots_indicators","https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes","https://www.mql5.com/en/docs/constants/environment_state/marketinfoconstants","https://www.mql5.com/en/docs/network/webrequest"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.nextgentechdev.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://www.nextgentechdev.com/resources"},{"@type":"ListItem","position":3,"name":"MT5 EA Not Trading? 10 Checks Before Changing Your Bot","item":"https://www.nextgentechdev.com/mt5-ea-not-trading"}]}</script>
+</head>
+<body class="technical-guide">
+<div class="wrap">
+<header class="top"><a class="brand" href="/"><img src="/brand-lockup.svg" alt="NextGen Tech Solutions" width="190" height="45"></a><a class="back" href="/resources">Free resources →</a></header>
+<main>
+<nav class="guide-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/resources">Resources</a><span aria-hidden="true">/</span><span aria-current="page">Troubleshooting</span></nav>
+<section class="hero"><div class="eyebrow">Practical engineering guide</div><h1>MT5 EA Not Trading? 10 Checks Before Changing Your Bot</h1><p class="lead">Use this checklist to identify whether your Expert Advisor is waiting for a signal, blocked by a setting or rejected by the broker. Capture the cause before changing the strategy.</p><p class="guide-meta">NextGen Tech Solutions · Published <time datetime="2026-10-01">1 October 2026</time></p></section>
+<article class="content guide-content">
+
+<div class="notice"><strong>Start with the evidence:</strong> an EA can be running while no valid entry exists. First find out whether it is waiting for a setup, refusing a setup, or sending an order that the broker rejects.</div>
+<nav class="toc" aria-label="On this page"><strong>On this page</strong><a href="#quick-checks">10 checks</a><a href="#permissions">Trading permissions</a><a href="#error-codes">Order error codes</a><a href="#diagnostic-brief">What to send your developer</a><a href="#faq">Common questions</a></nav>
+
+<h2 id="quick-checks">10 checks when an MT5 Expert Advisor is not opening trades</h2>
+<ol class="steps">
+<li><strong>Confirm the EA is attached and initialized.</strong> Check the intended chart and the Experts log after attaching the EA. An initialization failure, missing indicator or invalid input needs fixing before you investigate entry rules. An MT4 EX4 file is not an MT5 EX5 build.</li>
+<li><strong>Check the platform Algo Trading control.</strong> MT5 has a terminal-level automated-trading permission. Seeing prices update or indicator objects appear does not prove the EA can submit orders.</li>
+<li><strong>Check this EA's own permission.</strong> Open its properties and check the automated-trading setting. Terminal permission and program permission are separate checks; one enabled switch does not establish both.</li>
+<li><strong>Check the account and connection.</strong> Confirm the correct broker server and an active connection. A login with the investor password is read-only. Account-level or broker-side restrictions can also prohibit automated orders.</li>
+<li><strong>Use the broker's exact symbol.</strong> EURUSD, EURUSD.a and EURUSDm are different names. Verify that the symbol selected by the EA exists, has prices and matches the configured instrument. Multi-symbol EAs need data for every instrument they inspect.</li>
+<li><strong>Confirm a valid setup actually occurred.</strong> Compare the candle, timeframe and input settings with the written entry rule. A strategy that waits for a candle close may deliberately ignore an intrabar signal. Ask for a log showing which entry condition passed or failed.</li>
+<li><strong>Inspect the filters.</strong> Session hours, server-time conversion, spread limits, a daily trade cap, existing-position checks and an equity guard can block an otherwise valid entry. Identify the active blocker before changing a limit.</li>
+<li><strong>Validate volume and stops.</strong> Requested lots must match the broker's volume constraints. Stops must be on the correct side and meet the symbol's distance and price rules. A position-size estimate is not automatically a valid broker order.</li>
+<li><strong>Separate tester results from live integrations.</strong> For an EA that uses MQL5 WebRequest, the server URL must be allowed in terminal options. WebRequest is unavailable inside the Strategy Tester; test the network path separately or replay recorded inputs through a test adapter.</li>
+<li><strong>Capture the order result.</strong> If the EA reached order submission, record the trade result's retcode, comment, requested volume, symbol and prices. Reattaching the EA repeatedly will not explain a broker rejection. Reproduce the issue on a demo account with one controlled change at a time.</li>
+</ol>
+
+<h2 id="permissions">The five permission and connection flags to log</h2>
+<p>For a custom EA, ask the developer to log these values from the EA's own execution context. This gives a clearer diagnosis than a screenshot of the toolbar alone.</p>
+<div class="guide-table"><table class="data-table"><thead><tr><th scope="col">Check</th><th scope="col">MQL5 value</th><th scope="col">What it tells you</th></tr></thead><tbody>
+<tr><td>Terminal connection</td><td><code>TERMINAL_CONNECTED</code></td><td>Whether the terminal is connected to the trade server.</td></tr>
+<tr><td>Terminal permission</td><td><code>TERMINAL_TRADE_ALLOWED</code></td><td>Whether automated trading is enabled at terminal level.</td></tr>
+<tr><td>This EA's permission</td><td><code>MQL_TRADE_ALLOWED</code></td><td>Whether this running MQL5 program is allowed to trade.</td></tr>
+<tr><td>Account permission</td><td><code>ACCOUNT_TRADE_ALLOWED</code></td><td>Whether the account permits trading.</td></tr>
+<tr><td>Account automation</td><td><code>ACCOUNT_TRADE_EXPERT</code></td><td>Whether the account permits Expert Advisor trading.</td></tr>
+</tbody></table></div>
+
+<h2 id="error-codes">Common MT5 trade return codes and what to check</h2>
+<p>These are broker trade-server return codes in <code>MqlTradeResult.retcode</code>. They are a different diagnostic channel from the terminal's <code>GetLastError()</code> value. Always keep the code's name and the broker comment together.</p>
+<div class="guide-table"><table class="data-table"><thead><tr><th scope="col">Code</th><th scope="col">Meaning</th><th scope="col">Next check</th></tr></thead><tbody>
+<tr><td><code>10014</code></td><td>Invalid volume</td><td>Compare requested lots with the symbol's minimum, maximum and volume step.</td></tr>
+<tr><td><code>10016</code></td><td>Invalid stops</td><td>Check stop direction, price precision and the broker's required stop distance.</td></tr>
+<tr><td><code>10018</code></td><td>Market closed</td><td>Confirm this symbol's trading session and broker server time.</td></tr>
+<tr><td><code>10019</code></td><td>Insufficient money</td><td>Inspect free margin and the margin required for the requested order.</td></tr>
+<tr><td><code>10027</code></td><td>Client terminal disables automated trading</td><td>Recheck terminal Algo Trading permission and the EA's own setting.</td></tr>
+<tr><td><code>10030</code></td><td>Invalid filling type</td><td>Use a filling policy supported by the symbol and the intended order type.</td></tr>
+</tbody></table></div>
+<p>A useful fix changes the cause and then demonstrates a valid order result. Adding unlimited retries to the same rejected request can obscure the cause and introduce duplicate-order risk.</p>
+
+<h2 id="diagnostic-brief">What to send your MT5 developer</h2>
+<p>Provide a small reproducible report: the EA version, terminal build, broker server, exact symbol, timeframe, input settings and the server-time timestamp of the expected trade. Add the nearby Experts and Journal lines, the trade retcode and an explanation of the entry condition you expected to pass.</p>
+<p>Describe whether the issue also happens in the Strategy Tester or on a demo account. For symbol or sizing errors, include the relevant symbol specification. Hide account passwords, API tokens and unrelated personal details; a diagnostic report does not need those secrets.</p>
+<div class="resource-links"><a class="resource-link" href="/mt5-ea-requirements-generator"><strong>Create an EA requirements brief</strong><span>Write down the entry, exit, filter and testing rules that the EA should follow.</span></a><a class="resource-link" href="/mt5-position-size-calculator"><strong>Check the lot-size calculation</strong><span>Use matching point units and the broker-specific point value.</span></a></div>
+
+<h2 id="faq">Common questions</h2>
+<h3>Why does my EA draw objects but never open a trade?</h3>
+<p>Chart drawing and order submission are separate operations. The EA may have trading disabled, lack an entry condition, hit a filter or receive a broker rejection. Log those stages separately.</p>
+<h3>Why does an EA trade in the tester but not on my account?</h3>
+<p>Compare symbol settings, inputs, account permissions and the actual market conditions. External network access is another difference: a WebRequest-based integration cannot run unchanged in the Strategy Tester.</p>
+<h3>Can you repair an existing EA?</h3>
+<p>We can scope MQL4/MQL5 debugging when the source code or a clearly reproducible problem is available. Send the diagnostic details above so the repair can have a defined acceptance test.</p>
+<p><a class="cta" href="/?service=custom-mt5-expert-advisor#contact">Discuss an MT5 EA fix</a></p>
+
+<h2 id="sources">Official documentation</h2><p>The platform facts and error-code definitions above are based on these primary references. The diagnostic workflow and bridge design are our implementation recommendations.</p><ul class="guide-sources"><li><a href="https://www.mql5.com/en/docs/runtime/tradepermission" rel="noopener noreferrer">MQL5: trade permission checks</a></li><li><a href="https://www.metatrader5.com/en/terminal/help/algotrading/trade_robots_indicators" rel="noopener noreferrer">MetaTrader 5: Expert Advisors and trading permissions</a></li><li><a href="https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes" rel="noopener noreferrer">MQL5: trade-server return codes</a></li><li><a href="https://www.mql5.com/en/docs/constants/environment_state/marketinfoconstants" rel="noopener noreferrer">MQL5: symbol properties</a></li><li><a href="https://www.mql5.com/en/docs/network/webrequest" rel="noopener noreferrer">MQL5: WebRequest restrictions</a></li></ul>
+</article>
+</main>
+<footer><a href="/resources">Free tools &amp; guides</a> · <a href="/trading-bot-development">MT4/MT5 development</a> · <a href="/#contact">Discuss your project</a></footer>
+</div>
+<script src="/analytics.js?v=1.0" defer></script>
+</body>
+</html>
