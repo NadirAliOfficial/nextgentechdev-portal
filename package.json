@@ -4,6 +4,10 @@
   "private": true,
   "description": "NextGen Tech Solutions Client Portal & Website",
   "scripts": {
-    "build": "echo 'Static website: no build step required'"
+    "build": "node scripts/build-ui-icons.cjs",
+    "icons": "node scripts/build-ui-icons.cjs"
+  },
+  "devDependencies": {
+    "lucide-static": "1.49.0"
   }
 }
