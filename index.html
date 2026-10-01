@@ -25,7 +25,7 @@
     <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="/styles.min.css?v=11.3">
-    <link rel="stylesheet" href="/storefront.css?v=1.4">
+    <link rel="stylesheet" href="/storefront.css?v=1.5">
     <script type="application/ld+json" data-seo-schema="v2">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.nextgentechdev.com/#organization","name":"NextGen Tech Solutions","url":"https://www.nextgentechdev.com/","logo":"https://www.nextgentechdev.com/brand-lockup.svg","image":"https://www.nextgentechdev.com/social-card.png","description":"Custom AI agents, workflow automation, algorithmic trading software, web applications, APIs and cloud systems.","areaServed":"Worldwide","knowsAbout":["AI automation","LLM agents","retrieval augmented generation","MT4 and MT5 automation","TradingView automation","web applications","SaaS development","API development","cloud and VPS deployment"],"sameAs":["https://t.me/Mukhtiarali_99"],"contactPoint":[{"@type":"ContactPoint","telephone":"+92-317-4751843","contactType":"sales","availableLanguage":["English","Urdu"]}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Digital engineering services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom MT5 Expert Advisor","url":"https://www.nextgentechdev.com/trading-bot-development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"XAUUSD Trading Bot Development","url":"https://www.nextgentechdev.com/xauusd-trading-bot-development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Telegram to MT5 Copy Trading Bot","url":"https://www.nextgentechdev.com/mt5-telegram-copy-trading-bot"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"TradingView to MT5 Automation","url":"https://www.nextgentechdev.com/pine-script-to-mt5-automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Workflow Automation","url":"https://www.nextgentechdev.com/ai-automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"LLM & AI Agent Development","url":"https://www.nextgentechdev.com/llm-agent-development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Web App & SaaS Development","url":"https://www.nextgentechdev.com/web-app-development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"API & Cloud Backend Development","url":"https://www.nextgentechdev.com/api-cloud-development"}}]}},{"@type":"WebSite","@id":"https://www.nextgentechdev.com/#website","url":"https://www.nextgentechdev.com/","name":"NextGen Tech Solutions","publisher":{"@id":"https://www.nextgentechdev.com/#organization"},"inLanguage":"en","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.nextgentechdev.com/services?q={search_term_string}"},"query-input":"required name=search_term_string"}}]}</script>
 </head>
 <body class="home-v8 sf-shell">
@@ -206,17 +206,17 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label" for="client-name">Name *</label>
-                            <input type="text" id="client-name" class="form-input" placeholder="e.g. David Vance" required>
+                            <input type="text" id="client-name" class="form-input" autocomplete="name" placeholder="e.g. David Vance" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="client-org">Company (optional)</label>
-                            <input type="text" id="client-org" class="form-input" placeholder="e.g. QuantEdge Capital / Apex Retail">
+                            <input type="text" id="client-org" class="form-input" autocomplete="organization" placeholder="e.g. QuantEdge Capital / Apex Retail">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="client-email">Email *</label>
-                        <input type="email" id="client-email" class="form-input" placeholder="david@quantedge.com" required>
+                        <input type="email" id="client-email" class="form-input" autocomplete="email" placeholder="david@quantedge.com" required>
                     </div>
 
                     <div class="form-grid">
@@ -267,7 +267,16 @@
                         </div>
                     </div>
 
-                        <div class="form-group">
+                    <div class="form-footer">
+                        <div class="assurance-note">
+                            <strong>Confidential by default.</strong> NDA and intellectual-property transfer terms can be included in the project agreement.
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
+                            <span>Send Project Brief</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </div>
+                        <div class="form-group sf-contact-direct">
                             <label class="form-label">Prefer direct chat?</label>
                             <div class="form-direct-chat-grid">
                                 <a href="https://wa.me/923174751843" target="_blank" rel="noopener noreferrer" class="form-chat-btn wa-chat-btn" title="Open WhatsApp Chat (+92 317 4751843)">
@@ -288,15 +297,6 @@
                             <input type="hidden" id="client-contact" name="client-contact" value="WhatsApp: +92 317 4751843 | Telegram: @Mukhtiarali_99">
                         </div>
 
-                    <div class="form-footer">
-                        <div class="assurance-note">
-                            <strong>Confidential by default.</strong> NDA and intellectual-property transfer terms can be included in the project agreement.
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
-                            <span>Send Project Brief</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        </button>
-                    </div>
                 </form>
 
                 <!-- Confirmation Notice Modal (Hidden initially) -->
@@ -406,7 +406,7 @@
 
     <!-- NextGen Tech Solutions · Auto-deploy active (public repo) -->
     <script src="/service-catalog.js?v=1.2" defer></script>
-    <script src="/storefront.js?v=1.4" defer></script>
+    <script src="/storefront.js?v=1.5" defer></script>
     <script src="/app.min.js?v=4.9" defer></script>
 <script src="/analytics.js?v=1.0" defer></script>
 </body>

@@ -137,7 +137,8 @@
 .services-hub-page.sf-shell .container {width:100%}
 .services-hub-page.sf-shell .top {padding:18px 0;background:var(--sf-bg);border-bottom:1px solid var(--sf-line)}
 .services-hub-page.sf-shell .brand img {width:170px}
-.services-hub-page.sf-shell .back {display:inline-flex;align-items:center;min-height:44px;color:var(--sf-accent-dark)}
+.services-hub-page.sf-shell .back {display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid var(--sf-accent);border-radius:10px;background:var(--sf-accent);color:#fff;font-size:13px;font-weight:700;box-shadow:none}
+.services-hub-page.sf-shell .back:hover {background:var(--sf-accent-dark);border-color:var(--sf-accent-dark)}
 .services-hub-page.sf-shell .sf-catalog-hero {background:transparent}
 .services-hub-page.sf-shell footer {padding:28px 0;color:var(--sf-muted);font-size:12px;line-height:1.7}
 .home-v8.sf-shell .ng-nav {background:rgba(255,255,255,.95);border-bottom-color:var(--sf-line);box-shadow:none;backdrop-filter:blur(12px)}
@@ -163,6 +164,7 @@
 .home-v8.sf-shell #contact :is(.form-input,.form-select,.form-textarea) {min-height:48px;border-color:#c7d0de;border-radius:10px;background:#fff;font-size:16px;color:var(--sf-text)}
 .home-v8.sf-shell #contact :is(.form-input,.form-select,.form-textarea):focus {border-color:var(--sf-accent);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
 .home-v8.sf-shell #submit-btn {min-height:48px;border-radius:10px;background:var(--sf-accent);color:#fff;box-shadow:none}
+.home-v8.sf-shell .sf-contact-direct {margin:24px 0 0;padding-top:22px;border-top:1px solid var(--sf-line)}
 .home-v8.sf-shell #contact .ng-project-type.active {border-color:#adc6ff;background:#eff5ff}
 .home-v8.sf-shell #contact .ng-project-type b {color:var(--sf-accent)}
 .sf-shell :is(a,button,input,select,textarea,summary):focus-visible {outline:3px solid #3b74ee;outline-offset:3px}
