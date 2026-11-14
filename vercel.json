@@ -121,6 +121,14 @@
     {
       "source": "/admin",
       "destination": "/admin.html"
+    },
+    {
+      "source": "/ai-voice-agent-development",
+      "destination": "/ai-voice-agent-development.html"
+    },
+    {
+      "source": "/shopify-automation-development",
+      "destination": "/shopify-automation-development.html"
     }
   ],
   "headers": [
@@ -308,6 +316,16 @@
     {
       "source": "/tradingview-webhook-mt5-troubleshooting.html",
       "destination": "/tradingview-webhook-mt5-troubleshooting",
+      "permanent": true
+    },
+    {
+      "source": "/ai-voice-agent-development.html",
+      "destination": "/ai-voice-agent-development",
+      "permanent": true
+    },
+    {
+      "source": "/shopify-automation-development.html",
+      "destination": "/shopify-automation-development",
       "permanent": true
     }
   ]
