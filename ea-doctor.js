@@ -150,7 +150,7 @@
     const neg=-values.reduce((a,v)=>a+(v<0?v:0),0);
     const net=values.reduce((a,v)=>a+v,0);
     const abs=values.reduce((a,v)=>a+Math.abs(v),0);
-    const largest=Math.max(...values.map(v=>Math.abs(v)),0);
+    const largest=values.reduce((max,v)=>Math.max(max,Math.abs(v)),0);
     let equity=0,peak=0,drawdown=0,streak=0,maxStreak=0;
     for(const v of values){equity+=v;peak=Math.max(peak,equity);drawdown=Math.max(drawdown,peak-equity);streak=v<0?streak+1:0;maxStreak=Math.max(maxStreak,streak);}
     const m={
