@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free MT4 / MT5 EA Doctor — Debug Trade Errors &amp; MQL5 Source | NextGen Tech</title>
+<meta name="description" content="Free private MT4/MT5 EA diagnostics. Paste MetaTrader journal errors or MQL4/MQL5 source, or audit closed-trade CSV results. Actionable fixes, downloadable reports, no account or file upload.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.nextgentechdev.com/ea-doctor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EA Doctor Pro — Free MetaTrader Bot Troubleshooting Tool">
+<meta property="og:description" content="Find MetaTrader trade errors, review EA code risk signals and measure closed-trade results privately in your browser.">
+<meta property="og:url" content="https://www.nextgentechdev.com/ea-doctor">
+<meta property="og:image" content="https://www.nextgentechdev.com/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/ea-doctor.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"EA Doctor Pro","applicationCategory":"DeveloperApplication","operatingSystem":"Web browser","url":"https://www.nextgentechdev.com/ea-doctor","description":"Offline browser-based MetaTrader journal, Expert Advisor source and closed-trade CSV diagnostics.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"NextGen Tech Solutions","url":"https://www.nextgentechdev.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.nextgentechdev.com/"},{"@type":"ListItem","position":2,"name":"EA Doctor Pro","item":"https://www.nextgentechdev.com/ea-doctor"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#tool">Skip to diagnostic tool</a>
+<div class="page-glow" aria-hidden="true"></div>
+<header class="topbar container">
+<a class="brand" href="https://www.nextgentechdev.com/" aria-label="NextGen Tech Solutions homepage">
+<span class="brand-emblem">N<span>.</span></span><span>NextGen <strong>Tech</strong><small>Engineering tools</small></span>
+</a>
+<nav aria-label="Site">
+<a href="https://www.nextgentechdev.com/portfolio">Portfolio</a>
+<a href="https://github.com/rajachanna/EA-Doctor-Pro" target="_blank" rel="noopener noreferrer">Open-source ↗</a>
+<a class="nav-cta" href="https://www.nextgentechdev.com/#contact">Hire an MT5 Developer <span>↗</span></a>
+</nav>
+</header>
+<main>
+<section class="hero container">
+<div class="hero-content">
+<span class="eyebrow"><span class="live-dot"></span> FREE · OPEN SOURCE · PRIVATE BY DESIGN</span>
+<h1>Find out why your <span>trading bot</span> isn't working.</h1>
+<p class="hero-lead">Decode MetaTrader error logs, flag suspicious Expert Advisor source patterns, and inspect closed-trade results. Clear next steps instead of generic guesses.</p>
+<div class="hero-cta"><a href="#tool" class="btn btn-primary">Start Free Diagnosis <span>→</span></a><a href="#how" class="btn btn-ghost">See how it works</a></div>
+<div class="hero-trust"><span>✓ No account needed</span><span>✓ Nothing uploaded</span><span>✓ No broker access</span></div>
+</div>
+<div class="visual-card" aria-hidden="true">
+<div class="visual-top"><span class="visual-dots">● ● ●</span><span>DETECTION PREVIEW</span><span class="visual-status">LOCAL</span></div>
+<div class="visual-code">12:04:02 &nbsp; XAUUSD · BUY 0.10<br><span class="visual-red">✕ RETCODE 10016 — INVALID STOPS</span><br><span class="visual-muted">Distance below minimum stop level</span><br><br>12:04:03 &nbsp; XAUUSD · ORDER<br><span class="visual-yellow">! RETCODE 10030 — FILLING MODE</span><br><span class="visual-muted">Check SYMBOL_FILLING_MODE</span></div>
+<div class="visual-divider"></div><div class="visual-foot"><span><b>2</b> actionable findings</span><span>100% on-device analysis</span></div>
+</div>
+</section>
+<section class="tool-shell container" id="tool" aria-labelledby="tool-heading">
+<div class="tool-header"><div><span class="section-kicker">THE DIAGNOSTIC STUDIO</span><h2 id="tool-heading">Choose what you want to inspect.</h2></div><span class="privacy-pill">🔒 Runs in your browser</span></div>
+<div class="tool-grid">
+<div class="workspace">
+<div class="mode-tabs" role="tablist" aria-label="Diagnostic type">
+<button type="button" class="mode active" role="tab" aria-selected="true" data-mode="journal">01 <strong>Journal Errors</strong></button>
+<button type="button" class="mode" role="tab" aria-selected="false" data-mode="source">02 <strong>EA Source</strong></button>
+<button type="button" class="mode" role="tab" aria-selected="false" data-mode="trades">03 <strong>Trade CSV</strong></button>
+</div>
+<div class="entry-panel">
+<div class="entry-title"><h3 id="input-heading">MetaTrader journal diagnostics</h3><span id="mode-format">.LOG · .TXT</span></div>
+<p id="input-hint">Paste Experts / Journal output with trade retcodes, or select a UTF-8 log. E.g. retcode=10016, error 130.</p>
+<label for="report-input" class="visually-hidden">Diagnostic text</label>
+<textarea id="report-input" rows="11" spellcheck="false" placeholder="Paste your MT5 Experts or Journal log here..."></textarea>
+<div class="input-tools">
+<label class="file-control" for="file-select"><input type="file" id="file-select" accept=".log,.txt,.mq4,.mq5,.csv,text/plain,text/csv"> <span>↑ Open local file</span></label>
+<button type="button" id="load-sample" class="quiet-btn">Try a sample</button>
+<button type="button" id="clear-input" class="quiet-btn">Clear</button>
+</div>
+<div class="action-row">
+<button type="button" id="run-scan" class="btn btn-primary full">Analyze locally <span>↗</span></button>
+<span class="fine">Max 2 MB · No API request · No automated trading</span>
+</div>
+</div>
+</div>
+<div class="result-panel" role="region" aria-live="polite" aria-label="Analysis results">
+<div class="result-top"><span class="section-kicker">DIAGNOSTIC REPORT</span><span class="result-badge" id="report-status">READY</span></div>
+<div id="results-empty" class="empty-state"><div class="empty-symbol">⌁</div><h3>Your findings appear here.</h3><p>Choose a diagnostic type, paste an export or load the included synthetic sample. Analysis runs only on this device.</p><div class="empty-list"><span>01 · Recognize symptoms</span><span>02 · Review risk signals</span><span>03 · Suggest next checks</span></div></div>
+<div id="results-content" hidden>
+<div id="result-summary" class="summary-grid"></div>
+<div id="report-method" class="report-method"></div>
+<div id="result-metrics" class="metrics-grid" hidden></div>
+<div id="finding-list" class="finding-list"></div>
+<div class="results-actions"><button type="button" class="btn btn-outline" id="download-report">↓ Export JSON</button><button type="button" class="btn btn-outline" id="copy-summary">Copy safe summary</button></div>
+<div class="finding-disclaimer">Rules are diagnostic heuristics, not compiler results, broker verification, or proof of safety or future profitability.</div>
+</div>
+</div>
+</div>
+</section>
+<section class="benefits container" id="how">
+<div class="section-heading"><span class="section-kicker">THREE TOOLS, ONE WORKSPACE</span><h2>Debug smarter. Fix the right thing.</h2><p>Each report explains what the evidence supports—and what it cannot know.</p></div>
+<div class="benefit-grid">
+<article class="benefit"><div class="benefit-icon">01</div><h3>Journal Error Decoder</h3><p>Recognizes dozens of documented MT4/MT5 trade-result codes and shows broker-specific checks for invalid stops, volume, filling, margin, sessions and connection failures.</p><span>Trade retcodes · MT4 errors</span></article>
+<article class="benefit"><div class="benefit-icon">02</div><h3>MQL Source Risk Review</h3><p>Finds patterns worth investigating: progressive lot sizing, no obvious stop handling, missing result checks, repeated OnTick orders, unbounded loops and embedded credentials.</p><span>MQL4 / MQL5 · Heuristics only</span></article>
+<article class="benefit"><div class="benefit-icon">03</div><h3>Trade Evidence Check</h3><p>Reads a simple closed-trade CSV with profit and optional commission and swap. Computes drawdown, profit factor, expectancy and warns about small samples or large outliers.</p><span>CSV · Closed-trade results</span></article>
+</div>
+</section>
+<section class="hire container" id="hire">
+<div class="hire-visual"><span class="hire-eyebrow">WHEN THE DIAGNOSIS NEEDS ENGINEERING</span><h2>Need your EA fixed<br>the right way?</h2><p>Bring the error log and original MQ4/MQ5 source. We'll scope the actual defect, acceptance tests and demo-account validation before proposing changes.</p><div class="hire-actions"><a class="btn btn-light" href="https://www.nextgentechdev.com/#contact">Request a Debugging Quote ↗</a><a class="hire-link" href="https://www.nextgentechdev.com/mt5-ea-not-trading">Read MT5 troubleshooting guide →</a></div></div>
+<div class="hire-checks"><div>✓ Source-code debugging</div><div>✓ Broker retcode analysis</div><div>✓ Lot sizing & risk controls</div><div>✓ Backtest and demo validation</div><span>Trading performance cannot be guaranteed.</span></div>
+</section>
+<section class="faq container">
+<div class="section-heading"><span class="section-kicker">BEFORE YOU BEGIN</span><h2>Frequently asked questions</h2></div>
+<details><summary>Are my MQ5 files uploaded to a server?</summary><p>No. The free analyzer uses JavaScript in your browser. We do not transmit your input file or paste to our server. Never paste API secrets into public chat or bug reports.</p></details>
+<details><summary>Can this tool fix my MT5 robot automatically?</summary><p>No. It identifies error codes, code patterns and performance signals, then suggests follow-up checks. Correct fixes may require source code access, broker specifications and real testing in a demo environment.</p></details>
+<details><summary>Does it compile MQL4 or MQL5 code?</summary><p>No. This is a text-based static scanner, not MetaEditor or the MetaTrader strategy tester. An empty findings list does not mean an EA compiles, works correctly or is safe.</p></details>
+<details><summary>Can I analyze an MT5 backtest HTML report?</summary><p>Not directly in this version. The performance tab accepts a UTF-8 CSV containing closed-trade profit, optional commission and swap columns. It does not infer an account starting balance, so drawdown is shown in the CSV's currency rather than as an invented percentage.</p></details>
+<details><summary>Does the tool provide profitable trading strategies?</summary><p>No. It cannot predict markets or guarantee profits. Historical results depend on data, costs and execution; real trading carries substantial risk.</p></details>
+</section>
+</main>
+<footer class="footer container"><div><strong>EA Doctor Pro</strong> <span>· An open-source NextGen Tech Solutions utility</span></div><div><a href="https://github.com/rajachanna/EA-Doctor-Pro">Source &amp; CLI</a><a href="https://www.nextgentechdev.com/privacy">Privacy</a><a href="https://www.nextgentechdev.com/#contact">Contact</a></div></footer>
+<script src="/ea-doctor.js" defer></script>
+<script src="/analytics.js?v=1.0" defer></script>
+</body>
+</html>

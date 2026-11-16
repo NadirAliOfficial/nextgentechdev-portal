@@ -129,6 +129,10 @@
     {
       "source": "/shopify-automation-development",
       "destination": "/shopify-automation-development.html"
+    },
+    {
+      "source": "/ea-doctor",
+      "destination": "/ea-doctor.html"
     }
   ],
   "headers": [
@@ -326,6 +330,11 @@
     {
       "source": "/shopify-automation-development.html",
       "destination": "/shopify-automation-development",
+      "permanent": true
+    },
+    {
+      "source": "/ea-doctor.html",
+      "destination": "/ea-doctor",
       "permanent": true
     }
   ]
