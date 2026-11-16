@@ -96,6 +96,8 @@
 .sf-quick-links a {display:flex;align-items:center;gap:7px;min-height:40px;padding:8px 10px;border:1px solid var(--sf-line);border-radius:8px;background:#f8fafc;color:#344054;font-size:12px;font-weight:650;text-decoration:none}
 .sf-quick-links a:hover {border-color:#b8c5db;background:#eff5ff;color:var(--sf-accent-dark)}
 .sf-quick-links .sf-icon {width:16px;height:16px;color:var(--sf-accent)}
+.sf-quick-links .sf-ea-doctor-link {grid-column:1 / -1}
+.sf-quick-links .sf-quick-link-note {margin-left:auto;color:#667085;font-size:11px;font-weight:650}
 .sf-section {padding:44px 0}
 .sf-section-head {align-items:center;gap:28px}
 .sf-section-head h2 {font-size:clamp(27px,2.8vw,34px);line-height:1.2}
