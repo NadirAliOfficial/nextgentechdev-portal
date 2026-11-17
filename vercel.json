@@ -133,6 +133,10 @@
     {
       "source": "/ea-doctor",
       "destination": "/ea-doctor.html"
+    },
+    {
+      "source": "/specpilot",
+      "destination": "/specpilot.html"
     }
   ],
   "headers": [
@@ -335,6 +339,11 @@
     {
       "source": "/ea-doctor.html",
       "destination": "/ea-doctor",
+      "permanent": true
+    },
+    {
+      "source": "/specpilot.html",
+      "destination": "/specpilot",
       "permanent": true
     }
   ]
