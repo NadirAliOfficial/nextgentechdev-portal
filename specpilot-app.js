@@ -8,6 +8,16 @@ const state={
   migration:"unknown",constraints:"",owner:"",answers:[]
 };
 let step=1,generated=null,markdown="";
+/* Funnel events contain only event names and a public route, never the brief. */
+const tracked=new Set();
+function trackOnce(event){
+  if(tracked.has(event))return;
+  tracked.add(event);
+  if(typeof window.ngTrack==="function")window.ngTrack(event,{target:"/specpilot"});
+}
+function track(event){
+  if(typeof window.ngTrack==="function")window.ngTrack(event,{target:"/specpilot"});
+}
 const panels=[...document.querySelectorAll(".step-panel")];
 function clear(node){while(node.firstChild)node.firstChild.remove();}
 function el(tag,className,text){
@@ -102,6 +112,7 @@ function renderBlueprint(){
   try{
     generated=blueprint(state);
     markdown=toMarkdown(generated);
+    trackOnce("specpilot_blueprint_completed");
     $("blueprint-output").textContent=markdown;
     const stats=$("blueprint-stats");clear(stats);
     for(const [label,value] of [
@@ -127,6 +138,7 @@ $("next-step").addEventListener("click",()=>{
   if(step===1){
     const problems=validateForm(state);
     if(problems.length){errorMessage(problems.join(" "));return;}
+    trackOnce("specpilot_started");
   }
   setStep(step+1);
   $("studio").scrollIntoView({behavior:"smooth",block:"start"});
@@ -145,6 +157,7 @@ $("request-proposal").addEventListener("click",()=>{
   const payload={version:1,time:Date.now(),category:generated.category,summary:safeProposalSummary(generated)};
   // Explicit one-time handoff; no URL containing confidential details and no automatic submission.
   sessionStorage.setItem("nextgen_specpilot_handoff",JSON.stringify(payload));
+  track("specpilot_handoff_clicked");
   window.location.assign("https://www.nextgentechdev.com/#contact");
 });
 $("load-example").addEventListener("click",()=>{
