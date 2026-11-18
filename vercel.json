@@ -7,6 +7,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/growth-audit-api",
+      "destination": "/api/growth_audit"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://api.nextgentechdev.com/api/:path*"
     },
@@ -137,6 +141,10 @@
     {
       "source": "/specpilot",
       "destination": "/specpilot.html"
+    },
+    {
+      "source": "/growth-audit",
+      "destination": "/growth-audit.html"
     }
   ],
   "headers": [
@@ -344,6 +352,11 @@
     {
       "source": "/specpilot.html",
       "destination": "/specpilot",
+      "permanent": true
+    },
+    {
+      "source": "/growth-audit.html",
+      "destination": "/growth-audit",
       "permanent": true
     }
   ]
