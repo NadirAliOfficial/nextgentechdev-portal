@@ -11,7 +11,7 @@
       "destination": "/api/growth_audit"
     },
     {
-      "source": "/api/:path*",
+      "source": "/api/:path((?!growth_audit(?:/|$)).*)",
       "destination": "https://api.nextgentechdev.com/api/:path*"
     },
     {
