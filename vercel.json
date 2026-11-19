@@ -8,7 +8,7 @@
   "rewrites": [
     {
       "source": "/growth-audit-api",
-      "destination": "/api/growth_audit"
+      "destination": "https://api.nextgentechdev.com/api/growth-audit"
     },
     {
       "source": "/api/:path((?!growth_audit(?:/|$)).*)",
